@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>gui_navigation</name>
+  <name>classifier_hsr</name>
   <version>0.0.0</version>
   <description>The gui_navigation package</description>
 
