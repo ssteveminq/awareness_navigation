@@ -1,0 +1,4 @@
+<launch>
+    <node name="gui_test" pkg="classifier" type="gui_test2.py" respawn="false" output="screen"/>    
+    <node name="classifier_test" pkg="classifier" type="classifier_test" respawn="false" output="screen"/>        
+</launch>

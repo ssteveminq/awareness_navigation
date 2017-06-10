@@ -1,0 +1,7 @@
+<launch>
+
+	<node name="grid_map_node_hsr" pkg="grid_hsr" type="grid_node_hsr" />
+
+<!-- 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find visualize_trikey)/launch/grid_visualize.rviz" required="true" /> -->
+
+</launch>
