@@ -143,8 +143,10 @@ MDPManager::~MDPManager()
 
 void MDPManager::base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg)
 {
-   CurVector[0]= msg->pose.pose.position.x;
-   CurVector[1]= msg->pose.pose.position.y;
+   CurVector[0]= global_pose[0];
+   CurVector[1]= global_pose[1];
+   CurVector[2]= global_pose[2];
+
 }
 
 void MDPManager::Init()
@@ -220,7 +222,8 @@ void MDPManager::Init()
    	 Map_orig_Vector[1]=-3.5;
 
 
-	 CurVector.resize(2,0.0);
+   	 global_pose.resize(3,0.0);
+	 CurVector.resize(3,0.0);
 	 GoalVector.resize(2,0.0);
 	 HeadingVector.resize(2,0.0);
 	 cur_coord.resize(2,0);
@@ -255,8 +258,8 @@ void MDPManager::Init()
 	Scaled_static_map_path.data.resize(Scaled_static_map_path.info.width*Scaled_static_map_path.info.height);
 
 
-   	Scaled_dynamic_map_path.info.width=12;
-	Scaled_dynamic_map_path.info.height= 12;
+   	Scaled_dynamic_map_path.info.width=14;
+	Scaled_dynamic_map_path.info.height= 14;
 	Scaled_dynamic_map_path.info.resolution=0.5;
 	Scaled_dynamic_map_path.info.origin.position.x=CurVector[0]-DYN_OFFSET_X-0.5*Scaled_dynamic_map.info.resolution;
 	Scaled_dynamic_map_path.info.origin.position.y=CurVector[1]-DYN_OFFSET_Y-0.5*Scaled_dynamic_map.info.resolution;;
@@ -442,8 +445,9 @@ void MDPManager::Human_MarkerCallback(const visualization_msgs::Marker::ConstPtr
 	float human_target_goal_x=  msg->pose.position.x;
     float human_target_goal_y=  msg->pose.position.y;
 
+    //control the time
     human_callback_count++;
-    if(human_callback_count<40)
+    if(human_callback_count<30)
     	return;
     else
     	human_callback_count=0;
@@ -474,7 +478,9 @@ void MDPManager::Human_MarkerCallback(const visualization_msgs::Marker::ConstPtr
 	    	GoalVector.resize(2,0);
 	    	GoalVector[0]=human_target_goal_x;
 			GoalVector[1]=human_target_goal_y;
+			double temp_yaw =atan(HeadingVector[1]/HeadingVector[0]);
 
+			
 			if(getdistance(CurVector,GoalVector)<1.2)
 				return;
 
@@ -622,8 +628,8 @@ void MDPManager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& ms
 	double oroginal_res=0.05;					//0.05
 
 	//for static space map
-	Scaled_dynamic_map.info.width=12;
-	Scaled_dynamic_map.info.height= 12;
+	Scaled_dynamic_map.info.width=14;
+	Scaled_dynamic_map.info.height= 14;
 	Scaled_dynamic_map.info.resolution=0.5;
 	Scaled_dynamic_map.info.origin.position.x=CurVector[0]-DYN_OFFSET_X-0.5*Scaled_dynamic_map.info.resolution;
 	Scaled_dynamic_map.info.origin.position.y=CurVector[1]-DYN_OFFSET_Y-0.5*Scaled_dynamic_map.info.resolution;
@@ -632,8 +638,8 @@ void MDPManager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& ms
 	Scaled_dynamic_map.data.resize(Scaled_dynamic_map.info.width*Scaled_dynamic_map.info.height);
 
 
-	Scaled_dynamic_map_path.info.width=12;
-	Scaled_dynamic_map_path.info.height= 12;
+	Scaled_dynamic_map_path.info.width=14;
+	Scaled_dynamic_map_path.info.height= 14;
 	Scaled_dynamic_map_path.info.resolution=0.5;
 	Scaled_dynamic_map_path.info.origin.position.x=CurVector[0]-DYN_OFFSET_X-0.5*Scaled_dynamic_map.info.resolution;
 	Scaled_dynamic_map_path.info.origin.position.y=CurVector[1]-DYN_OFFSET_Y-0.5*Scaled_dynamic_map.info.resolution;
@@ -722,7 +728,7 @@ void MDPManager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& ms
 
 void MDPManager::static_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)
 {
-	ROS_INFO("staticmap callback start");
+	// ROS_INFO("staticmap callback start");
 
 
 
@@ -744,12 +750,12 @@ void MDPManager::static_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg
 	Scaled_static_map.info.origin.position.y=-4;
 	Scaled_static_map.data.resize(Scaled_static_map.info.width*Scaled_static_map.info.height);
 
-	if(msg->data[0]!=NULL)
-	{
+	// if(msg->data[0]!=NULL)
+	// {
 		int datasize=msg->data.size();
-		ROS_INFO("staticmap size : %d",datasize);
-		for(int z(0);z<original_width*original_height;z++)
-			std::cout<<msg->data[z]<<std::endl;
+		// ROS_INFO("staticmap size : %d",datasize);
+		// for(int z(0);z<original_width*original_height;z++)
+		// 	std::cout<<msg->data[z]<<std::endl;
 	
 	//for path map
 	// Scaled_static_map_path.info.width=32;
@@ -811,10 +817,30 @@ void MDPManager::static_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg
     	m_localoccupancy[i]=Scaled_static_map.data[i];
 
 	}
-    ROS_INFO("staticmap callback start");
+
+   // ROS_INFO("staticmap callback start");
+
+// }
+
+
+void MDPManager::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)
+{
+	global_pose[0]=msg->pose.position.x;
+	global_pose[1]=msg->pose.position.y;
+
+
+   tf::StampedTransform baselinktransform;
+   listener.waitForTransform("map", "base_link", ros::Time(0), ros::Duration(10.0));
+   listener.lookupTransform("map", "base_link", ros::Time(0), baselinktransform);
+   double yaw_tf =   tf::getYaw(baselinktransform.getRotation()); 
+
+	global_pose[2]=yaw_tf;
+
+   CurVector[0]= global_pose[0];
+   CurVector[1]= global_pose[1];
+   CurVector[2]= global_pose[2];
 
 }
-
 
 
 void MDPManager::Local_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)

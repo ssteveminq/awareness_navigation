@@ -50,6 +50,7 @@
 #define LASER_ANGLE_RES 0.25
 #define LASER_Data_Length 914
 #define LASER_Point_Step 16
+#define LASER_Dist_person 4.0
 
 
 #define LASER_ANGLE_MIN -2.09875845909
@@ -58,19 +59,19 @@
 
 
 
-class Human_Belief{
+class Human_Belief_Scan{
 
 public:
-	Human_Belief();
-	Human_Belief(int numofhuman);
-	~Human_Belief();
+	Human_Belief_Scan();
+	Human_Belief_Scan(int numofhuman);
+	~Human_Belief_Scan();
 
 
 	ros::Publisher static_belief_map_pub;
 	ros::Publisher belief_pub;
 	ros::Publisher human_target_pub;
 	ros::Publisher human_leg_target_pub;
-	ros::Publisher human_target_Intcmd_pub;
+	ros::Publisher head_cmd_pub;
 	ros::Publisher Headscan_pub;
 	ros::Publisher Human_boxes_pub;
 	ros::Publisher Gaze_point_pub;
@@ -78,6 +79,7 @@ public:
 	ros::Publisher setNavTarget_pub;
 	ros::Publisher human_laser_pub;
 	ros::Publisher human_laser_scan_pub;
+	ros::Publisher founded_human_pub;
 	
 	int index;
 	int m_numofhuman;
@@ -101,6 +103,7 @@ public:
 	std::vector< std::vector< double > > Last_detected_human;
 	std::vector< std::vector< double > > Cur_detected_human;
 	std::vector< std::vector< double > > Cur_existed_human;
+	std::vector< std::vector< double > > Founded_human;
 	std::vector< std::vector< double > > Cur_leg_human;
 	std::vector< std::vector< double > > Cur_leg_yolo_human;
 	std::vector< double >  viewpoint_robot;
@@ -117,18 +120,22 @@ public:
 	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud;
 	
 	nav_msgs::OccupancyGrid dynamic_belief_map;
-	nav_msgs::OccupancyGrid human_belief_map;
+	nav_msgs::OccupancyGrid Human_Belief_Scan_map;
 	nav_msgs::OccupancyGrid static_belief_map;
 	std_msgs::Int8 track_cmd;
 	visualization_msgs::MarkerArray human_boxes_array;
+	visualization_msgs::MarkerArray human_leg_boxes_array;
 	bool OnceTargeted;
 
+	int  num_of_detected_human;
+	int  num_of_detected_human_yolo;
 	bool IsHeadMoving;
 	bool IsJointMoving(int joint_idx);
 	void Init_parameters();
 	void InitializeBelief();
 	void setHumanOccupancy(int idx, double dyn_posx,double dyn_posy);
 	void Updatemeasurement();
+	// void number_human_callback(const )
 	void dyn_map_callback(const nav_msgs::OccupancyGrid::ConstPtr& msg);
 	void global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg);
 	void number_detected_callback(const std_msgs::Int8::ConstPtr &msg);
@@ -189,5 +196,6 @@ public:
 	int detect_iters;
 	double Camera_angle;
 	int print_iter;
+	int cur_scan_idx;
 
 };

@@ -36,22 +36,22 @@ int main(int argc, char **argv)
   ros::Subscriber CurPos_sub;         //subscriber tracking current base position
   ros::Subscriber Localmap_sub;       //subscriber detecting lcal map with laser scan
   ros::Subscriber staticmap_sub;
-  ros::Subscriber Basepos_sub;
+  ros::Subscriber global_pos_sub;
 
   ros::NodeHandle n;
   
   Point_sub     = n.subscribe<geometry_msgs::PointStamped>("/clicked_point", 10, &MDPManager::ClikedpointCallback,&problemmanager);
   //Localmap_sub  = n.subscribe<nav_msgs::OccupancyGrid>("/local_map_navigation_map/local_map", 30, &MDPManager::Local_mapCallback,&problemmanager); 
   staticmap_sub = n.subscribe<nav_msgs::OccupancyGrid>("/static_obstacle_map_ref", 30, &MDPManager::static_mapCallback,&problemmanager); 
-  Basepos_sub   = n.subscribe<nav_msgs::Odometry>("/hsrb/odom", 10, &MDPManager::base_pose_callback,&problemmanager);
+  // Basepos_sub   = n.subscribe<nav_msgs::Odometry>("/hsrb/odom", 10, &MDPManager::base_pose_callback,&problemmanager);
+  global_pos_sub= n.subscribe<geometry_msgs::PoseStamped>("/global_pose", 10, &MDPManager::global_pose_callback,&problemmanager);
 
   ros::Rate loop_rate(20);
 
   while (ros::ok())
   {
-	   
+ 
      //problemmanager.MDPsolPublish();
-
      if(problemmanager.m_boolSolve)
      {
         printf("Begin to solve\n");

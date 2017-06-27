@@ -31,9 +31,7 @@
 #include <pcl_ros/point_cloud.h>
 #include <pcl/point_types.h>
 #include <pcl/kdtree/kdtree.h>
-#include <human_tracking/peoplefinder.h>
-
-
+#include <villa_navi_service/GoTargetPos_rel.h>
 
 #define FOVW 29				//field of view width
 #define MATH_PI 3.14159265359
@@ -58,12 +56,11 @@
 
 
 
-class Human_Belief{
+class villa_navi_srv{
 
 public:
-	Human_Belief();
-	Human_Belief(int numofhuman);
-	~Human_Belief();
+	villa_navi_srv();
+	~villa_navi_srv();
 
 
 	ros::Publisher static_belief_map_pub;
@@ -92,8 +89,6 @@ public:
 
 	std::vector<double> Robot_Pos;				//x,y,theta
 	std::vector<double> Head_Pos;				//x,y,theta
-	std::vector<double> Head_vel;				//x,y,theta
-	std::vector<double> Last_Head_vel;				//x,y,theta
 	std::vector<double> global_pose;
 	std::vector<double> Human_target_candidate;				//x,y,theta
 	std::vector<double> Track_human_target;				//x,y,theta
@@ -123,59 +118,12 @@ public:
 	visualization_msgs::MarkerArray human_boxes_array;
 	bool OnceTargeted;
 
-	bool IsHeadMoving;
-	bool IsJointMoving(int joint_idx);
+
 	void Init_parameters();
 	void InitializeBelief();
-	void setHumanOccupancy(int idx, double dyn_posx,double dyn_posy);
-	void Updatemeasurement();
-	void dyn_map_callback(const nav_msgs::OccupancyGrid::ConstPtr& msg);
-	void global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg);
-	void number_detected_callback(const std_msgs::Int8::ConstPtr &msg);
-	void update_human_occ_belief();
-	void base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg);
-	void Human_MarkerarrayCallback(const visualization_msgs::MarkerArray::ConstPtr& msg);
-	void edge_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg);
-	void joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg);
-	void laser_pcl_callback(const sensor_msgs::PointCloud2 ::ConstPtr& msg);
-	void laser_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg);
-
-	void update_human_occ_belief_scan();
-	void CoordinateTransform_Global2_dynMap(double global_x, double global_y);
-	int CoordinateTransform_Global2_staticMap(double global_x, double global_y);
-	int CoordinateTransform_Global2_beliefMap(double global_x, double global_y);
-	void put_human_occ_map();
-	void put_human_occ_map_yolo();
-	void put_human_occ_map_leg();
-	void put_human_surrounding_beliefmap(int idx);
-	void Publish_beliefmap();
-	void getCameraregion();
-	bool getlinevalue(int line_type,double input_x, double input_y);
-	bool NotUpdatedCameraregion(int idx);
-	void setNearestHuman();
-	void setNearestHuman_leg();
-	double getDistance(double _x, double _y);
-	void Publish_human_target();
-	void Publish_human_boxes();
-	void publish_headscan();
-	void Check_beliefmap();
-	void SetTarget();
-	bool Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2);
-	bool Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion);
-	void CellNum2globalCoord(const int idx, std::vector<double>& map_coords);
-	void Publish_nav_target();
-	void UpdateTarget();
+	void Publish_nav_target(float _x, float _y, float _theta);
 	void setViewpointTarget(const std::vector<double> pos);
-	
-	bool IsTargetMoved(const std::vector<double> possible_target_pos, float criterion);
-	bool FindHuman(human_tracking::peoplefinder::Request &req, human_tracking::peoplefinder::Response &res);
-
-	void scanforhuman(const ros::TimerEvent& event);
-	int ConvertAngle2LaserIdx(double angle_rad);
-	int FindNearesetLegIdx();
-
-	double getDistance_from_Vec(std::vector<double> origin, double _x, double _y);
-
+	bool goTarget(villa_navi_service::GoTargetPos_rel::Request &req, villa_navi_service::GoTargetPos_rel::Response &res);	
 
 	std::vector<double> m_dyn_occupancy;
 	std::vector<double> m_prob_occupancy;
@@ -183,7 +131,7 @@ public:
 	std::vector<int>    m_leg_idx_set;
 	std::vector<double> m_human_posx;
 	std::vector<double> m_human_posy;
-	bool scanmode;
+
 
 	int pub_iters;
 	int detect_iters;

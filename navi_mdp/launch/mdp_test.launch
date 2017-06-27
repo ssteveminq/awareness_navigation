@@ -7,7 +7,7 @@
 
   <!--  <node name="human_box_node" pkg="grid_hsr" type="human_box_node" respawn="false" output="screen"/> -->
 
-	<node name="dyn_mdp_node" pkg="navi_mdp" type="dynamic_planner" respawn="false" output="screen"/> 
+	<!-- <node name="dyn_mdp_node" pkg="navi_mdp" type="dynamic_planner" respawn="false" output="screen"/>  -->
   <!--  <node pkg="grid_map_demos" type="navigation_map" name="grid_map_navigation_map" output="screen" />
   
   <node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization" output="screen">
@@ -20,6 +20,6 @@
  
 <arg name="gui" default="flase" />
  <param name="use_gui" value="$(arg gui)"/>
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find navi_mdp)/launch/hsr_rviz.rviz" />
+  <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find navi_mdp)/launch/hsr_rviz.rviz" /> -->
 
 </launch>

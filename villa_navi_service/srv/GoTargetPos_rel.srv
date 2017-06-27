@@ -1,0 +1,6 @@
+float32 x_from_baselink
+float32 y_from_baselink
+float32 theta_from_baselink
+---
+bool is_possible_go
+

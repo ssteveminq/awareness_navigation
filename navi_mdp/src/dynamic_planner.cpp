@@ -4,6 +4,7 @@
 #include "std_msgs/Int8.h"
 #include "geometry_msgs/Pose2D.h"
 #include "geometry_msgs/PointStamped.h"
+#include "geometry_msgs/PoseStamped.h"
 #include <nav_msgs/OccupancyGrid.h>
 #include <nav_msgs/Odometry.h>
 #include <visualization_msgs/Marker.h>
@@ -17,7 +18,7 @@ using namespace Eigen;
 
 
 bool boolSolve=false;
-MapParam   dynamicmapParam(12,12,0.5);
+MapParam   dynamicmapParam(14,14,0.5);
 static int  Receive_count=0;
 
 
@@ -43,6 +44,7 @@ int main(int argc, char **argv)
   ros::Subscriber Basepos_sub;
   ros::Subscriber human_marker_sub;
   ros::Subscriber human_cmd_sub;
+  ros::Subscriber global_pos_sub;
   ros::NodeHandle n;
   
   Point_sub     = n.subscribe<geometry_msgs::PointStamped>("/clicked_point", 10, &MDPManager::ClikedpointCallback,&dynamicManager);
@@ -50,6 +52,7 @@ int main(int argc, char **argv)
   human_marker_sub= n.subscribe<visualization_msgs::Marker>("/human_target", 50, &MDPManager::Human_MarkerCallback,&dynamicManager);
   dynamicmap_sub =n.subscribe<nav_msgs::OccupancyGrid>("/dynamic_obstacle_map_ref", 30, &MDPManager::dynamic_mapCallback,&dynamicManager); 
   Basepos_sub   = n.subscribe<nav_msgs::Odometry>("/hsrb/odom", 10, &MDPManager::base_pose_callback,&dynamicManager);
+  global_pos_sub= n.subscribe<geometry_msgs::PoseStamped>("/global_pose", 10, &MDPManager::global_pose_callback,&dynamicManager);
   ros::Rate loop_rate(20);
 
 
@@ -58,12 +61,9 @@ int main(int argc, char **argv)
   dynamicManager.CurVector[0]= Omsg->pose.pose.position.x;
   dynamicManager.CurVector[1]= Omsg->pose.pose.position.y;
 
-
-
   while (ros::ok())
   {
-	   
-     //problemmanager.MDPsolPublish();
+      //problemmanager.MDPsolPublish();
       if(dynamicManager.m_boolSolve)
       {
          ROS_INFO("Start to dynamic mdp");
@@ -77,7 +77,6 @@ int main(int argc, char **argv)
       {
         if(dynamicManager.dyn_path_num>0)
           dynamicManager.publishpaths();
-
       }
 
   	 ros::spinOnce();

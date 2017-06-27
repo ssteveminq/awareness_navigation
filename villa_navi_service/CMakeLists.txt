@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(human_tracking)	
+project(villa_navi_service)	
 
-SET(SOURCES src/humantracking.cpp src/human_scan.cpp)
+SET(SOURCES src/navi_service_node.cpp)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -23,12 +23,11 @@ find_package(PCL 1.7 REQUIRED)
 
 add_service_files(
    FILES
-   peoplefinder.srv
+   GoTargetPos_rel.srv
 )
 
 generate_messages(
    DEPENDENCIES
-   geometry_msgs
    std_msgs
    std_srvs
 )
@@ -48,7 +47,7 @@ catkin_package(
   	geometry_msgs
   	sensor_msgs
     std_msgs
-    message_runtime
+  	message_runtime
     tf
  )
 
@@ -59,7 +58,5 @@ include_directories(
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-add_executable(human_tracker src/tracking_test.cpp ${SOURCES})
-target_link_libraries(human_tracker ${catkin_LIBRARIES} ${PCL_LIBRARIES})
-add_executable(scanner src/scanning_test.cpp ${SOURCES})
-target_link_libraries(scanner ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+add_executable(nav_service_test src/service_test.cpp ${SOURCES})
+target_link_libraries(nav_service_test ${catkin_LIBRARIES} ${PCL_LIBRARIES})

@@ -21,7 +21,11 @@
 #include "geometry_msgs/Pose2D.h"
 #include "geometry_msgs/Pose.h"
 #include "geometry_msgs/PointStamped.h"
+#include "geometry_msgs/PoseStamped.h"
 #include <tf/tf.h>
+#include "tf/transform_listener.h"
+#include "tf/message_filter.h"
+#include <tf/transform_datatypes.h>
 #include <cmath>
 #include <cfloat>
 
@@ -40,8 +44,8 @@
 #define Goal_X 2
 #define Goal_Y 2
 
-#define DYN_OFFSET_X 2
-#define DYN_OFFSET_Y 2
+#define DYN_OFFSET_X 3.5
+#define DYN_OFFSET_Y 3.5
 
 
 #define Num_action 8
@@ -98,6 +102,7 @@ class MDPManager
 
  	MapParam* 	pMapParam;  
 
+ 	tf::TransformListener 	  listener;
 	vector< std::vector<int> > Points;
 	vector< vector<int> > ActionCC;
  	vector<int>		  m_Start;							//Start position of(x,y)
@@ -127,7 +132,7 @@ class MDPManager
  	int               human_callback_count;
 
 
-
+ 	std::vector<double> global_pose;
  	std::vector<double> Map_orig_Vector;
 	std::vector<double> CurVector;
 	std::vector<double> GoalVector;
@@ -188,9 +193,7 @@ class MDPManager
 	nav_msgs::Path path;
 	nav_msgs::Path Pre_dynamicSplinePath;
 
-
-	
- 	//functions
+	//functions
  	void 			Init();								 //Initialize function
  	void 			setPMapParam(MapParam* _pMapParam);
  	void 			setStartConfig (const vector<int> Start );
@@ -238,5 +241,7 @@ class MDPManager
 	void 			setDesiredHeading(double _heading);
 	double			getdistance(vector<double> cur, vector<double> goal);
 	void 			publishZeropaths();
+	void 			global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg);
+
 };
 

@@ -1,0 +1,19 @@
+<launch>
+   <!-- <node name="human_cluster_node_yolo" pkg="villa_3d_object_extract" type="human_tmc_cluster_based_yolo_3D_extractor" respawn="false" output="screen"/> -->
+
+   <node name="human_tracking_node" pkg="human_tracking" type="scanner" respawn="false" output="screen"/>
+
+    <arg name="laser_scan" default="/hsrb/base_scan" />
+    <arg name="machine" default="localhost" />
+    <arg name="user" default="" />
+
+    <machine name="$(arg machine)" address="$(arg machine)" env-loader="$(optenv ROS_ENV_LOADER )" user="$(arg user)" default="true"/>
+    
+    <node pkg="edge_leg_detector" type="detector" name="edge_leg_detector" output="screen">
+        <param name="laser_scan" value="$(arg laser_scan)" type="string"/>
+    </node>
+<!--     <node pkg="gaze_fixing_node" type="villa_manipulation" name="gazed_point_fixing_node" output="screen">
+    </node> -->
+
+
+</launch>
