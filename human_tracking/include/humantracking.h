@@ -32,6 +32,7 @@
 #include <pcl/point_types.h>
 #include <pcl/kdtree/kdtree.h>
 #include <human_tracking/peoplefinder.h>
+#include <keyboard/Key.h>
 
 
 

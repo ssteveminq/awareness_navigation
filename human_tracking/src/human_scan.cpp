@@ -23,9 +23,7 @@ bool Human_Belief_Scan::FindHuman(human_tracking::peoplefinder::Request &req, hu
 	geometry_msgs::PoseArray people_posearrays;
 	res.People_array=people_posearrays;
 	res.IsHuman=true;
-
 	return res.IsHuman;
-
 }
 
 
@@ -63,10 +61,88 @@ bool Human_Belief_Scan::Comparetwopoistions(std::vector<double> pos,std::vector<
 	
 
 	return false;
+}
+
+void Human_Belief_Scan::keyboard_callback(const keyboard::Key::ConstPtr& msg)
+{
+
+	ROS_INFO("Received Keyboard");
+	std::cout<<msg->code<<std::endl;
+	if(msg->code==116)		//if keyboard input is "t"
+	{
+		set_Current_Human_to_Target();
+		send_activation_filter_cmd();
+	}
+}
+
+void Human_Belief_Scan::send_activation_filter_cmd()
+{
+
+	std_msgs::Int8 activation_msg;
+	activation_msg.data=1;
+
+	filter_act_pub.publish(activation_msg);
+
+	
+
+}
+
+void Human_Belief_Scan::set_Current_Human_to_Target()
+{
+
+	if(Cur_detected_human.size()>0)
+	{
+		Track_human_target[0]=Cur_detected_human[0][0];
+		Track_human_target[1]=Cur_detected_human[0][1];
+		OnceTargeted=true;
+		action_mode=2;
+		ROS_INFO("leg target set: %.3lf, y : %.3lf",Track_human_target[0],Track_human_target[1]);
+	}
 
 
 }
 
+void Human_Belief_Scan::SetTarget_face_detection()
+{
+	
+	if(Cur_detected_human.size()>0 && action_mode==1)
+	{
+		std::cout<<"SetTarget_face_detection"<<std::endl;
+		std::vector<double> Distanceset;
+		Distanceset.resize(Cur_leg_human.size(),0.0);
+			
+		double minDistance=200.0;
+		int    minDistance_Idx=0;
+
+		if(Cur_leg_human.size()>0){
+			for(int i(0);i<Cur_leg_human.size();i++)
+			{
+				Distanceset[i]=getDistance_from_Vec(Cur_detected_human[0],Cur_leg_human[i][0],Cur_leg_human[i][1]);
+
+				if(minDistance>Distanceset[i])
+				{
+					minDistance=Distanceset[i];
+					minDistance_Idx=i;
+				}
+			}
+
+			// Track_human_target[0]=Cur_leg_human[minDistance_Idx][0];
+			// Track_human_target[1]=Cur_leg_human[minDistance_Idx][1];
+			Track_human_target[0]=Cur_detected_human[0][0];
+			Track_human_target[1]=Cur_detected_human[0][1];
+
+			OnceTargeted=true;
+			action_mode=2;
+			ROS_INFO("leg target set: %.3lf, y : %.3lf",Track_human_target[0],Track_human_target[1]);
+
+		}
+
+	}
+
+	 
+
+
+}
 
 void Human_Belief_Scan::SetTarget()
 {
@@ -109,10 +185,17 @@ void Human_Belief_Scan::SetTarget()
 	}
 
 }
+double Human_Belief_Scan::getDistance(std::vector<double> pos1,std::vector<double> pos2)
+{
+
+
+
+}
+
 
 int Human_Belief_Scan::FindNearesetLegIdx()
 {
-
+		//target should be already set
 		std::vector<double> Distanceset;
 		// Distanceset.resize(Cur_detected_human.size(),0.0);
 		Distanceset.resize(Cur_leg_human.size(),0.0);
@@ -124,7 +207,7 @@ int Human_Belief_Scan::FindNearesetLegIdx()
 			for(int i(0);i<Cur_leg_human.size();i++)
 			{
 				// Distanceset[i]=getDistance(Cur_detected_human[i][0],Cur_detected_human[i][1]);
-				Distanceset[i]=getDistance_from_Vec(leg_target,Cur_leg_human[i][0],Cur_leg_human[i][1]);
+				Distanceset[i]=getDistance_from_Vec(Track_human_target,Cur_leg_human[i][0],Cur_leg_human[i][1]);
 				
 				if(minDistance>Distanceset[i])
 					{
@@ -136,10 +219,27 @@ int Human_Belief_Scan::FindNearesetLegIdx()
 
 		}
 
-
-				
 	
 		return minDistance_Idx;
+}
+
+void Human_Belief_Scan::face_detected_name_callback(const std_msgs::String::ConstPtr& msg)
+{
+	std::string face_name = msg->data;
+
+	for(int i(0);i<Names_set.size();i++)
+		{
+			if(face_name.compare(Names_set[i])==0)
+				{
+					std::cout<<"Find the person : "<< face_name <<std::endl;
+					if((action_mode==1) && (num_of_detected_human>0))
+						{
+							SetTarget_face_detection();
+						}
+				}
+		}
+
+
 
 
 }
@@ -149,12 +249,12 @@ void Human_Belief_Scan::edge_leg_callback(const geometry_msgs::PoseArray::ConstP
 	int num_leg_detected = msg->poses.size();	
 	// ROS_INFO("edge callback data size : %d",num_leg_detected);
 	// human_occupied_leg_idx.clear();
-	 if(m_leg_updateiter>30)
+	 if(m_leg_updateiter>10)
 	 {
 		std::vector<double> tempVec(2,0.0);
 	
 			human_occupied_leg_idx.clear();
-			Cur_leg_human.clear();
+			 Cur_leg_human.clear();
 			// Cur_leg_human.resize(num_leg_detected);
 			for(int i(0);i<num_leg_detected;i++)
 			{
@@ -176,14 +276,14 @@ void Human_Belief_Scan::edge_leg_callback(const geometry_msgs::PoseArray::ConstP
 			    bool IsNearfromRobot= false;
 			    for(int j(0);j<Cur_leg_human.size();j++)
 			    	{
-			    		if(Comparetwopoistions(tempVec,Cur_leg_human[j],0.5))
+			    		if(Comparetwopoistions(tempVec,Cur_leg_human[j],0.65))
 			    			IsFarEnough=false;
 			    	}
 			   	
 			   	if(Comparetwopoistions(global_pose,tempVec,LASER_Dist_person))
 			    		IsNearfromRobot=true;
 
-			    	// std::cout<<"here 2"<<std::endl;
+
 			    //add only if candidate pose ins far from 0.75 from previous candidates
 			    if(IsFarEnough && IsNearfromRobot)
 				{
@@ -194,10 +294,30 @@ void Human_Belief_Scan::edge_leg_callback(const geometry_msgs::PoseArray::ConstP
 				}
 			}
 
-			m_leg_updateiter=0;
+		
 			// OnceTargeted=true;
+
+		if(action_mode==2)	//following mode - tracking laser -target should be already set
+		{
+			int NearestLegIdx=FindNearesetLegIdx();
+				
+			std::vector<double> temp_leg_target(2,0.0);	
+			temp_leg_target[0]=Cur_leg_human[NearestLegIdx][0];
+			temp_leg_target[1]=Cur_leg_human[NearestLegIdx][1];
+
+			if(Comparetwopoistions(temp_leg_target,Track_human_target,0.75))
+			{
+					// std::cout<<"update target - person is in a range"<<std::endl;
+					Track_human_target[0]=temp_leg_target[0];
+					Track_human_target[1]=temp_leg_target[1];
+			}
+
 		}
 		
+		m_leg_updateiter=0;
+	}
+		
+
 	m_leg_updateiter++;
 }
 
@@ -291,7 +411,6 @@ human_leg_boxes_array.markers.clear();
 	    }
 
 	    Human_boxes_pub.publish(human_leg_boxes_array);
-
 	}
 
 
@@ -488,8 +607,6 @@ int Human_Belief_Scan::CoordinateTransform_Global2_staticMap(double global_x, do
  	//Save to human_ouccupied_index
  	// human_occupied_idx.push_back(static_map_idx);
  	 
-
-
 }
 
 void Human_Belief_Scan::CoordinateTransform_Global2_dynMap(double global_x, double global_y)
@@ -801,9 +918,28 @@ void Human_Belief_Scan::setViewpointTarget(const std::vector<double> pos)
 	}
 	else
 	{
-	
-	GazePoint_msg.x=pos[0];
-	GazePoint_msg.y=pos[1];
+		 geometry_msgs::Vector3Stamped gV, tV;
+
+		    gV.vector.x = leg_target[0];
+		    gV.vector.y = leg_target[1];
+		    gV.vector.z = 1.0;
+
+		    // std::cout<<"x :"<<_x<<"_y:"<<_y<<"_z:"<<_z<<std::endl;
+		    
+
+		    gV.header.stamp = ros::Time();
+		    gV.header.frame_id = "/map";
+		    listener.transformVector("/base_range_sensor_link", gV, tV);
+
+		    std::vector<double> tempVec(3,0.0);
+		    tempVec[0]=tV.vector.x;
+			tempVec[1]=tV.vector.y;
+			tempVec[2]=tV.vector.z;
+
+
+			GazePoint_msg.x=tempVec[0];
+			GazePoint_msg.y=tempVec[1];
+			GazePoint_msg.z=tempVec[2];
 	
 	}
 
@@ -905,7 +1041,7 @@ void Human_Belief_Scan::Publish_human_target()
     uint32_t shape = visualization_msgs::Marker::SPHERE;
     marker_human.type = shape;
 
-	if(track_cmd.data>0){
+	if(action_mode==2){
 	//publish marker
 		marker_human.pose.position.x = Track_human_target[0];
 	    marker_human.pose.position.y = Track_human_target[1];
@@ -936,39 +1072,7 @@ void Human_Belief_Scan::Publish_human_target()
 	}
 
 
-	visualization_msgs::Marker marker_leg_target;
-	marker_leg_target.header.frame_id = "/base_range_sensor_link"; 
-    marker_leg_target.header.stamp = ros::Time::now();
-    marker_leg_target.id = 0;
-    marker_leg_target.type = visualization_msgs::Marker::SPHERE;
 
-	
-	//publish marker
-		marker_leg_target.pose.position.x = leg_target[0];
-	    marker_leg_target.pose.position.y = leg_target[1];
-	    marker_leg_target.pose.position.z = 1;
-
-	    marker_leg_target.pose.orientation.x = 0.0;
-	    marker_leg_target.pose.orientation.y = 0.0;
-	    marker_leg_target.pose.orientation.z = 0.0;
-	    marker_leg_target.pose.orientation.w = 1.0;
-
-	      //ROS_INFO("temp dist : %.3lf, temp dist2 : %.3lf, temp dist3 : %.3lf",temp_dist,temp_dist2,temp_dist3);
-	    marker_leg_target.scale.x = std::abs(0.5);
-	    marker_leg_target.scale.y = std::abs(0.5);
-	    marker_leg_target.scale.z = std::abs(0.5);
-
-	    marker_leg_target.color.r = 1.0;
-	    marker_leg_target.color.g = 0.0;
-	    marker_leg_target.color.b = 0.2;
-	    marker_leg_target.color.a = 0.85;
-
-		human_leg_target_pub.publish(marker_leg_target);
-		
-	
-
-
-	//publish command
 
 	
 
@@ -1268,6 +1372,11 @@ void Human_Belief_Scan::Init_parameters()
 	IsHeadMoving=false;
 	cur_scan_idx=0;
 
+	action_mode=0; 	// 0:  scan mode  / 1: waiting mode / 2: navigation mode
+
+	Names_set.push_back("minkyu");
+	// Names_set.push_back("minkyu");
+
 }
 
 void Human_Belief_Scan::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)
@@ -1290,13 +1399,37 @@ void Human_Belief_Scan::joint_states_callback(const sensor_msgs::JointState::Con
 
 }
 
+void Human_Belief_Scan::facedetect_target(const ros::TimerEvent& event)
+{
+	if(action_mode==1)
+	{
+		std::cout<<"Face detect among founded people, "<< cur_scan_idx <<std::endl;
+		
+		if(cur_scan_idx==0)
+			setViewpointTarget(Founded_human[cur_scan_idx]);
+	
+
+		int maximum_scan_num=Founded_human.size()-1;
+		if(cur_scan_idx<maximum_scan_num)
+			cur_scan_idx++;
+		
+	}
+	else
+	{	
+		return;
+		
+	}
+}
+
 void Human_Belief_Scan::scanforhuman(const ros::TimerEvent& event)
 {
+	if(action_mode==0){
 	//This function will be called every 5 secs
-
 	for(int i(0);i<Cur_detected_human.size();i++)
 	{
 		bool Isalreadyhuman=false;
+		
+
 		for(int j(0);j<Founded_human.size();j++)
 			{
 				if(Comparetwopoistions(Founded_human[j],Cur_detected_human[i],0.5))
@@ -1306,7 +1439,7 @@ void Human_Belief_Scan::scanforhuman(const ros::TimerEvent& event)
 		bool IsNearLeg=false;
 		for(int k(0);k<Cur_leg_human.size(); k++)
 		{
-			if(Comparetwopoistions(Cur_detected_human[i],Cur_leg_human[k],0.5))
+			if(Comparetwopoistions(Cur_detected_human[i],Cur_leg_human[k],0.8))
 				IsNearLeg=true;
 		}
 
@@ -1314,7 +1447,6 @@ void Human_Belief_Scan::scanforhuman(const ros::TimerEvent& event)
 			Founded_human.push_back(Cur_detected_human[i]);
 
 	}
-
 
 	std_msgs::Int8 head_msg;
 	head_msg.data=cur_scan_idx;
@@ -1324,9 +1456,13 @@ void Human_Belief_Scan::scanforhuman(const ros::TimerEvent& event)
 	{	
 		head_msg.data=0;
 		head_cmd_pub.publish(head_msg);
+		action_mode=1;
+		cur_scan_idx=-1;
 	}
 
-	 cur_scan_idx++;
+	cur_scan_idx++;
+
+	}
 	// ros::Rate loop_rate(50);
 	// int view_count=0;
 
@@ -1368,11 +1504,8 @@ void Human_Belief_Scan::Check_beliefmap()
 	//
 
 
-
-
-
-
 }
+
 
 void Human_Belief_Scan::Publish_beliefmap()
 {
@@ -1382,9 +1515,6 @@ void Human_Belief_Scan::Publish_beliefmap()
 	// static_belief_map.info.origin.position.x=-5;
 	// static_belief_map.info.origin.position.y=-5;
 	// static_belief_map.data.resize(static_belief_map.info.width*static_belief_map.info.height);
-
-
-	
 	getCameraregion();
 	
 	if(!IsHeadMoving)
@@ -1600,44 +1730,30 @@ bool Human_Belief_Scan::getlinevalue(int line_type,double input_x, double input_
 void Human_Belief_Scan::Publish_nav_target()
 {
 	
-	if(pub_iters>250){
+	if(pub_iters>200){
 
-		if(OnceTargeted){
+		if(action_mode==2){
 			move_base_msgs::MoveBaseActionGoal Navmsgs;
 		 	Navmsgs.header.stamp =  ros::Time::now();
 		 //Navmsgs.header.frame_id = "map"; 
 		 	Navmsgs.goal.target_pose.header.frame_id = "map";
 
-		 geometry_msgs::Vector3Stamped gV, tV;
+			std::vector<double> tempVec(2,0.0);
+		  	tempVec[0]=Track_human_target[0];
+			tempVec[1]=Track_human_target[1];
 
-			    gV.vector.x = leg_target[0];
-			    gV.vector.y = leg_target[1];
-			    gV.vector.z = 1.0;
+			 Navmsgs.goal.target_pose.pose.position.x=tempVec[0]-0.3;
+			 Navmsgs.goal.target_pose.pose.position.y=tempVec[1];
+			 Navmsgs.goal.target_pose.pose.position.z=0.5;
 
-			    // std::cout<<"x :"<<_x<<"_y:"<<_y<<"_z:"<<_z<<std::endl;
-			    
+			 Navmsgs.goal.target_pose.pose.orientation.x=0.0;
+			 Navmsgs.goal.target_pose.pose.orientation.y=0.0;
+			 Navmsgs.goal.target_pose.pose.orientation.z=0.0;
+			 Navmsgs.goal.target_pose.pose.orientation.w=1.0;
 
-			    gV.header.stamp = ros::Time();
-			    gV.header.frame_id = "base_range_sensor_link";
-			    listener.transformVector("/map", gV, tV);
-
-			    std::vector<double> tempVec(2,0.0);
-			    tempVec[0]=tV.vector.x;
-				tempVec[1]=tV.vector.y;
-
-
-		 Navmsgs.goal.target_pose.pose.position.x=tempVec[0]-0.3;
-		 Navmsgs.goal.target_pose.pose.position.y=tempVec[1];
-		 Navmsgs.goal.target_pose.pose.position.z=0.5;
-
-		 Navmsgs.goal.target_pose.pose.orientation.x=0.0;
-		 Navmsgs.goal.target_pose.pose.orientation.y=0.0;
-		 Navmsgs.goal.target_pose.pose.orientation.z=0.0;
-		 Navmsgs.goal.target_pose.pose.orientation.w=1.0;
-
-		 setViewpointTarget(leg_target);
-		 setNavTarget_pub.publish(Navmsgs);
-		 ROS_INFO("navgation published");
+			 // setViewpointTarget(Track_human_target);
+			 setNavTarget_pub.publish(Navmsgs);
+			 ROS_INFO("navgation published");
 
 		pub_iters=0;
 	}
