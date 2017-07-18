@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(edge_leg_detector)
 
+SET(SOURCES src/detector.cpp)
+
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   roscpp
@@ -8,24 +10,12 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   std_msgs
   std_srvs
+  message_filters
 )
 
 find_package(Boost REQUIRED COMPONENTS thread)
 
-###################################
-## catkin specific configuration ##
-###################################
    
- add_service_files(
-   FILES
-   laser_leg_detector.srv
-)
-
-generate_messages(
-   DEPENDENCIES
-   std_msgs
-   std_srvs
-)
 
 
 catkin_package(
@@ -41,7 +31,13 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 
-add_executable(detector src/edge_leg_detector/detector.cpp)
+include_directories(include)
+include_directories(src)
+
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+add_executable(detector src/detector.cpp)
 
 target_link_libraries(detector
   ${catkin_LIBRARIES}
