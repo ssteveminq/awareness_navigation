@@ -1,5 +1,5 @@
 <launch>
-    <arg name="laser_scan" default="/scan" />
+    <arg name="laser_scan" default="hsrb/base_scan" />
     <arg name="machine" default="localhost" />
     <arg name="user" default="" />
 

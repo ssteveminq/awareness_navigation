@@ -1,23 +1,19 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(edge_leg_detector)
 
-SET(SOURCES src/detector.cpp)
-
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   roscpp
   rospy
   sensor_msgs
-  std_msgs
-  std_srvs
-  message_filters
 )
 
 find_package(Boost REQUIRED COMPONENTS thread)
 
-   
-
-
+###################################
+## catkin specific configuration ##
+###################################
+    
 catkin_package(
   CATKIN_DEPENDS roscpp rospy sensor_msgs geometry_msgs
 )
@@ -31,13 +27,7 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 
-include_directories(include)
-include_directories(src)
-
-
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
-add_executable(detector src/detector.cpp)
+add_executable(detector src/edge_leg_detector/detector.cpp)
 
 target_link_libraries(detector
   ${catkin_LIBRARIES}

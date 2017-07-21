@@ -19,7 +19,6 @@
 #include <list>
 #include <string>
 #include <boost/thread/mutex.hpp>
-#include <edge_leg_detector/laser_leg_detector.h> 
 
 #define PI 3.1416
 #define FILTER_SIZE 2
@@ -29,12 +28,12 @@
 #define FLANK_D -1
 
 //Antropometric parameters
-#define ANTRO_a0 0.1 //|
+#define ANTRO_a0 0.08 //|
 #define ANTRO_a1 0.2 //|-> Leg width (min-max)
 #define ANTRO_b0 0   //  |
 #define ANTRO_b1 0.6 //  |-> Free space between two legs (min-max)
 #define ANTRO_c0 0.1 //    |
-#define ANTRO_c1 0.4 //    |-> Two legs together width (min-max)
+#define ANTRO_c1 0.45 //    |-> Two legs together width (min-max)
 
 // Pattern Type
 #define TYPE_LA 1 // Legs separated
@@ -77,9 +76,9 @@ int main(int argc, char **argv){
   ros::param::get("~laser_scan", laser_scan);
   ros::Subscriber node_sub = n.subscribe(laser_scan, 2, LaserCallback);
   geometry_msgs::PoseArray msgx;
-
-  ros::ServiceServer service = n.advertiseService("/laser_leg_service",  &Edgeleg_manager_srv::followingLoop,this);
   ros::Rate loop_rate(50);
+
+
   int seq_counter = 0;
   
   while( ros::ok() ){
