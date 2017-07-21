@@ -33,8 +33,6 @@
 #include <pcl_ros/point_cloud.h>
 #include <pcl/point_types.h>
 #include <pcl/kdtree/kdtree.h>
-#include <human_tracking/peoplefinder.h>
-
 
 
 #define FOVW 29				//field of view width
