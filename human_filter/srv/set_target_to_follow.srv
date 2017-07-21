@@ -1,0 +1,6 @@
+float32 x_from_map
+float32 y_from_map
+char[] person_name
+---
+bool track_target
+

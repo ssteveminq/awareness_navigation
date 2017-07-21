@@ -8,31 +8,15 @@ villa_navi_srv::~villa_navi_srv(){}
 
 void villa_navi_srv::Publish_nav_target(float _x, float _y, float _theta)
 {
-	
+		ROS_INFO("x : %.3lf , y : %.3lf", _x,_y);
 	
 		move_base_msgs::MoveBaseActionGoal Navmsgs;
 		Navmsgs.header.stamp =  ros::Time::now();
-		Navmsgs.goal.target_pose.header.frame_id = "base_link";
-
-		// geometry_msgs::Vector3Stamped gV, tV;
-
-	 //    gV.vector.x = leg_target[0];
-	 //    gV.vector.y = leg_target[1];
-	 //    gV.vector.z = 1.0;
-
-	 //    // std::cout<<"x :"<<_x<<"_y:"<<_y<<"_z:"<<_z<<std::endl;
-	 //    gV.header.stamp = ros::Time();
-	 //    gV.header.frame_id = "base_range_sensor_link";
-	 //    listener.transformVector("/map", gV, tV);
-
-	 //    std::vector<double> tempVec(2,0.0);
-	 //    tempVec[0]=tV.vector.x;
-		// tempVec[1]=tV.vector.y;
-
+		Navmsgs.goal.target_pose.header.frame_id = "map";
 
 		 Navmsgs.goal.target_pose.pose.position.x=_x;
 		 Navmsgs.goal.target_pose.pose.position.y=_y;
-		 Navmsgs.goal.target_pose.pose.position.z=0.5;
+		 Navmsgs.goal.target_pose.pose.position.z=0.0;
 
 		 Navmsgs.goal.target_pose.pose.orientation.x=0.0;
 		 Navmsgs.goal.target_pose.pose.orientation.y=0.0;
@@ -48,7 +32,6 @@ void villa_navi_srv::Publish_nav_target(float _x, float _y, float _theta)
 bool villa_navi_srv::goTarget(villa_navi_service::GoTargetPos_rel::Request &req, villa_navi_service::GoTargetPos_rel::Response &res)
 {
 
-
 	// std::vector<float> targetpos(3,0.0);
 	// targetpos[0]=_x;
 	// targetpos[1]=_y;
@@ -61,9 +44,8 @@ bool villa_navi_srv::goTarget(villa_navi_service::GoTargetPos_rel::Request &req,
 	else
 	{
 
-	
-	Publish_nav_target(req.x_from_baselink,req.y_from_baselink,req.theta_from_baselink);
-	res.is_possible_go=true;
+		Publish_nav_target(req.x_from_baselink,req.y_from_baselink,req.theta_from_baselink);
+		res.is_possible_go=true;
 	}
 
 

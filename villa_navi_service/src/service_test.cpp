@@ -45,7 +45,7 @@ int main(int argc, char **argv)
   // edge_leg_sub=n.subscribe<geometry_msgs::PoseArray>("/edge_leg_detector", 10, &villa_navi_srv::edge_leg_callback,&villa_navi_srvice);
   ros::Rate loop_rate(50);
 
-  ros::ServiceServer service = n.advertiseService("/mk_navi_go",  &villa_navi_srv::goTarget,&villa_navi_srvice);
+  ros::ServiceServer service = n.advertiseService("/navi_go_base",  &villa_navi_srv::goTarget,&villa_navi_srvice);
   
   signal(SIGINT, sig_handler);
   double ros_rate = 3.0;

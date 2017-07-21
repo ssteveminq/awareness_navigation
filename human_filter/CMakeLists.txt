@@ -12,16 +12,39 @@ link_directories(${BFL_LIBRARY_DIRS})
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
+  std_srvs
   geometry_msgs
   tf
   message_filters
   people_msgs
   sensor_msgs
   nav_msgs
+  actionlib_msgs
 )
+
+
 
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS thread)
+
+add_service_files(
+   FILES
+   set_target_to_follow.srv
+)
+
+add_action_files(
+  DIRECTORY action
+  FILES FollowMe.action
+)
+
+generate_messages(
+   DEPENDENCIES
+   geometry_msgs
+   std_msgs
+   std_srvs
+   actionlib_msgs
+)
+
 
 ## Declare things to be passed to dependent projects
 catkin_package(
@@ -32,6 +55,7 @@ CATKIN_DEPENDS
     geometry_msgs
     people_msgs
     nav_msgs
+    actionlib_msgs
 LIBRARIES human_filter
 )
 
@@ -60,9 +84,15 @@ add_library(human_filter
 add_executable(kalman_tracker src/people_tracking_node.cpp)
 add_executable(edge_midfilter src/edge_leg_filter_node.cpp)
 
+
+add_executable(follow_service_test src/service_test.cpp ${SOURCES})
+
+
 ## Add cmake target dependencies of the executable/library
 add_dependencies(kalman_tracker people_msgs_gencpp human_filter)
 add_dependencies(edge_midfilter people_msgs_gencpp human_filter)
+add_dependencies(follow_service_test people_msgs_gencpp human_filter)
+
 
 
 ## Specify libraries to link a library or executable target against
@@ -71,6 +101,9 @@ target_link_libraries(kalman_tracker human_filter ${catkin_LIBRARIES} ${Boost_LI
 
 target_link_libraries(edge_midfilter human_filter ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${BFL_LIBRARIES}
 )
+
+
+target_link_libraries(follow_service_test human_filter ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${BFL_LIBRARIES})
 
 install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
@@ -85,6 +118,12 @@ install(TARGETS kalman_tracker
 )
 
 install(TARGETS edge_midfilter
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS follow_service_test
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
