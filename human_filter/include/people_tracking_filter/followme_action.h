@@ -34,7 +34,7 @@
 #include <human_filter/set_target_to_follow.h>
 
  #include <actionlib/server/simple_action_server.h>
- #include <human_filter/FollowMe.h>
+ #include <human_filter/FollowMeAction.h>
 
 // log files
 #include <fstream>

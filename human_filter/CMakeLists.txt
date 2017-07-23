@@ -84,7 +84,6 @@ add_library(human_filter
 add_executable(kalman_tracker src/people_tracking_node.cpp)
 add_executable(edge_midfilter src/edge_leg_filter_node.cpp)
 
-
 add_executable(follow_service_test src/service_test.cpp ${SOURCES})
 
 
@@ -104,6 +103,7 @@ target_link_libraries(edge_midfilter human_filter ${catkin_LIBRARIES} ${Boost_LI
 
 
 target_link_libraries(follow_service_test human_filter ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${BFL_LIBRARIES})
+
 
 install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}

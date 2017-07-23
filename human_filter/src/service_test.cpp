@@ -82,7 +82,8 @@ Edgeleg_manager_srv::Edgeleg_manager_srv(ros::NodeHandle nh)
   filter_result_sub=nh_.subscribe<people_msgs::PositionMeasurement>("people_tracker_filter", 10,&Edgeleg_manager_srv::filter_result_callback,this);
     
   // One_People_pos_pub=nh_.advertise<people_msgs::PositionMeasurement>("/people_tracker_measurements", 0 );
-  ros::ServiceServer service = nh_.advertiseService("/following_human",  &Edgeleg_manager_srv::followingLoop,this);
+  
+  m_service = nh_.advertiseService("/following_human",  &Edgeleg_manager_srv::followingLoop,this);
  
   global_pose.resize(3,0.0);
   leg_target.resize(2,0.0);
@@ -145,9 +146,33 @@ void Edgeleg_manager_srv::edge_leg_callback(const geometry_msgs::PoseArray::Cons
           gV.vector.y = msg->poses[i].position.y;
           gV.vector.z = 1.0;
 
-          gV.header.stamp = ros::Time();
-          gV.header.frame_id = "/base_range_sensor_link";
-          listener.transformVector("/map", gV, tV);
+
+          // gV.header.stamp = ros::Time();
+          // gV.header.frame_id = "/base_range_sensor_link";
+          // // listener.transformVector("/map", gV, tV);
+          // tf::StampedTransform maptransform;
+          while (ros::ok()){
+
+          try{
+              listener.waitForTransform("base_range_sensor_link", "map", ros::Time(0), ros::Duration(1.0));
+            gV.header.stamp = ros::Time();
+            gV.header.frame_id = "/base_range_sensor_link";
+            listener.transformVector(std::string("/map"), gV, tV);
+          }
+          //keep trying until we get the transform
+          catch (tf::TransformException ex){
+            ROS_ERROR_THROTTLE(1, "%s",ex.what());
+            ROS_WARN_THROTTLE(1,"    Waiting for transform from base_range_sensor_link to map frame. Trying again");
+            continue;
+          }
+      } 
+
+
+
+
+
+
+
 
           tempVec[0]=tV.vector.x+global_pose[0];
           tempVec[1]=tV.vector.y+global_pose[1];
@@ -417,7 +442,7 @@ void Edgeleg_manager_srv::keyboard_callback(const keyboard::Key::ConstPtr& msg)
   {
     if(cur_yolo_people.size()>0)
      {
-          leg_target.resize(2.,0.0);
+          leg_target.resize(2,0.0);
           leg_target[0]=cur_yolo_people[0][0];
           leg_target[1]=cur_yolo_people[0][1];
           OnceTarget=true;
@@ -473,9 +498,7 @@ bool Edgeleg_manager_srv::check_cameraregion(float x_pos,float y_pos)
 void Edgeleg_manager_srv::Publish_nav_target()
 {
   
-  if(pub_iters>3000){
-
-
+  if(pub_iters>3500){
     
     if(OnceTarget){
       move_base_msgs::MoveBaseActionGoal Navmsgs;
@@ -495,10 +518,8 @@ void Edgeleg_manager_srv::Publish_nav_target()
       GoalVector[0]=filtered_leg_target[0]-0.3;
       GoalVector[1]=filtered_leg_target[1];
 
-
       GoalVector[0]=GoalVector[0]-global_pose[0];
       GoalVector[1]=GoalVector[1]-global_pose[1];
-
 
       double temp_yaw =atan(GoalVector[1]/GoalVector[0]);
       temp_yaw=temp_yaw-global_pose[2];
@@ -507,7 +528,6 @@ void Edgeleg_manager_srv::Publish_nav_target()
             // poses.orientation = tf::transformations.quaternion_from_euler(0.0, 0.0, temp_yaw);
       
       geometry_msgs::Quaternion q;
-
       double t0 = cos(temp_yaw * 0.5);
       double t1 = sin(temp_yaw * 0.5);
       double t2 = cos(temp_roll * 0.5);
@@ -519,12 +539,6 @@ void Edgeleg_manager_srv::Publish_nav_target()
       q.y = t0 * t2 * t5 + t1 * t3 * t4;
       q.z = t1 * t2 * t4 - t0 * t3 * t5;
 
-
-      // tf::StampedTransform tfs;
-      // tf::Quaternion head_orientation =tf::createQuaternionFromRPY(0.0, 0.0, temp_yaw);
-
-
-
       // Navmsgs.goal.target_pose.pose.orientation = head_orientation;
 
        Navmsgs.goal.target_pose.pose.orientation.x=q.x;
@@ -533,7 +547,7 @@ void Edgeleg_manager_srv::Publish_nav_target()
        Navmsgs.goal.target_pose.pose.orientation.w=q.w;
 
        setNavTarget_pub.publish(Navmsgs);
-       // ROS_INFO("navgation published");
+       ROS_INFO("navgation published");
 
       pub_iters=0;
      }
@@ -544,11 +558,6 @@ void Edgeleg_manager_srv::Publish_nav_target()
   pub_iters++;
 
 }
-
-
-
-
-
 
 int Edgeleg_manager_srv::globalcoord_To_SScaled_map_index(float x_pos,float y_pos)
 {
@@ -569,12 +578,10 @@ int Edgeleg_manager_srv::globalcoord_To_SScaled_map_index(float x_pos,float y_po
   cur_coord[0]= (int) (temp_x/Grid_STEP);
   cur_coord[1]= (int)(temp_y/Grid_STEP);
 
-
   int robot_pos_id=num_grid*cur_coord[1]+cur_coord[0];
   //ROS_INFO("Robot pos ID : %d \n", robot_pos_id);
 
   return robot_pos_id;
-
 }
 
 
@@ -617,14 +624,10 @@ void Edgeleg_manager_srv::publish_target()
     human_target_pub.publish(marker_human);
     // human_target_Intcmd_pub.publish(track_cmd);  
 
-
-
 }
-
 
 void Edgeleg_manager_srv::publish_filtered_target()
 {
-
     visualization_msgs::Marker marker_human;
     marker_human.header.frame_id = "/map"; 
     marker_human.header.stamp = ros::Time::now();
@@ -729,11 +732,21 @@ void Edgeleg_manager_srv::global_pose_callback(const geometry_msgs::PoseStamped:
    global_pose[1]=msg->pose.position.y;
 
    tf::StampedTransform baselinktransform;
-   listener.waitForTransform("map", "base_link", ros::Time(0), ros::Duration(2.0));
-   listener.lookupTransform("map", "base_link", ros::Time(0), baselinktransform);
-   double yaw_tf =   tf::getYaw(baselinktransform.getRotation()); 
+      while (ros::ok()){
 
-    global_pose[2]=yaw_tf;
+        try{
+        // Look up transform
+            listener.lookupTransform("map", "base_link", ros::Time(0), baselinktransform);
+            double yaw_tf =   tf::getYaw(baselinktransform.getRotation());
+            global_pose[2]=yaw_tf; 
+        }
+        //keep trying until we get the transform
+        catch (tf::TransformException ex){
+          ROS_ERROR_THROTTLE(1, "%s",ex.what());
+          ROS_WARN_THROTTLE(1,"    Waiting for transform from map to base_link frame. Trying again");
+          continue;
+        }
+  } 
 
 }
 
@@ -759,11 +772,22 @@ void Edgeleg_manager_srv::human_yolo_callback(const visualization_msgs::MarkerAr
 
       // std::cout<<"x :"<<_x<<"_y:"<<_y<<"_z:"<<_z<<std::endl;
       tf::StampedTransform maptransform;
-      listener.waitForTransform("head_rgbd_sensor_rgb_frame", "map", ros::Time(0), ros::Duration(1.0));
-              
-      gV.header.stamp = ros::Time();
-      gV.header.frame_id = "/head_rgbd_sensor_rgb_frame";
-      listener.transformVector(std::string("/map"), gV, tV);
+      while (ros::ok()){
+
+        try{
+            listener.waitForTransform("head_rgbd_sensor_rgb_frame", "map", ros::Time(0), ros::Duration(1.0));
+          gV.header.stamp = ros::Time();
+          gV.header.frame_id = "/head_rgbd_sensor_rgb_frame";
+          listener.transformVector(std::string("/map"), gV, tV);
+        }
+        //keep trying until we get the transform
+        catch (tf::TransformException ex){
+          ROS_ERROR_THROTTLE(1, "%s",ex.what());
+          ROS_WARN_THROTTLE(1,"    Waiting for transform from head_rgbd_sensor_rgb_frame to map frame. Trying again");
+          continue;
+        }
+  } 
+
               
       cur_yolo_people[i].resize(2,0.0);
       cur_yolo_people[i][0]=tV.vector.x+global_pose[0];
@@ -876,15 +900,23 @@ bool Edgeleg_manager_srv::Comparetwopoistions(std::vector<double> pos,std::vecto
 bool Edgeleg_manager_srv::followingLoop(human_filter::set_target_to_follow::Request &req, human_filter::set_target_to_follow::Response &res)
 {
 
-    publish_leg_boxes();
-    publish_cameraregion();
-    publish_target();
-    publish_filtered_target();
-    Publish_nav_target();
+     if(cur_yolo_people.size()>0)
+     {
+          leg_target.resize(2,0.0);
+          leg_target[0]=cur_yolo_people[0][0];
+          leg_target[1]=cur_yolo_people[0][1];
+          OnceTarget=true;
+          ROS_INFO("set Target");
+          std::cout<<"set target : "<<leg_target[0]<<" , "<<leg_target[1]<<std::endl;
+          // ROS_INFO("Filter : Set Target pos X : %.3lf, y : %.3lf", cur_yolo_people[0],cur_yolo_people[1]);
+       }
+    else{
 
+      std::cout<<"target is not set"<<std::endl;
+    }
 
-     res.track_target=true;
-     return res.track_target;
+    res.track_target=true;
+    return res.track_target;
 }
 
 
@@ -896,7 +928,6 @@ void Edgeleg_manager_srv::spin()
 
   while (ros::ok())
   {
-
 
     publish_leg_boxes();
     publish_cameraregion();
@@ -915,7 +946,6 @@ void Edgeleg_manager_srv::spin()
   }
 };
 
-
 // ----------
 // -- MAIN --
 // ----------
@@ -924,12 +954,32 @@ int main(int argc, char **argv)
   // Initialize ROS
   ros::init(argc, argv, "edge_lef_filter");
   ros::NodeHandle(nh);
-
   // create tracker node
   Edgeleg_manager_srv edge_filter_node(nh);
 
+   ROS_INFO("People tracking manager started.");
+   edge_filter_node.spin();
+  //  while (ros::ok())
+  // {
+  //    // ROS_INFO("I am in the loop");
+  //   edge_filter_node.publish_leg_boxes();
+  //   edge_filter_node.publish_cameraregion();
+  //   edge_filter_node.publish_target();
+  //   edge_filter_node.publish_filtered_target();
+  //   edge_filter_node.Publish_nav_target();
+  //   // ------ LOCKED ------
+  //   // boost::mutex::scoped_lock lock(filter_mutex_);
+  //   // lock.unlock();
+  //   // ------ LOCKED ------
+
+  //   // sleep
+  //   // usleep(1e6 / freq_);
+
+  //   ros::spinOnce();
+  // }
+
   // wait for filter to finish
-  edge_filter_node.spin();
+  // ros::spin();
   // Clean up
 
   return 0;

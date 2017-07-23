@@ -115,6 +115,7 @@ private:
   ros::Subscriber filter_result_sub;
   ros::Subscriber sound_cmd_sub;
   
+  ros::ServiceServer m_service;
 
   ros::Publisher Leg_boxes_pub;
   visualization_msgs::MarkerArray human_leg_boxes_array;
