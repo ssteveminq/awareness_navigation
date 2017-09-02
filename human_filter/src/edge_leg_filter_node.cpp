@@ -72,7 +72,7 @@ Edgeleg_manager::Edgeleg_manager(ros::NodeHandle nh)
   static_belief_map_pub=nh_.advertise<nav_msgs::OccupancyGrid>("/camera_region_map", 10, true);
   setNavTarget_pub=nh_.advertise<move_base_msgs::MoveBaseActionGoal>("/move_base/move/goal",50,true);
 
-  sound_cmd_sub=nh_.subscribe<visualization_msgs::MarkerArray>("/human_boxes", 10, &Edgeleg_manager::human_yolo_callback,this);
+  // sound_cmd_sub=nh_.subscribe<visualization_msgs::MarkerArray>("/human_boxes", 10, &Edgeleg_manager::human_yolo_callback,this);
   people_yolo_sub=nh_.subscribe<visualization_msgs::MarkerArray>("/human_boxes", 10, &Edgeleg_manager::human_yolo_callback,this);
   edge_leg_sub=nh_.subscribe<geometry_msgs::PoseArray>("/edge_leg_detector", 10, &Edgeleg_manager::edge_leg_callback,this);
   filter_act_sub=nh_.subscribe<std_msgs::Int8>("/filter_act_cmd", 10, &Edgeleg_manager::filter_act_callback,this);

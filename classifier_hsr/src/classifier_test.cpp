@@ -18,13 +18,10 @@
 #include "cba_msgs/CBA_NavInfo.h"
 #include <boost/thread/thread.hpp>
 
-
 using namespace Eigen;
-
 
 bool boolReceive=true;
 ELMClassifier     elmclassifier_;
-
 ELMClassifier     wow2;
 CBAManager      m_Manager;
 std_msgs::String GUI_msg;
@@ -264,12 +261,8 @@ int main(int argc, char **argv)
     // ROS_INFO("mat :  %.3lf, %.3lf,, %.3lf, ",mat[6],mat[7],mat[8]);
     /////////////////////////////////////
 
-
-
   	 ros::spinOnce();
      loop_rate.sleep();   
-
-
 
       // ros::spin();
    }

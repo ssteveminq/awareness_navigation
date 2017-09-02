@@ -38,7 +38,7 @@
 #define Grid_Num_X 24
 #define Grid_Num_Y 24
 
-#define Start_X 1 
+#define Start_X 1
 #define Start_Y 1
 //80 20
 #define Goal_X 2
@@ -100,7 +100,7 @@ class MDPManager
  	MDPManager():maxiter(Maxiteration),Action_dim(8),gamma(1),Ra(ra),publishnum(0),m_boolSolve(false){}
  	~MDPManager();
 
- 	MapParam* 	pMapParam;  
+ 	MapParam* 	pMapParam;
 
  	tf::TransformListener 	  listener;
 	vector< std::vector<int> > Points;
@@ -141,12 +141,12 @@ class MDPManager
 	std::vector<int> Goal_Coord;
 	std::vector<int> Human_Goal_Coord;
 	std::vector<int> MapCoord;
- 	
+
  	double Ra;
  	double gamma;
 	double Prob_good;
 	double Prob_bad;
- 	
+
  	int Local_X_start;
  	int Local_Y_start;
 
@@ -160,12 +160,12 @@ class MDPManager
  	srBSpline*           m_CubicSpline_x;
  	srBSpline*           m_CubicSpline_y;
 
- 
+
  	bool    m_boolSolve;
  	int     dyn_path_num;
  	double	m_desired_heading;
- 	
-	ros::NodeHandle  m_node; 	
+
+	ros::NodeHandle  m_node;
 	ros::Publisher   obsmap_Pub;
 	ros::Publisher   Scaled_static_map_pub;
 	ros::Publisher   Scaled_static_map_path_pub;
@@ -179,7 +179,7 @@ class MDPManager
 	ros::Publisher   UnitGoalVec_pub;
 	ros::Publisher   MDPSol_pub;
 	ros::Publisher   RobotHeading_pub;
-	
+
 
 	//Static_mdp
 	int  scaling=12;

@@ -1,7 +1,5 @@
 #include "MDPmanager.h"
 
-
-
 MapParam::MapParam()
 {
     map_step=Grid_STEP;
@@ -236,7 +234,6 @@ void MDPManager::Init()
 	 m_localoccupancy.resize(Grid_Num_X*Grid_Num_Y);
 	 m_dynamic_occupancy.resize(Num_Grids);
 
-
 	//Declare publisher
 	 // obsmap_Pub= m_node.advertise<std_msgs::Int32MultiArray>("MDP/costmap", 10);
 	 // Path_Pub= m_node.advertise<std_msgs::Int32MultiArray>("MDP/path", 10);
@@ -258,9 +255,9 @@ void MDPManager::Init()
 	Scaled_static_map_path.data.resize(Scaled_static_map_path.info.width*Scaled_static_map_path.info.height);
 
 
-   	Scaled_dynamic_map_path.info.width=14;
-	Scaled_dynamic_map_path.info.height= 14;
-	Scaled_dynamic_map_path.info.resolution=0.5;
+   	Scaled_dynamic_map_path.info.width=10;
+	Scaled_dynamic_map_path.info.height= 10;
+	Scaled_dynamic_map_path.info.resolution=0.75;
 	Scaled_dynamic_map_path.info.origin.position.x=CurVector[0]-DYN_OFFSET_X-0.5*Scaled_dynamic_map.info.resolution;
 	Scaled_dynamic_map_path.info.origin.position.y=CurVector[1]-DYN_OFFSET_Y-0.5*Scaled_dynamic_map.info.resolution;;
 	// Scaled_dynamic_map_path.info.origin.position.x=CurVector[0]-0.5*Scaled_dynamic_map_path.info.width*0.5;
@@ -595,22 +592,8 @@ void MDPManager::MDPsolPublish()
 
 void MDPManager::Basepos_Callback(const geometry_msgs::PointStamped::ConstPtr& msg)
 {
-
   ROS_INFO("base position msg");
-
-
-   // Map_orig_Vector[0]= msg->point.x-3.5;
-   // Map_orig_Vector[1]= msg->point.y-3.5;
-
-
-   printf("Map origin x index is %.3f, y index is %.3f \n",Map_orig_Vector[0],Map_orig_Vector[1]); 
-
-
-   // CurVector[0]= msg->point.x;
-   // CurVector[1]= msg->point.y;
-
-   //    printf("Cur base x index is %.3f, y index is %.3f \n",CurVector[0],CurVector[1]); 
-
+  printf("Map origin x index is %.3f, y index is %.3f \n",Map_orig_Vector[0],Map_orig_Vector[1]); 
 }
 
 
@@ -627,10 +610,10 @@ void MDPManager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& ms
 	double original_y=msg->info.origin.position.y;
 	double oroginal_res=0.05;					//0.05
 
-	//for static space map
-	Scaled_dynamic_map.info.width=14;
-	Scaled_dynamic_map.info.height= 14;
-	Scaled_dynamic_map.info.resolution=0.5;
+	//for dynamic map space map
+	Scaled_dynamic_map.info.width=10;
+	Scaled_dynamic_map.info.height= 10;
+	Scaled_dynamic_map.info.resolution=0.75;
 	Scaled_dynamic_map.info.origin.position.x=CurVector[0]-DYN_OFFSET_X-0.5*Scaled_dynamic_map.info.resolution;
 	Scaled_dynamic_map.info.origin.position.y=CurVector[1]-DYN_OFFSET_Y-0.5*Scaled_dynamic_map.info.resolution;
 	// Scaled_dynamic_map.info.origin.position.x=CurVector[0]-0.5*Scaled_dynamic_map.info.width*0.5;
@@ -638,9 +621,9 @@ void MDPManager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& ms
 	Scaled_dynamic_map.data.resize(Scaled_dynamic_map.info.width*Scaled_dynamic_map.info.height);
 
 
-	Scaled_dynamic_map_path.info.width=14;
-	Scaled_dynamic_map_path.info.height= 14;
-	Scaled_dynamic_map_path.info.resolution=0.5;
+	Scaled_dynamic_map_path.info.width=10;
+	Scaled_dynamic_map_path.info.height= 10;
+	Scaled_dynamic_map_path.info.resolution=0.75;
 	Scaled_dynamic_map_path.info.origin.position.x=CurVector[0]-DYN_OFFSET_X-0.5*Scaled_dynamic_map.info.resolution;
 	Scaled_dynamic_map_path.info.origin.position.y=CurVector[1]-DYN_OFFSET_Y-0.5*Scaled_dynamic_map.info.resolution;
 
@@ -688,7 +671,7 @@ void MDPManager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& ms
 				 	numcount++;
    			}
 
-   			if(numcount>70)
+   			if(numcount>40)
    				scaled_result=50;
    			else
    				scaled_result=0;
@@ -710,18 +693,13 @@ void MDPManager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& ms
    		Scaled_dynamic_map.data[Coord2CellNum(HumansurroundingCoord)]=0.0;
    	 }
 
-
-
      //find index from
 	 Scaled_dynamic_map.header.stamp =  ros::Time::now();
 	 Scaled_dynamic_map.header.frame_id = "map"; 
      Scaled_dynamic_map_pub.publish(Scaled_dynamic_map);
 
-
     for(int i(0);i<m_dynamic_occupancy.size();i++)
     	m_dynamic_occupancy[i]=Scaled_dynamic_map.data[i];
-
-
 
 }
 
