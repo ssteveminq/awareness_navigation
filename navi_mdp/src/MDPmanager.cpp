@@ -1,102 +1,5 @@
 #include "MDPmanager.h"
 
-MapParam::MapParam()
-{
-    map_step=Grid_STEP;
-   	m_cell_x_width=0.0;
-	m_cell_y_width=0.0;
-	Num_grid_X=Grid_Num_X;
-	Num_grid_Y=Grid_Num_Y;
-	MapSize=Grid_Num_X*Grid_Num_Y;
-	Cell_Info.resize(MapSize, 0);
-	OCC_Info.resize(MapSize, 0);
-	boolDynamic=false;
-}
-
-MapParam::MapParam(int width_,int height_,double res_)
-{
-	setWidth(width_);
-	setHeight(height_);
-	setResolution(res_);
-
-	m_cell_x_width=0.0;
-	m_cell_y_width=0.0;
-	MapSize=width_*height_;
-	Cell_Info.resize(MapSize, 0);
-	OCC_Info.resize(MapSize, 0);
-	boolDynamic=true;
-}
-
-MapParam::~MapParam()
-{
-
-}
-void MapParam::setWidth (int Width_)
-{
-	Num_grid_X=Width_;
-}
-
-void MapParam::setHeight(int height_)
-{
-	Num_grid_Y=height_;
-}
-
-void MapParam::setResolution(double res_)
-{
-	map_step=res_;
-}
-
-void MapParam::set_Cell_Info(vector<int> _inputCellInfo)
-{
-	Cell_Info.resize(_inputCellInfo.size());
-	
-	for(int i(0);i<_inputCellInfo.size();i++)
-		Cell_Info[i]=_inputCellInfo[i];
-
-}
-
-void MapParam::set_State_Type(vector<int> _State_Type)
-{
-	for(int i(0);i<_State_Type.size();i++)
-	State_Type[i]=_State_Type[i];
-
-}
-
-void MapParam::set_State_Distance(vector<float> _State_Distance)
-{
-	for(int i(0);i<_State_Distance.size();i++)
-	State_Distance[i]=_State_Distance[i];
-
-}
-void MapParam::set_NearestHuman_V(vector<float> _NearestHuman_V)
-{
-		for(int i(0);i<_NearestHuman_V.size();i++)
-	NearestHuman_V[i]=_NearestHuman_V[i];
-
-}
-
-void MapParam::set_RobotHeading_V(vector<float> _RobotHeading_V)
-{
-		for(int i(0);i<_RobotHeading_V.size();i++)
-	RobotHeading_V[i]=_RobotHeading_V[i];
-}
-
-void MapParam::set_OCC_Info(vector<int> _inputOCCInfo)
-{
-
-	OCC_Info.resize(_inputOCCInfo.size());
-	
-	for(int i(0);i<_inputOCCInfo.size();i++)
-		OCC_Info[i]=_inputOCCInfo[i];
-}
-
-void MapParam::set_Robot_Info(vector<int> _inputRobotInfo)
-{
-	Robot_localpos.resize(_inputRobotInfo.size());
-	for(int i(0);i<_inputRobotInfo.size();i++)
-		Robot_localpos[i]=_inputRobotInfo[i];
-}
-
 
 MDPManager::MDPManager(MapParam* _pMapParam):maxiter(Maxiteration),Action_dim(8),gamma(1),Ra(ra),publishnum(0),ReceiveData(0),m_boolSolve(false),dyn_path_num(0)
 {
@@ -120,24 +23,6 @@ MDPManager::~MDPManager()
 		pMapParam=NULL;
 	}
 }
-
-//Callback function for map
-// void MDPManager::local_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)
-// {
-//    //  ROS_INFO("int msg");
-//    // // ROS_INFO("Cur costmap cmd :%d ",msg->data);
-//    //  std::cout<<"Receive localmap"<<std::endl;
-//    m_localoccupancy.resize(msg->data.size());
-
-//    for(int i(0);i<msg->data.size();i++){
-//         m_localoccupancy[i]=(msg->data)[i];
-//    }
-
-//    ReceiveData++;
-//    updateMap();
-
-//    return;
-// }
 
 void MDPManager::base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg)
 {
@@ -590,6 +475,167 @@ void MDPManager::MDPsolPublish()
 
 }
 
+bool MDPManager::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)
+{
+  //return true if there are in criterion distance 
+  double temp_dist=0.0;
+  for(int i(0);i<2;i++) 
+  {
+    temp_dist+=pow((pos[i]-pos2[i]),2);
+  }
+
+  temp_dist=sqrt(temp_dist);
+
+  if(temp_dist<criterion)
+    return true;
+  
+   return false;
+
+}
+
+
+void MDPManager::human_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg)
+{
+
+  int num_leg_detected = msg->poses.size(); 
+  std::vector<double> tempVec(2,0.0);
+  // Cur_leg_human.clear();
+  
+  // for(int i(0);i<num_leg_detected;i++)
+  //     {
+  //     	//transform frame from base_ranger_sensor_link to global map frame
+  //        geometry_msgs::Vector3Stamped gV, tV;
+  //        gV.vector.x = msg->poses[i].position.x;
+  //        gV.vector.y = msg->poses[i].position.y;
+  //        gV.vector.z = 1.0;
+  //        gV.header.stamp = ros::Time();
+  //        gV.header.frame_id = "/base_range_sensor_link";
+  //        listener.transformVector("/map", gV, tV);
+
+  //        tempVec[0]=tV.vector.x+global_pose[0];
+  //        tempVec[1]=tV.vector.y+global_pose[1];
+
+  //        if(check_staticObs(tempVec[0],tempVec[1]))
+  //          continue;
+
+  //        if(!check_cameraregion(tempVec[0],tempVec[1]))
+  //          continue;
+
+  //        // std::cout<<"here 1"<<std::endl;
+  //        //distance check between two candidates!
+  //       bool IsFarEnough = true;
+  //       bool IsNearfromRobot= false;
+  //       for(int j(0);j<Cur_leg_human.size();j++)
+  //          {
+	 //          if(Comparetwopoistions(tempVec,Cur_leg_human[j],0.65))
+	 //            IsFarEnough=false;
+	 //        }
+              
+  //       if(Comparetwopoistions(global_pose,tempVec,LASER_Dist_person))
+  //          IsNearfromRobot=true;
+	 //          // std::cout<<"here 2"<<std::endl;
+  //         //add only if candidate pose ins far from 0.75 from previous candidates
+  //       if(IsFarEnough && IsNearfromRobot)
+  //       { 
+  //          Cur_leg_human.push_back(tempVec);
+  //       }
+        
+  //     }
+
+
+  //     // std::cout<<"here 3"<<std::endl;
+  //     if(Cur_leg_human.size()>0)
+  //   {
+  //       int NearestLegIdx=FindNearesetLegIdx();
+          
+  //       std::vector<double> temp_leg_target(2,0.0); 
+  //       temp_leg_target[0]=Cur_leg_human[NearestLegIdx][0];
+  //       temp_leg_target[1]=Cur_leg_human[NearestLegIdx][1];
+
+  //       if(Comparetwopoistions(temp_leg_target,leg_target,1.0))
+  //       {
+  //           // std::cout<<"update target - person is in a range"<<std::endl;
+  //           leg_target[0]=temp_leg_target[0];
+  //           leg_target[1]=temp_leg_target[1];
+  //       }
+
+        
+  //       people_msgs::PositionMeasurement pos;
+  //       pos.header.stamp = ros::Time();
+  //       pos.header.frame_id = "/map";
+  //       pos.name = "leg_laser";
+  //       pos.object_id ="person 0";
+  //       pos.pos.x = leg_target[0];
+  //       pos.pos.y = leg_target[1];
+  //       pos.pos.z = 1.0;
+  //       pos.reliability = 0.85;
+  //       pos.covariance[0] = pow(0.01 / pos.reliability, 2.0);
+  //       pos.covariance[1] = 0.0;
+  //       pos.covariance[2] = 0.0;
+  //       pos.covariance[3] = 0.0;
+  //       pos.covariance[4] = pow(0.01 / pos.reliability, 2.0);
+  //       pos.covariance[5] = 0.0;
+  //       pos.covariance[6] = 0.0;
+  //       pos.covariance[7] = 0.0;
+  //       pos.covariance[8] = 10000.0;
+  //       pos.initialization = 0;
+      
+  //       people_measurement_pub_.publish(pos);
+  //   }
+
+}
+
+
+void MDPManager::Human_Yolo_Callback(const visualization_msgs::MarkerArray::ConstPtr& msg)
+{
+ 	std::vector<double> tempVec(2,0.0);
+    int num_of_detected_human_yolo=msg->markers.size();
+    bool IsNearfromRobot_yolo =false;
+    geometry_msgs::Vector3Stamped gV, tV;
+        
+    if(num_of_detected_human_yolo>0)
+       cur_yolo_people.resize(num_of_detected_human_yolo);
+    else
+    {
+      return;
+    }
+
+    for(int i(0);i<num_of_detected_human_yolo;i++)
+    {
+      IsNearfromRobot_yolo =false;
+
+      gV.vector.x = msg->markers[i].pose.position.x;
+      gV.vector.y = msg->markers[i].pose.position.y;
+      gV.vector.z = msg->markers[i].pose.position.z;
+
+      // std::cout<<"x :"<<_x<<"_y:"<<_y<<"_z:"<<_z<<std::endl;
+      tf::StampedTransform maptransform;
+      listener.waitForTransform("head_rgbd_sensor_rgb_frame", "map", ros::Time(0), ros::Duration(1.0));
+              
+      gV.header.stamp = ros::Time();
+      gV.header.frame_id = "/head_rgbd_sensor_rgb_frame";
+      listener.transformVector(std::string("/map"), gV, tV);
+
+      tempVec[0]=tV.vector.x+global_pose[0];
+      tempVec[1]=tV.vector.x+global_pose[1];
+
+      if(Comparetwopoistions(global_pose,tempVec,YOLO_range_person))
+         IsNearfromRobot_yolo=true;
+
+      if(IsNearfromRobot_yolo)
+      {       
+        cur_yolo_people.push_back(tempVec);
+      }
+
+   }
+
+   //current yolo_people are saved to cur_yolo_people
+}
+
+
+
+
+
 void MDPManager::Basepos_Callback(const geometry_msgs::PointStamped::ConstPtr& msg)
 {
   ROS_INFO("base position msg");
@@ -679,6 +725,9 @@ void MDPManager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& ms
    			Scaled_dynamic_map.data[map_idx]=scaled_result;
    	}
 
+   // insert human occupied cell
+   //std::vector<int> HumanMa
+
    	//remove human occupied cell
    	std::vector<int> HumansurroundingCoord(2,0);
 
@@ -707,8 +756,6 @@ void MDPManager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& ms
 void MDPManager::static_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)
 {
 	// ROS_INFO("staticmap callback start");
-
-
 
 	double small_pos_x, small_pos_y=0.0;
 	double dist_x,dist_y=0.0;

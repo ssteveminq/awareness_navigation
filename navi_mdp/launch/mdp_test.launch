@@ -1,25 +1,42 @@
 <launch>
-   <node name="feature_grid_node" pkg="grid_hsr" type="feature_grid" respawn="false" output="screen"/>
-
-   <node name="mdp_node" pkg="navi_mdp" type="mdpplanner" respawn="false" output="screen"/>
-
-   <node name="classifier_hsr_node" pkg="classifier_hsr" type="hsr_classifier_test" respawn="false" output="screen"/>
-
-  <!--  <node name="human_box_node" pkg="grid_hsr" type="human_box_node" respawn="false" output="screen"/> -->
-
-	<!-- <node name="dyn_mdp_node" pkg="navi_mdp" type="dynamic_planner" respawn="false" output="screen"/>  -->
-  <!--  <node pkg="grid_map_demos" type="navigation_map" name="grid_map_navigation_map" output="screen" />
+ 	
   
-  <node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization" output="screen">
-    <rosparam command="load" file="$(find navi_mdp)/config/navigation_map.yaml" />
-   </node> -->
+  <arg name="laser_scan" default="hsrb/base_scan" />
+  <arg name="machine" default="localhost" />
+  <arg name="user" default="" />
 
-<!--  <node pkg="local_map" type="local_map" name="local_map_navigation_map" output="screen">
- </node> -->
+    <machine name="$(arg machine)" address="$(arg machine)" env-loader="$(optenv ROS_ENV_LOADER )" user="$(arg user)" default="true"/>
+    
+    <node pkg="edge_leg_detector" type="detector" name="edge_leg_detector" output="screen">
+        <param name="laser_scan" value="$(arg laser_scan)" type="string"/>
+    </node>
 
- 
-<arg name="gui" default="flase" />
- <param name="use_gui" value="$(arg gui)"/>
-  <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find navi_mdp)/launch/hsr_rviz.rviz" /> -->
+ <!-- Speech recognition -->
+    <param name="kalman_tracker/fixed_frame" type="string" value="map"/>
+    <param name="kalman_tracker/freq" value="10.0"/>
+    <param name="kalman_tracker/start_distance_min" value="0.25"/>
+    <param name="kalman_tracker/reliability_threshold" value="0.65"/>
+    <param name="kalman_tracker/follow_one_person" type="bool" value="false"/>
+
+    <!-- Kalman with velocity model covariances -->
+    <param name="kalman_tracker/sys_sigma_pos_x" value="1.5"/>
+    <param name="kalman_tracker/sys_sigma_pos_y" value="1.5"/>
+    <param name="kalman_tracker/sys_sigma_pos_z" value="1.3"/>
+    <param name="kalman_tracker/sys_sigma_vel_x" value="2.3"/>
+    <param name="kalman_tracker/sys_sigma_vel_y" value="2.3"/>
+    <param name="kalman_tracker/sys_sigma_vel_z" value="2.3"/>
+
+   <!--  <node pkg="human_filter" type="kalman_tracker" name="people_tracking_filter_node" output="screen"/> -->
+    <node name="dyn_mdp_node" pkg="navi_mdp" type="dynamic_planner" respawn="false" output="screen"/> 
+    <node pkg="villa_3d_object_extract" type="human_tmc_cluster_based_yolo_3D_extractor" name="villa_3d_humanbox_extract" output="screen"/>
+    <node pkg="villa_manipulation" type="gazed_point_fixing_node" name="fixed_gazed_point_node" output="screen"/>
+    <node pkg="human_filter" type="kalman_tracker" name="people_tracking_filter_node" output="screen"/>
+
+    <arg name="gui" default="flase" />
+    <param name="use_gui" value="$(arg gui)"/>
+  
 
 </launch>
+
+
+    

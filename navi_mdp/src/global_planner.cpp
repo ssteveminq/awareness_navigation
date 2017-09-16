@@ -14,7 +14,7 @@
 using namespace Eigen;
 
 bool boolSolve=false;
-MapParam   mapParam;
+
 static int  Receive_count=0;
 int x_size=Grid_Num_X;
 int y_size=Grid_Num_Y;
@@ -29,7 +29,8 @@ int main(int argc, char **argv)
   MDPManager problemmanager; 
   
   //problemmanager.setRosObj(&nodeObj);
-   problemmanager.setPMapParam(&mapParam);
+  MapParam   mapParam;
+  problemmanager.setPMapParam(&mapParam);
 
   // ros::Rate r(5);
   ros::Subscriber Point_sub;          //subscriber clicked point

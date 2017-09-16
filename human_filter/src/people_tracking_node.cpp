@@ -91,7 +91,6 @@ PeopleTrackingNode::PeopleTrackingNode(ros::NodeHandle nh)
   people_filter_vis_pub_ = nh_.advertise<sensor_msgs::PointCloud>("people_tracker_filter_visualization", 10);
   people_tracker_vis_pub_ = nh_.advertise<sensor_msgs::PointCloud>("people_tracker_measurements_visualization", 10);
 
-
   // register message sequencer
   people_meas_sub_ = nh_.subscribe("people_tracker_measurements", 1, &PeopleTrackingNode::callbackRcv, this);
   // edge_leg_sub=n.subscribe<geometry_msgs::PoseArray>("/edge_leg_detector", 10, &PeopleTrackingNode::edge_leg_callback,this);
@@ -244,8 +243,6 @@ void PeopleTrackingNode::callbackDrop(const people_msgs::PositionMeasurement::Co
 }
 
 
-
-
 // filter loop
 void PeopleTrackingNode::spin()
 {
@@ -296,8 +293,6 @@ void PeopleTrackingNode::spin()
     }
     lock.unlock();
     // ------ LOCKED ------
-
-
     // visualize all trackers
     channel.name = "rgb";
     channel.values = weights;
@@ -309,7 +304,6 @@ void PeopleTrackingNode::spin()
 
     // sleep
     usleep(1e6 / freq_);
-
     ros::spinOnce();
   }
 };

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(navi_mdp)	
 
-SET(SOURCES src/MDPmanager.cpp src/srBSpline.cpp)
+SET(SOURCES src/MDPmanager.cpp src/Dynamic_Manager.cpp src/srBSpline.cpp src/MapParam.cpp)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   sensor_msgs
   trajectory_msgs
+  people_msgs
   control_msgs
   message_generation
   std_msgs
@@ -33,8 +34,9 @@ catkin_package(
   	roscpp
   	geometry_msgs
   	sensor_msgs
+    people_msgs
   	message_runtime
-        eigen
+    eigen
     tf
  )
 

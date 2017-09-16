@@ -69,7 +69,8 @@ public:
   int globalcoord_To_SScaled_map_index(float x_pos,float y_pos);
   bool getlinevalue(int line_type,double input_x, double input_y);
 
-  int CoordinateTransform_Global2_staticMap(float global_x, float global_y);
+  int  CoordinateTransform_Global2_staticMap(float global_x, float global_y);
+  
 
   bool check_cameraregion(float x_pos,float y_pos);
   int FindNearesetLegIdx();

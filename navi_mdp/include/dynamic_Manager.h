@@ -2,11 +2,11 @@
 #include <fstream>
 #include <string>
 #include <map>
-#include "MapParam.h"
 #include <stdint.h>
 #include "ros/ros.h"
 #include <ros/package.h>
 #include <Eigen/Dense>
+#include <MapParam.h>
 #include "std_msgs/MultiArrayLayout.h"
 #include "std_msgs/MultiArrayDimension.h"
 #include "std_msgs/Int32MultiArray.h"
@@ -36,7 +36,9 @@
 #define Dy_OBS_CELL 1
 #define Human_CELL 3
 
-
+#define Grid_STEP 0.5
+#define Grid_Num_X 24
+#define Grid_Num_Y 24
 
 #define Start_X 1
 #define Start_Y 1
@@ -60,12 +62,12 @@ using namespace Eigen;
 using namespace std;
 
 
-class MDPManager
+class Dynamic_Manager
 {
  public:
- 	MDPManager(MapParam* _pMapParam);
- 	MDPManager():maxiter(Maxiteration),Action_dim(8),gamma(1),Ra(ra),publishnum(0),m_boolSolve(false){}
- 	~MDPManager();
+ 	Dynamic_Manager(MapParam* _pMapParam);
+ 	Dynamic_Manager():maxiter(Maxiteration),Action_dim(8),gamma(1),Ra(ra),publishnum(0),m_boolSolve(false){}
+ 	~Dynamic_Manager();
 
  	MapParam* 	pMapParam;
 
@@ -99,7 +101,11 @@ class MDPManager
  	int               human_callback_count;
  	int  			  num_of_detected_human_yolo;
 
+
+
  	//human sets
+
+
  	std::vector< std::vector< double > > Cur_leg_human;
     std::vector< std::vector< double > > cur_yolo_people;
 
@@ -217,10 +223,6 @@ class MDPManager
 	void 			publishZeropaths();
 	void 			global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg);
 	bool 			Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2,double criterion);
+	
 };
-
-
-
-
-
 
