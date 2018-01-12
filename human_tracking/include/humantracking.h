@@ -31,7 +31,7 @@
 #include <pcl_ros/point_cloud.h>
 #include <pcl/point_types.h>
 #include <pcl/kdtree/kdtree.h>
-#include <human_tracking/peoplefinder.h>
+// #include <human_tracking/peoplefinder.h>
 #include <keyboard/Key.h>
 
 
@@ -169,7 +169,7 @@ public:
 	void setViewpointTarget(const std::vector<double> pos);
 	
 	bool IsTargetMoved(const std::vector<double> possible_target_pos, float criterion);
-	bool FindHuman(human_tracking::peoplefinder::Request &req, human_tracking::peoplefinder::Response &res);
+	// bool FindHuman(human_tracking::peoplefinder::Request &req, human_tracking::peoplefinder::Response &res);
 
 	void scanforhuman(const ros::TimerEvent& event);
 	int ConvertAngle2LaserIdx(double angle_rad);

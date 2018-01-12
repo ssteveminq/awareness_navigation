@@ -34,7 +34,7 @@ public:
 	Coord goal_pos;
 	std::vector<bool> Goal; // bit vector
 	std::vector<int> eyecontact;
-	int power_steps;
+	//int power_steps;
 	
 
 
@@ -87,6 +87,7 @@ public:
 	ros::Publisher	 Stateid_pub; 	
     ros::Subscriber  StateVec_Sub;
     std_msgs::Int32  action_cmd;
+    std_msgs::Float32MultiArray featureVector;
     // ros::Publisher  Robotcmd_Pub;
 
 	bool ReachGoal;

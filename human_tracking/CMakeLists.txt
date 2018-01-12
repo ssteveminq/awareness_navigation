@@ -3,6 +3,12 @@ project(human_tracking)
 
 SET(SOURCES src/humantracking.cpp src/human_scan.cpp)
 
+find_path(EIGEN3_INCLUDE_DIR NAMES signature_of_eigen3_matrix_library
+    PATHS
+    ${CMAKE_INSTALL_PREFIX}/include
+    ${KDE4_INCLUDE_DIR}
+    PATH_SUFFIXES eigen3 eigen
+ )
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
@@ -18,7 +24,15 @@ find_package(catkin REQUIRED COMPONENTS
   pcl_conversions
 )
 
-find_package(Eigen3 REQUIRED)
+
+find_package(Eigen3 QUIET)
+if(NOT EIGEN3_FOUND)
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(EIGEN3 REQUIRED eigen3)
+    set(EIGEN3_INCLUDE_DIR ${EIGEN3_INCLUDE_DIRS})
+endif()
+
+#find_package(Eigen3 REQUIRED)
 find_package(PCL 1.7 REQUIRED)
 
 add_service_files(

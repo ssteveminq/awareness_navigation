@@ -290,7 +290,7 @@ public:
 NavigationState::NavigationState(){
 	// Coord robot_pos;
 	stepSize =1;	
-	power_steps=15;		//velocity
+	//power_steps=15;		//velocity
 		
 }
 
@@ -325,42 +325,6 @@ Navigation::Navigation(int xsize, int ysize):localmap( xsize, ysize), num_peds_(
 
 
 }
-
-// std::string currentDateToString(){
-//    time_t now = time(0);
-//     tm *ltm = localtime(&now);
-
-//     string dateString = "", tmp = "";
-//     tmp = numToString(ltm->tm_mday);
-//     if (tmp.length() == 1)
-//         tmp.insert(0, "0");
-//     dateString += tmp;
-//     dateString += "-";
-//     tmp = numToString(1 + ltm->tm_mon);
-//     if (tmp.length() == 1)
-//         tmp.insert(0, "0");
-//     dateString += tmp;
-//     dateString += "-";
-//     tmp = numToString(1900 + ltm->tm_year);
-//     dateString += tmp;
-//     dateString += " ";
-//     tmp = numToString(ltm->tm_hour);
-//     if (tmp.length() == 1)
-//         tmp.insert(0, "0");
-//     dateString += tmp;
-//     dateString += ":";
-//     tmp = numToString(1 + ltm->tm_min);
-//     if (tmp.length() == 1)
-//         tmp.insert(0, "0");
-//     dateString += tmp;
-//     dateString += ":";
-//     tmp = numToString(1 + ltm->tm_sec);
-//     if (tmp.length() == 1)
-//         tmp.insert(0, "0");
-//     dateString += tmp;
-
-//     return dateString;
-// }
 
 
 
@@ -516,7 +480,6 @@ void Navigation::Init() {
 bool Navigation::Step(State& s, double random_num, int action, double& reward,
 	OBS_TYPE& obs) const {
 		
-
 	if(random_num==-100.0)
 	{
 		// StepReal(s,random_num,action,reward,obs);
@@ -745,7 +708,7 @@ State* Navigation::CreateStartState(string type) const {
 		startState->eyecontact[p]=0;
 	}
 
-	startState->power_steps=0;
+	//startState->power_steps=0;
 	startState->Goal.resize(localmap.xsize()*localmap.ysize());
 
 	for (int x = 0; x < localmap.xsize(); x++) {

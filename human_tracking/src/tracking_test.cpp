@@ -77,7 +77,7 @@ int main(int argc, char **argv)
   Human_markerarray_sub = n.subscribe<visualization_msgs::MarkerArray>("/human_boxes", 10, &Human_Belief::Human_MarkerarrayCallback,&Human_tracker);
   ros::Timer timer = n.createTimer(ros::Duration(5.0), &Human_Belief::scanforhuman, &Human_tracker);
 
-  ros::ServiceServer service = n.advertiseService("/human_finder",  &Human_Belief::FindHuman,&Human_tracker);
+  //ros::ServiceServer service = n.advertiseService("/human_finder",  &Human_Belief::FindHuman,&Human_tracker);
 
   ros::Rate loop_rate(50);
 

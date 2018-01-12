@@ -17,16 +17,16 @@ Human_Belief::Human_Belief(int numofhuman)
 	}
 }
 
-bool Human_Belief::FindHuman(human_tracking::peoplefinder::Request &req, human_tracking::peoplefinder::Response &res)
-{
+// bool Human_Belief::FindHuman(human_tracking::peoplefinder::Request &req, human_tracking::peoplefinder::Response &res)
+// {
 
-	geometry_msgs::PoseArray people_posearrays;
-	res.People_array=people_posearrays;
-	res.IsHuman=true;
+// 	geometry_msgs::PoseArray people_posearrays;
+// 	res.People_array=people_posearrays;
+// 	res.IsHuman=true;
 
-	return res.IsHuman;
+// 	return res.IsHuman;
 
-}
+// }
 
 
 bool Human_Belief::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2)

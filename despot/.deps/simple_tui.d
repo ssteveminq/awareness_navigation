@@ -74,4 +74,10 @@ build/simple_tui.o .deps/simple_tui.d: src/simple_tui.cpp include/despot/simple_
  /opt/ros/indigo/include/ros/node_handle.h \
  /opt/ros/indigo/include/ros/package.h \
  /opt/ros/indigo/include/std_msgs/Int32.h \
- /opt/ros/indigo/include/ros/message_operations.h
+ /opt/ros/indigo/include/ros/message_operations.h \
+ /opt/ros/indigo/include/nav_msgs/OccupancyGrid.h \
+ /opt/ros/indigo/include/std_msgs/Header.h \
+ /opt/ros/indigo/include/nav_msgs/MapMetaData.h \
+ /opt/ros/indigo/include/geometry_msgs/Pose.h \
+ /opt/ros/indigo/include/geometry_msgs/Point.h \
+ /opt/ros/indigo/include/geometry_msgs/Quaternion.h

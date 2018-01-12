@@ -3276,6 +3276,7 @@ face_detect_timer	human_tracking/include/human_scan.h	/^	ros::Timer face_detect_
 face_detected_name_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::face_detected_name_callback(const std_msgs::String::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
 facedetect_target	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::facedetect_target(const ros::TimerEvent& event)$/;"	f	class:Human_Belief_Scan
 fd	despot/include/despot/util/optionparser.h	/^		int fd;$/;"	m	struct:despot::option::PrintUsageImplementation::SyscallWriter
+featureVector	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^    std_msgs::Float32MultiArray featureVector;$/;"	m	class:despot::Navigation
 feedback_	human_filter/include/people_tracking_filter/followme_action.h	/^  human_filter::FollowMe feedback_;$/;"	m	class:Edgeleg_manager_action
 file_name_	despot/include/despot/pomdpx/parser/parser.h	/^  std::string file_name_;$/;"	m	class:despot::Parser
 filter_	human_filter/include/people_tracking_filter/detector_particle.h	/^  BFL::BootstrapFilter<tf::Vector3, tf::Vector3>* filter_;$/;"	m	class:estimation::DetectorParticle
@@ -4179,7 +4180,6 @@ position	despot/src/random_streams.cpp	/^void RandomStreams::position(int value)
 position_	despot/include/despot/random_streams.h	/^	mutable int position_;$/;"	m	class:despot::RandomStreams
 power_num_steps_	despot/examples/cpp_models/pocman/src/pocman.h	/^	int power_num_steps_;$/;"	m	class:despot::Pocman
 power_steps	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^	int power_steps;$/;"	m	class:despot::NavigationState
-power_steps	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^	int power_steps;$/;"	m	class:despot::NavigationState
 power_steps	despot/examples/cpp_models/pocman/src/pocman.h	/^	int power_steps;$/;"	m	class:despot::PocmanState
 pre_idx	navi_mdp/include/PathManager.h	/^	int pre_idx;$/;"	m	class:PathManager
 preferred_	despot/examples/cpp_models/localnavigation/src/localnavigation.cpp	/^	mutable vector<int> preferred_;$/;"	m	class:despot::LocalnaviSmartPolicy	file:
