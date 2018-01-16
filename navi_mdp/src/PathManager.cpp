@@ -32,8 +32,9 @@ PathManager::PathManager()
 	viewTarget_visual_pub = m_node.advertise<visualization_msgs::Marker>("viewTarget_marker",30, true);
 	Gaze_point_pub= m_node.advertise<geometry_msgs::Point>("/gazed_point_fixing_node/target_point", 50, true);
 	Gaze_activate_pub= m_node.advertise<std_msgs::Bool>("/gazed_point_fixing_node/activate", 50, true);
-    nav_cmd_pub=m_node.advertise<std_msgs::Int8>("/nav_cmd_int", 50, true);
-    head_cmd_pub=m_node.advertise<std_msgs::Int8>("head_cmd_int",50,true);
+  nav_cmd_pub=m_node.advertise<std_msgs::Int8>("/nav_cmd_int", 50, true);
+  head_cmd_pub=m_node.advertise<std_msgs::Int8>("head_cmd_int",50,true);
+  nav_client=m_node.serviceClient<villa_navi_service::GoTargetPos>("navi_go_base");
         
 }
 
@@ -60,8 +61,52 @@ void PathManager::global_pose_callback(const geometry_msgs::PoseStamped::ConstPt
    // std::cout<<"global x: "<<global_pose[0]<<",global y :" <<global_pose[1]<<std::endl;
 
    
-    
 }
+
+
+void PathManager::pomdp_cmd_callback(const std_msgs::Int8::ConstPtr& msg)
+{
+  
+  int cmd=msg->data;
+
+  int cur_path_idx=0;
+
+  if(cmd==1){
+
+    cur_path_idx=findpathidx()+1;
+    std::cout<<"cur path idx :" <<cur_path_idx<<", cur action cmd : "<<cmd<<std::endl;   
+    
+    double target_x=Recived_path[cur_path_idx][0];
+    double target_y=Recived_path[cur_path_idx][1];
+    double target_theta=0.1;
+
+    std::cout<<"target_x :" <<target_x<<", target_y  : "<<target_y<<std::endl;  
+
+    villa_navi_service::GoTargetPos nav_srv;
+    nav_srv.request.x_from_map =target_x;
+    nav_srv.request.y_from_map =target_y;
+    nav_srv.request.theta_from_map =target_theta;
+
+    if(nav_client.call(nav_srv))
+    {
+      ROS_INFO("nav_service succeed ");
+    }
+    else
+    {
+      ROS_INFO("nav_service failed"); 
+    }
+
+  }
+  else{
+
+
+    cout<<"Stop & Re-plan"<<endl;
+  }
+  // std::cout<<"global x: "<<global_pose[0]<<",global y :" <<global_pose[1]<<std::endl;
+  
+}
+
+
 
 
 void PathManager::setPath(const nav_msgs::Path::ConstPtr& msg)
@@ -82,8 +127,7 @@ void PathManager::setPath(const nav_msgs::Path::ConstPtr& msg)
     // origin_to_robot.position.y = transform_stamped.transform.translation.y;
     // origin_to_robot.orientation = transform_stamped.transform.rotation;
 
-    // std::cout<<"x: "<<origin_to_robot.position.x<<", y :" <<origin_to_robot.position.y<<std::endl;
-
+  // std::cout<<"x: "<<origin_to_robot.position.x<<", y :" <<origin_to_robot.position.y<<std::endl;
   std::cout<<"set path"<<std::endl;
   pathSize=msg->poses.size();
   // pathSize=1;
@@ -101,7 +145,7 @@ void PathManager::setPath(const nav_msgs::Path::ConstPtr& msg)
 	    if(k==pathSize-1)
 	    {
 	    	finalTarget[0] = msg->poses[k].pose.position.x;
-	 		finalTarget[1] = msg->poses[k].pose.position.y;
+	 		 finalTarget[1] = msg->poses[k].pose.position.y;
 	    }
 
 
@@ -279,11 +323,11 @@ void PathManager::setViewpointTarget(const std::vector<double> pos)
 		 
 		 //    geometry_msgs::TransformStamped transform_stamped;
 		        tf::StampedTransform baselinktransform;
-    			listener.waitForTransform("map", "base_range_sensor_link", ros::Time(0), ros::Duration(2.0));
+    			  listener.waitForTransform("map", "base_range_sensor_link", ros::Time(0), ros::Duration(2.0));
                 //listener.lookupTransform("map", "base_range_sensor_link", ros::Time(0), baselinktransform);
 
-    		     gV.header.stamp = ros::Time();
-		         gV.header.frame_id = "/map";
+    		    gV.header.stamp = ros::Time();
+		        gV.header.frame_id = "/map";
 	    	    listener.transformVector("/base_range_sensor_link", gV, tV);
 
 		        std::vector<double> tempVec(3,0.0);
@@ -336,12 +380,12 @@ void PathManager::setNavTarget()
 	if(cur_idx==half_pathsize){
 		
 	 
-	  move_base_msgs::MoveBaseActionGoal Navmsgs;
+	    move_base_msgs::MoveBaseActionGoal Navmsgs;
       Navmsgs.header.stamp =  ros::Time::now();
       ROS_INFO("time");
       std::cout<<Navmsgs.header.stamp <<std::endl;
       Navmsgs.goal.target_pose.header.frame_id = "map";
-		Navmsgs.goal.target_pose.pose.position.x=8.2;
+  		Navmsgs.goal.target_pose.pose.position.x=8.2;
      	Navmsgs.goal.target_pose.pose.position.y=0.5;
      	Navmsgs.goal.target_pose.pose.position.z=0.5;
 
@@ -471,42 +515,40 @@ void PathManager::setDynNavTarget()
 			find_cur_idx = finddynpathidx();
 			printf("cur found idx is %d",find_cur_idx);
 
-	
 		}
 	else
 		find_cur_idx=0;
 
 	// if(cur_idx==pathSize-1)
-	
 
-      printf("cur idx is %d",dyn_cur_idx);
-	  move_base_msgs::MoveBaseActionGoal Navmsgs;
-      Navmsgs.header.stamp =  ros::Time::now();
+     printf("cur idx is %d",dyn_cur_idx);
+	   move_base_msgs::MoveBaseActionGoal Navmsgs;
+     Navmsgs.header.stamp =  ros::Time::now();
      
-      ROS_INFO("time");
-      std::cout<<Navmsgs.header.stamp <<std::endl;
-      Navmsgs.goal.target_pose.header.frame_id = "map";
+     ROS_INFO("time");
+     std::cout<<Navmsgs.header.stamp <<std::endl;
+     Navmsgs.goal.target_pose.header.frame_id = "map";
 
      Navmsgs.goal.target_pose.pose.position.x=dyn_x_[dyn_cur_idx];
      Navmsgs.goal.target_pose.pose.position.y=dyn_y_[dyn_cur_idx];
      Navmsgs.goal.target_pose.pose.position.z=0.5;
 
-      std::vector<double> GoalVector;
-      GoalVector.resize(2,0.0);
-      GoalVector[0]=dyn_x_[dyn_cur_idx];
-      GoalVector[1]=dyn_y_[dyn_cur_idx];
+    std::vector<double> GoalVector;
+    GoalVector.resize(2,0.0);
+    GoalVector[0]=dyn_x_[dyn_cur_idx];
+    GoalVector[1]=dyn_y_[dyn_cur_idx];
 
-      dyn_lastSubTarget[0] = dyn_x_[dyn_cur_idx];
-      dyn_lastSubTarget[1] =dyn_y_[dyn_cur_idx]; 
+    dyn_lastSubTarget[0] = dyn_x_[dyn_cur_idx];
+    dyn_lastSubTarget[1] =dyn_y_[dyn_cur_idx]; 
 
 
-      GoalVector[0]=GoalVector[0]-global_pose[0];
-      GoalVector[1]=GoalVector[1]-global_pose[1];
+    GoalVector[0]=GoalVector[0]-global_pose[0];
+    GoalVector[1]=GoalVector[1]-global_pose[1];
 
-      double temp_yaw =atan(GoalVector[1]/GoalVector[0]);
-      temp_yaw=temp_yaw-global_pose[2];
-      double temp_roll=0.0;
-      double temp_pitch=0.0;
+    double temp_yaw =atan(GoalVector[1]/GoalVector[0]);
+    temp_yaw=temp_yaw-global_pose[2];
+    double temp_roll=0.0;
+    double temp_pitch=0.0;
             // poses.orientation = tf::transformations.quaternion_from_euler(0.0, 0.0, temp_yaw);
       
       geometry_msgs::Quaternion q;
@@ -523,25 +565,20 @@ void PathManager::setDynNavTarget()
       q.z = t1 * t2 * t4 - t0 * t3 * t5;
 
       // Navmsgs.goal.target_pose.pose.orientation = head_orientation;
+      Navmsgs.goal.target_pose.pose.orientation.x=q.x;
+      Navmsgs.goal.target_pose.pose.orientation.y=q.y;
+      Navmsgs.goal.target_pose.pose.orientation.z=q.z;
+      Navmsgs.goal.target_pose.pose.orientation.w=q.w;
+      setNavTarget_pub.publish(Navmsgs);
 
-       Navmsgs.goal.target_pose.pose.orientation.x=q.x;
-       Navmsgs.goal.target_pose.pose.orientation.y=q.y;
-       Navmsgs.goal.target_pose.pose.orientation.z=q.z;
-       Navmsgs.goal.target_pose.pose.orientation.w=q.w;
-
-       setNavTarget_pub.publish(Navmsgs);
-
-
-            	//check targetdistance
-		double temp_dist = getdistance(global_pose,dyn_lastSubTarget,2);
-		printf("temp_dist is %.3lf \n",temp_dist);
-		if(temp_dist<POS_ERR)
-			dyn_cur_idx++;
+     	//check targetdistance
+  		double temp_dist = getdistance(global_pose,dyn_lastSubTarget,2);
+  		printf("temp_dist is %.3lf \n",temp_dist);
+  		if(temp_dist<POS_ERR)
+  			dyn_cur_idx++;
 
        // cur_idx++;
-
-
-       
+      
 }
 
 int PathManager::setFinalNavTarget()

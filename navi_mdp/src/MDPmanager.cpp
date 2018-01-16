@@ -160,6 +160,7 @@ void MDPManager::setpub_path()
 {
 
 	nav_msgs::Path path ;
+    path.header.stamp = ros::Time::now();
   	path.header.frame_id = "map";
   	geometry_msgs::PoseStamped pose;
 	// pose.header.frame_id = "map_local";
@@ -171,25 +172,52 @@ void MDPManager::setpub_path()
 	    path.poses.push_back(pose);
 
 	    pose.pose.position.x = 1.03;
-	    pose.pose.position.y = 0.61;
+	    pose.pose.position.y = 0.21;
+	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
+	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+	    path.poses.push_back(pose);
+
+
+	    pose.pose.position.x = 1.4;
+	    pose.pose.position.y = -0.6;
 	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
 	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
 	    path.poses.push_back(pose);
 
 	    pose.pose.position.x = 1.9;
-	    pose.pose.position.y = 0.6;
+	    pose.pose.position.y = -0.6;
 	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
 	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
 	    path.poses.push_back(pose);
+
+	    pose.pose.position.x = 2.45;
+	    pose.pose.position.y = -1.2;
+	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
+	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+	    path.poses.push_back(pose);
+
 
 	    pose.pose.position.x = 2.9;
-	    pose.pose.position.y = 0.6;
+	    pose.pose.position.y = -1.6;
 	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
 	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
 	    path.poses.push_back(pose);
 
+	    pose.pose.position.x = 3.34;
+	    pose.pose.position.y = -0.6;
+	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
+	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+	    path.poses.push_back(pose);
+
+
 	    pose.pose.position.x = 3.8;
-	    pose.pose.position.y = 0.6;
+	    pose.pose.position.y = 0.2;
+	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
+	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+	    path.poses.push_back(pose);
+
+	    pose.pose.position.x = 4.3;
+	    pose.pose.position.y = 0.4;
 	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
 	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
 	    path.poses.push_back(pose);
@@ -200,46 +228,39 @@ void MDPManager::setpub_path()
 	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
 	    path.poses.push_back(pose);
 
-  		pose.pose.position.x = 6.05;
-	    pose.pose.position.y = 0.66;
-	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
-	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
-	    path.poses.push_back(pose);
+          //pose.pose.position.x = 6.05;
+		//pose.pose.position.y = 0.66;
+		//pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+		//path.poses.push_back(pose);
 
-	    pose.pose.position.x = 7.15;
-	    pose.pose.position.y = 0.69;
-	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
-	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
-	    path.poses.push_back(pose);
+		//pose.pose.position.x = 7.15;
+		//pose.pose.position.y = 0.69;
+		//pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+		//path.poses.push_back(pose);
 
-	    pose.pose.position.x = 8.0;
-	    pose.pose.position.y = 0.69;
-	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
-	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
-	    path.poses.push_back(pose);
+		//pose.pose.position.x = 8.0;
+		//pose.pose.position.y = 0.69;
+		//pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+		//path.poses.push_back(pose);
 
-	    pose.pose.position.x = 8.7;
-	    pose.pose.position.y = 1.89;
-	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
-	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
-	    path.poses.push_back(pose);
+		//pose.pose.position.x = 8.7;
+		//pose.pose.position.y = 1.89;
+		//pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+		//path.poses.push_back(pose);
 
-	    pose.pose.position.x = 8.5;
-	    pose.pose.position.y = 3.89;
-	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
-	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
-	    path.poses.push_back(pose);
+		//pose.pose.position.x = 8.5;
+		//pose.pose.position.y = 3.89;
+		//pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+		//path.poses.push_back(pose);
 
-	    pose.pose.position.x = 8.9;
-	    pose.pose.position.y = 5.69;
-	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
-	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
-	    path.poses.push_back(pose);
+		//pose.pose.position.x = 8.9;
+		//pose.pose.position.y = 5.69;
+		//pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+		//path.poses.push_back(pose);
 
-	
 	 
 	  SplinePath_pub.publish(path);
-
+      // std::cout<<"publish path"<<std::endl;
 
 }
 
@@ -774,7 +795,6 @@ void MDPManager::Human_Yolo_Callback(const visualization_msgs::MarkerArray::Cons
 
 
 
-
 void MDPManager::Basepos_Callback(const geometry_msgs::PointStamped::ConstPtr& msg)
 {
   ROS_INFO("base position msg");
@@ -961,7 +981,7 @@ void MDPManager::static_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg
 				 	numcount++;
    			}
 
-   			if(numcount>3)
+   			if(numcount>4)
    				scaled_result=50;
    			else
    				scaled_result=0;
@@ -1003,6 +1023,7 @@ void MDPManager::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr
    CurVector[0]= global_pose[0];
    CurVector[1]= global_pose[1];
    CurVector[2]= global_pose[2];
+   // std::cout<<"recieve global_pose"<<std::endl;
 
 }
 

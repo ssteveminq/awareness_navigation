@@ -25,13 +25,13 @@ Dynamic_Manager::~Dynamic_Manager()
 
 
 
-void Dynamic_Manager::base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg)
-{
-   CurVector[0]= global_pose[0];
-   CurVector[1]= global_pose[1];
-   CurVector[2]= global_pose[2];
+// void Dynamic_Manager::base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg)
+// {
+//    CurVector[0]= global_pose[0];
+//    CurVector[1]= global_pose[1];
+//    CurVector[2]= global_pose[2];
 
-}
+// }
 
 void Dynamic_Manager::Init()
 {
@@ -162,8 +162,6 @@ void Dynamic_Manager::Init()
 	Scaled_dynamic_map_path.info.resolution=0.75;
 	Scaled_dynamic_map_path.info.origin.position.x=CurVector[0]-DYN_OFFSET_X-0.5*Scaled_dynamic_map.info.resolution;
 	Scaled_dynamic_map_path.info.origin.position.y=CurVector[1]-DYN_OFFSET_Y-0.5*Scaled_dynamic_map.info.resolution;;
-	// Scaled_dynamic_map_path.info.origin.position.x=CurVector[0]-0.5*Scaled_dynamic_map_path.info.width*0.5;
-	// Scaled_dynamic_map_path.info.origin.position.y=CurVector[1]-0.5*Scaled_dynamic_map_path.info.height*0.5;
 	Scaled_dynamic_map_path.data.resize(Scaled_dynamic_map_path.info.width*Scaled_dynamic_map_path.info.height);
 	booltrackHuman=false;
 	dyn_path_num=0;
@@ -192,13 +190,31 @@ void Dynamic_Manager::Init()
   for(int k(0);k<camera_map_size;k++)
     camera_map.data[k]=0.01;
 
+}
+
+
+void Dynamic_Manager::CoordinateTansform_Rviz_Dyn_map(double _x, double _y,vector<int>& dynamicCoord)
+{
+	dynamicCoord.resize(2,0.0);
+	double reference_origin_x=Scaled_dynamic_map.info.origin.position.x;
+	double reference_origin_y=Scaled_dynamic_map.info.origin.position.y;
+
+	double  temp_x  = _x-reference_origin_x;
+	double  temp_y = _y-reference_origin_y;
+
+	dynamicCoord[0]= static_cast<int>(temp_x/pMapParam->map_step);
+ 	dynamicCoord[1]= static_cast<int>(temp_y/pMapParam->map_step);
+
+ 	// int mapidx=Coord2CellNum(dynamicCoord);
+
 
 }
+
 
 //function which relates to get origin w.r.t map (mdp)3232
 void Dynamic_Manager::CoordinateTransform_Rviz_Grid_Start(double _x, double _y,int map_type=0)
 {
-	 cur_coord.resize(2,0);
+	cur_coord.resize(2,0);
 
 	 //for case of using static map
 	double reference_origin_x;
@@ -253,7 +269,7 @@ void Dynamic_Manager::CoordinateTransform_Rviz_Grid_Goal(double _x, double _y,in
 	double  temp_x  = _x-reference_origin_x;
 	double  temp_y = _y-reference_origin_y;
 
-
+//check
  	Goal_Coord[0]= (int) (temp_x/pMapParam->map_step);
  	Goal_Coord[1]= (int)(temp_y/pMapParam->map_step);
 
@@ -298,18 +314,18 @@ void Dynamic_Manager::CoordinateTransform_Rviz_Grid_Human(double _x, double _y,i
 
 }
 
-void Dynamic_Manager::Human_target_cmdCallback(const std_msgs::Int8::ConstPtr& msg)
-{
+// void Dynamic_Manager::Human_target_cmdCallback(const std_msgs::Int8::ConstPtr& msg)
+// {
 
-	if(msg->data==1)
-	{
-		booltrackHuman=true;
-	}
-	else{
-		booltrackHuman=false;
+// 	if(msg->data==1)
+// 	{
+// 		booltrackHuman=true;
+// 	}
+// 	else{
+// 		booltrackHuman=false;
 
-	}
-}
+// 	}
+// }
 
 void Dynamic_Manager::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)
 {
@@ -366,6 +382,36 @@ void Dynamic_Manager::setDesiredHeading(double _heading)
 {
 	m_desired_heading=_heading;
 }
+
+
+void Dynamic_Manager::mdppath_callback(const nav_msgs::Path::ConstPtr & msg)
+{
+    nav_msgs::Path mdp_path_msg;    
+    mdp_path_msg=(*msg);
+    std::vector<int> dyn_coords(2,0);
+
+    Dyn_MDPPath.clear();
+    for(int j(0);j<Scaled_dynamic_map_path.data.size();j++)
+	 {	
+	 	Scaled_dynamic_map_path.data[j]=0.0;
+	 }
+
+
+	int path_size=mdp_path_msg.poses.size();
+    for(int i(0);i<path_size;i++)
+    {
+        // std::cout<<mdp_path_msg.poses[i].pose.position.x<<", "<<mdp_path_msg.poses[i].pose.position.y<<std::endl;
+
+    	CoordinateTansform_Rviz_Dyn_map(mdp_path_msg.poses[i].pose.position.x,mdp_path_msg.poses[i].pose.position.y,dyn_coords);       
+		int cur_stid=Coord2CellNum(dyn_coords);
+		Scaled_dynamic_map_path.data[cur_stid]=80;
+    }
+
+	 Scaled_dynamic_map_path.header.stamp =  ros::Time::now();
+	 Scaled_dynamic_map_path.header.frame_id = "map"; 
+     Scaled_dynamic_map_path_pub.publish(Scaled_dynamic_map_path);
+}
+
 
 void Dynamic_Manager::Human_MarkerCallback(const visualization_msgs::Marker::ConstPtr& msg)
 {
@@ -445,7 +491,7 @@ void Dynamic_Manager::Human_MarkerCallback(const visualization_msgs::Marker::Con
 	//}
     */
 }
-
+/*
 void Dynamic_Manager::Human_Yolo_Callback(const visualization_msgs::MarkerArray::ConstPtr& msg)
 {
  	std::vector<double> tempVec(2,0.0);
@@ -542,6 +588,9 @@ void Dynamic_Manager::Human_Yolo_Callback(const visualization_msgs::MarkerArray:
    //current yolo_people are saved to cur_yolo_people
 }
 
+*/
+
+
 void Dynamic_Manager::filterhumanbelief()
 {
 	int human_index=0;
@@ -571,6 +620,8 @@ void Dynamic_Manager::filterhumanbelief()
      m_boolSolve=false;
 } 
 
+
+/*
 void Dynamic_Manager::human_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg)
 {
 
@@ -636,139 +687,141 @@ void Dynamic_Manager::human_leg_callback(const geometry_msgs::PoseArray::ConstPt
 		}
 }
 
-void Dynamic_Manager::Findlegfromtarget()
-{
-	if(Cur_leg_human.size()>0)
-    {
-        for(int j(0);j<leg_targetSet.size();j++)
-		{    
-		    int NearestLegIdx=FindNearesetLegIdx_Target(j);
-            std::vector<double> temp_leg_target(2,0.0); 
-	        temp_leg_target[0]=Cur_leg_human[NearestLegIdx][0];
-	        temp_leg_target[1]=Cur_leg_human[NearestLegIdx][1];
+*/
 
-	        if(Comparetwopoistions(temp_leg_target,leg_targetSet[j],0.8))
-	        {
-	            leg_targetSet[j][0]=temp_leg_target[0];
-	            leg_targetSet[j][1]=temp_leg_target[1];
-	        }
-        }
+// void Dynamic_Manager::Findlegfromtarget()
+// {
+// 	if(Cur_leg_human.size()>0)
+//     {
+//         for(int j(0);j<leg_targetSet.size();j++)
+// 		{    
+// 		    int NearestLegIdx=FindNearesetLegIdx_Target(j);
+//             std::vector<double> temp_leg_target(2,0.0); 
+// 	        temp_leg_target[0]=Cur_leg_human[NearestLegIdx][0];
+// 	        temp_leg_target[1]=Cur_leg_human[NearestLegIdx][1];
 
-   }
+// 	        if(Comparetwopoistions(temp_leg_target,leg_targetSet[j],0.8))
+// 	        {
+// 	            leg_targetSet[j][0]=temp_leg_target[0];
+// 	            leg_targetSet[j][1]=temp_leg_target[1];
+// 	        }
+//         }
+
+//    }
     
-}
+// // }
 
 
-int Dynamic_Manager::FindNearesetLegIdx_Target(int target_idx)
-{
-    //target should be already set
-	//make sure that yolo size is bigger than index 
-    std::vector<double> Distanceset;
-    Distanceset.resize(Cur_leg_human.size(),0.0);
+// int Dynamic_Manager::FindNearesetLegIdx_Target(int target_idx)
+// {
+//     //target should be already set
+// 	//make sure that yolo size is bigger than index 
+//     std::vector<double> Distanceset;
+//     Distanceset.resize(Cur_leg_human.size(),0.0);
     
-    double minDistance=200.0;
-    int    minDistance_Idx=0;
+//     double minDistance=200.0;
+//     int    minDistance_Idx=0;
 
-      for(int i(0);i<Cur_leg_human.size();i++)
-      {
-        // Distanceset[i]=getDistance(Cur_detected_human[i][0],Cur_detected_human[i][1]);
-        Distanceset[i]=getdistance(leg_targetSet[target_idx],Cur_leg_human[i]);
+//       for(int i(0);i<Cur_leg_human.size();i++)
+//       {
+//         // Distanceset[i]=getDistance(Cur_detected_human[i][0],Cur_detected_human[i][1]);
+//         Distanceset[i]=getdistance(leg_targetSet[target_idx],Cur_leg_human[i]);
         
-        if(minDistance>Distanceset[i])
-          {
-            minDistance=Distanceset[i];
-            minDistance_Idx=i;
-          }
-      }
+//         if(minDistance>Distanceset[i])
+//           {
+//             minDistance=Distanceset[i];
+//             minDistance_Idx=i;
+//           }
+//       }
   
-    return minDistance_Idx;
-}
+//     return minDistance_Idx;
+// }
 
 
-int Dynamic_Manager::FindNearesetLegIdx(int yolo_idx)
-{
-    //target should be already set
-	//make sure that yolo size is bigger than index 
-    std::vector<double> Distanceset;
-    Distanceset.resize(Cur_leg_human.size(),0.0);
+// int Dynamic_Manager::FindNearesetLegIdx(int yolo_idx)
+// {
+//     //target should be already set
+// 	//make sure that yolo size is bigger than index 
+//     std::vector<double> Distanceset;
+//     Distanceset.resize(Cur_leg_human.size(),0.0);
     
-    double minDistance=200.0;
-    int    minDistance_Idx=0;
+//     double minDistance=200.0;
+//     int    minDistance_Idx=0;
 
-      for(int i(0);i<Cur_leg_human.size();i++)
-      {
-        // Distanceset[i]=getDistance(Cur_detected_human[i][0],Cur_detected_human[i][1]);
-        Distanceset[i]=getdistance(cur_yolo_people[yolo_idx],Cur_leg_human[i]);
+//       for(int i(0);i<Cur_leg_human.size();i++)
+//       {
+//         // Distanceset[i]=getDistance(Cur_detected_human[i][0],Cur_detected_human[i][1]);
+//         Distanceset[i]=getdistance(cur_yolo_people[yolo_idx],Cur_leg_human[i]);
         
-        if(minDistance>Distanceset[i])
-          {
-            minDistance=Distanceset[i];
-            minDistance_Idx=i;
-          }
-      }
+//         if(minDistance>Distanceset[i])
+//           {
+//             minDistance=Distanceset[i];
+//             minDistance_Idx=i;
+//           }
+//       }
   
-    return minDistance_Idx;
-}
+//     return minDistance_Idx;
+// }
 
 
-void Dynamic_Manager::mixlegyolo(){
+// void Dynamic_Manager::mixlegyolo(){
 
-    num_of_detected_human_yolo = cur_yolo_people.size();
-	Filtered_leg_human.clear();
+//     num_of_detected_human_yolo = cur_yolo_people.size();
+// 	Filtered_leg_human.clear();
 
-	for(int i(0);i<num_of_detected_human_yolo;i++)
-	{
-		int Nearest_leg_idx=FindNearesetLegIdx(i);
+// 	for(int i(0);i<num_of_detected_human_yolo;i++)
+// 	{
+// 		int Nearest_leg_idx=FindNearesetLegIdx(i);
 
-		if(Comparetwopoistions(Cur_leg_human[Nearest_leg_idx],cur_yolo_people[i],max_off_yolo_laser))
-		{
-			Filtered_leg_human.push_back(Cur_leg_human[Nearest_leg_idx]);
+// 		if(Comparetwopoistions(Cur_leg_human[Nearest_leg_idx],cur_yolo_people[i],max_off_yolo_laser))
+// 		{
+// 			Filtered_leg_human.push_back(Cur_leg_human[Nearest_leg_idx]);
 
-          // string num_s = std::to_string(i);
-          // string person("person ");
-          // string new_str_name=person+num_s;
-          //  std::cout<<"person name = "<<new_str_name.c_str()<<std::endl;
+//           // string num_s = std::to_string(i);
+//           // string person("person ");
+//           // string new_str_name=person+num_s;
+//           //  std::cout<<"person name = "<<new_str_name.c_str()<<std::endl;
 		
-          // people_msgs::PositionMeasurement pos;
-          // pos.header.stamp = ros::Time();
-          // pos.header.frame_id = "/map";
-          // pos.name = "leg_laser";
-          // pos.object_id =new_str_name;
-          // pos.pos.x = Filtered_leg_human[i][0];
-          // pos.pos.y = Filtered_leg_human[i][1];
-          // pos.pos.z = 1.0;
-          // pos.reliability = 0.85;
-          // pos.covariance[0] = pow(0.01 / pos.reliability, 2.0);
-          // pos.covariance[1] = 0.0;
-          // pos.covariance[2] = 0.0;
-          // pos.covariance[3] = 0.0;
-          // pos.covariance[4] = pow(0.01 / pos.reliability, 2.0);
-          // pos.covariance[5] = 0.0;
-          // pos.covariance[6] = 0.0;
-          // pos.covariance[7] = 0.0;
-          // pos.covariance[8] = 10000.0;
-          // pos.initialization = 0;
-          // people_measurement_pub_.publish(pos);
-        }
-	}
+//           // people_msgs::PositionMeasurement pos;
+//           // pos.header.stamp = ros::Time();
+//           // pos.header.frame_id = "/map";
+//           // pos.name = "leg_laser";
+//           // pos.object_id =new_str_name;
+//           // pos.pos.x = Filtered_leg_human[i][0];
+//           // pos.pos.y = Filtered_leg_human[i][1];
+//           // pos.pos.z = 1.0;
+//           // pos.reliability = 0.85;
+//           // pos.covariance[0] = pow(0.01 / pos.reliability, 2.0);
+//           // pos.covariance[1] = 0.0;
+//           // pos.covariance[2] = 0.0;
+//           // pos.covariance[3] = 0.0;
+//           // pos.covariance[4] = pow(0.01 / pos.reliability, 2.0);
+//           // pos.covariance[5] = 0.0;
+//           // pos.covariance[6] = 0.0;
+//           // pos.covariance[7] = 0.0;
+//           // pos.covariance[8] = 10000.0;
+//           // pos.initialization = 0;
+//           // people_measurement_pub_.publish(pos);
+//         }
+// 	}
 
-   //  if(Cur_leg_human.size()>0){
-   //      for(int i(0);i<num_of_detected_human_yolo;i++)
-   //      {
-   //           for(int j(0);j<Cur_leg_human.size();j++)
-   //           {
-   //                 double distance =0.0;
-   //                 	getdistance(cur_yolo_people[i],Cur_leg_human[j])
-   //                 Comparetwopoistions()
+//    //  if(Cur_leg_human.size()>0){
+//    //      for(int i(0);i<num_of_detected_human_yolo;i++)
+//    //      {
+//    //           for(int j(0);j<Cur_leg_human.size();j++)
+//    //           {
+//    //                 double distance =0.0;
+//    //                 	getdistance(cur_yolo_people[i],Cur_leg_human[j])
+//    //                 Comparetwopoistions()
 
     
-   //           } 
+//    //           } 
     
-   //      }
+//    //      }
 
-   // }
-}
-
+//    // }
+// }
+/*
 void Dynamic_Manager::keyboard_callback(const keyboard::Key::ConstPtr& msg)
 {
   ROS_INFO("Received Keyboard");
@@ -797,7 +850,7 @@ void Dynamic_Manager::keyboard_callback(const keyboard::Key::ConstPtr& msg)
   }
 }
 
-
+*/
 
 bool Dynamic_Manager::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)
 {
@@ -952,7 +1005,7 @@ void Dynamic_Manager::CellNum2globalCoord(const int Cell_idx, std::vector<double
 
 void Dynamic_Manager::ClikedpointCallback(const geometry_msgs::PointStamped::ConstPtr& msg)
 {
-	printf("Receive point\n");
+	printf("Dynamic goal Receive point\n");
     GoalVector.resize(2,0);
     GoalVector[0]=msg->point.x;
 	GoalVector[1]=msg->point.y;
@@ -964,73 +1017,73 @@ void Dynamic_Manager::ClikedpointCallback(const geometry_msgs::PointStamped::Con
 	updateMap(m_dynamic_occupancy,cur_coord,Goal_Coord);
 
 	 //Pulbish unitvector
-    std::vector<float> unitgoalvector(2,0.0);
-	unitgoalvector[0] = GoalVector[0]-CurVector[0];
-	unitgoalvector[1] = GoalVector[1]-CurVector[1];
-	float vector_norm=sqrt(unitgoalvector[0]*unitgoalvector[0]+unitgoalvector[1]*unitgoalvector[1]);
-	unitgoalvector[0] =unitgoalvector[0]/vector_norm;
-	unitgoalvector[1] =unitgoalvector[1]/vector_norm;
+    //std::vector<float> unitgoalvector(2,0.0);
+	//unitgoalvector[0] = GoalVector[0]-CurVector[0];
+	//unitgoalvector[1] = GoalVector[1]-CurVector[1];
+	//float vector_norm=sqrt(unitgoalvector[0]*unitgoalvector[0]+unitgoalvector[1]*unitgoalvector[1]);
+	//unitgoalvector[0] =unitgoalvector[0]/vector_norm;
+	//unitgoalvector[1] =unitgoalvector[1]/vector_norm;
 
-	std_msgs::Float32MultiArray unitgoal_msg;
-	unitgoal_msg.data.resize(unitgoalvector.size());
-	for(int i(0);i<unitgoalvector.size();i++)
-	unitgoal_msg.data[i] = unitgoalvector[i];
-	UnitGoalVec_pub.publish(unitgoal_msg);
-	ROS_INFO("clicked goal_uint goal x : %.3lf, y : %.3lf\n",unitgoalvector[0],unitgoalvector[1]);
-      // printf("x index is %.3f, y index is %.3f \n",Goal_Coord[0],Goal_Coord[1]);  
+	//std_msgs::Float32MultiArray unitgoal_msg;
+	//unitgoal_msg.data.resize(unitgoalvector.size());
+	//for(int i(0);i<unitgoalvector.size();i++)
+	//unitgoal_msg.data[i] = unitgoalvector[i];
+	//UnitGoalVec_pub.publish(unitgoal_msg);
+	//ROS_INFO("clicked goal_uint goal x : %.3lf, y : %.3lf\n",unitgoalvector[0],unitgoalvector[1]);
+    // printf("x index is %.3f, y index is %.3f \n",Goal_Coord[0],Goal_Coord[1]);  
     m_boolSolve=true;
 
     return;
 }
 
 
-void Dynamic_Manager::publish_leg_boxes()
-{
+// void Dynamic_Manager::publish_leg_boxes()
+// {
 
-  human_leg_boxes_array.markers.clear();
-  if(Filtered_leg_human.size()>0)
-  {
-    for(int i(0);i<Filtered_leg_human.size();i++)
-    {
-        visualization_msgs::Marker marker_human_leg;
-        marker_human_leg.header.frame_id = "/map"; 
-        marker_human_leg.header.stamp = ros::Time::now();
-        marker_human_leg.ns = "/human_leg_boxes";
-        marker_human_leg.id = i;
+//   human_leg_boxes_array.markers.clear();
+//   if(Filtered_leg_human.size()>0)
+//   {
+//     for(int i(0);i<Filtered_leg_human.size();i++)
+//     {
+//         visualization_msgs::Marker marker_human_leg;
+//         marker_human_leg.header.frame_id = "/map"; 
+//         marker_human_leg.header.stamp = ros::Time::now();
+//         marker_human_leg.ns = "/human_leg_boxes";
+//         marker_human_leg.id = i;
 
-        uint32_t shape = visualization_msgs::Marker::SPHERE;
-        marker_human_leg.type = shape;
+//         uint32_t shape = visualization_msgs::Marker::SPHERE;
+//         marker_human_leg.type = shape;
 
-        marker_human_leg.pose.position.x = Filtered_leg_human[i][0];
-        marker_human_leg.pose.position.y = Filtered_leg_human[i][1];
-        marker_human_leg.pose.position.z = 1;
+//         marker_human_leg.pose.position.x = Filtered_leg_human[i][0];
+//         marker_human_leg.pose.position.y = Filtered_leg_human[i][1];
+//         marker_human_leg.pose.position.z = 1;
 
-        marker_human_leg.pose.orientation.x = 0.0;
-        marker_human_leg.pose.orientation.y = 0.0;
-        marker_human_leg.pose.orientation.z = 0.0;
-        marker_human_leg.pose.orientation.w = 1.0;
+//         marker_human_leg.pose.orientation.x = 0.0;
+//         marker_human_leg.pose.orientation.y = 0.0;
+//         marker_human_leg.pose.orientation.z = 0.0;
+//         marker_human_leg.pose.orientation.w = 1.0;
 
-        double temp_dist,temp_dist2,temp_dist3;
-        temp_dist  =0.5;
-        temp_dist2 =0.5;
-        temp_dist3 =0.5;
+//         double temp_dist,temp_dist2,temp_dist3;
+//         temp_dist  =0.5;
+//         temp_dist2 =0.5;
+//         temp_dist3 =0.5;
 
-        //ROS_INFO("temp dist : %.3lf, temp dist2 : %.3lf, temp dist3 : %.3lf",temp_dist,temp_dist2,temp_dist3);
-        marker_human_leg.scale.x = std::abs(temp_dist);
-        marker_human_leg.scale.y = std::abs(temp_dist2);
-        marker_human_leg.scale.z = std::abs(temp_dist3);
+//         //ROS_INFO("temp dist : %.3lf, temp dist2 : %.3lf, temp dist3 : %.3lf",temp_dist,temp_dist2,temp_dist3);
+//         marker_human_leg.scale.x = std::abs(temp_dist);
+//         marker_human_leg.scale.y = std::abs(temp_dist2);
+//         marker_human_leg.scale.z = std::abs(temp_dist3);
 
-        marker_human_leg.color.r = 0.83;
-        marker_human_leg.color.g = 0.6;
-        marker_human_leg.color.b = 0.5;
-        marker_human_leg.color.a = 0.85;
+//         marker_human_leg.color.r = 0.83;
+//         marker_human_leg.color.g = 0.6;
+//         marker_human_leg.color.b = 0.5;
+//         marker_human_leg.color.a = 0.85;
 
-        human_leg_boxes_array.markers.push_back(marker_human_leg);
-      }
+//         human_leg_boxes_array.markers.push_back(marker_human_leg);
+//       }
 
-      Leg_boxes_pub.publish(human_leg_boxes_array);
-  }
-}
+//       Leg_boxes_pub.publish(human_leg_boxes_array);
+//   }
+// }
 
 void Dynamic_Manager::publish_filtered_human_boxes()
 {
@@ -1290,11 +1343,11 @@ void Dynamic_Manager::Publish_beliefmap()
 
 }
 
-void Dynamic_Manager::Basepos_Callback(const geometry_msgs::PointStamped::ConstPtr& msg)
-{
-  ROS_INFO("base position msg");
-  printf("Map origin x index is %.3f, y index is %.3f \n",Map_orig_Vector[0],Map_orig_Vector[1]); 
-}
+// void Dynamic_Manager::Basepos_Callback(const geometry_msgs::PointStamped::ConstPtr& msg)
+// {
+//   ROS_INFO("base position msg");
+//   printf("Map origin x index is %.3f, y index is %.3f \n",Map_orig_Vector[0],Map_orig_Vector[1]); 
+// }
 
 
 void Dynamic_Manager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)
@@ -1327,13 +1380,12 @@ void Dynamic_Manager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPt
 	Scaled_dynamic_map_path.info.origin.position.x=CurVector[0]-DYN_OFFSET_X-0.5*Scaled_dynamic_map.info.resolution;
 	Scaled_dynamic_map_path.info.origin.position.y=CurVector[1]-DYN_OFFSET_Y-0.5*Scaled_dynamic_map.info.resolution;
 
-	//for path map
-	// Scaled_static_map_path.info.width=32;
-	// Scaled_static_map_path.info.height= 32;
-	// Scaled_static_map_path.info.resolution=0.5;
-	// Scaled_static_map_path.info.origin.position.x=-4;
-	// Scaled_static_map_path.info.origin.position.y=-4;
-	//Scaled_static_map_path.data.resize(32*32);
+
+
+
+
+
+
 
    double base_origin_x =msg->info.origin.position.x;
    double base_origin_y =msg->info.origin.position.y;
@@ -1377,6 +1429,9 @@ void Dynamic_Manager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPt
 
    			Scaled_dynamic_map.data[map_idx]=scaled_result;
    	}
+
+   //insert mdp_path_cell
+
 
    // insert human occupied cell
    //std::vector<int> HumanMa
@@ -1524,36 +1579,36 @@ void Dynamic_Manager::global_pose_callback(const geometry_msgs::PoseStamped::Con
 }
 
 
-void Dynamic_Manager::Local_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)
-{
+// void Dynamic_Manager::Local_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)
+// {
 
-	 if(ReceiveData==0)
-    {
-      ROS_INFO("width : %d" ,msg->info.width);
-      ROS_INFO("height : %d" ,msg->info.height);
-      ROS_INFO("resolution : %lf" ,msg->info.resolution);
-      ReceiveData++;
+// 	 if(ReceiveData==0)
+//     {
+//       ROS_INFO("width : %d" ,msg->info.width);
+//       ROS_INFO("height : %d" ,msg->info.height);
+//       ROS_INFO("resolution : %lf" ,msg->info.resolution);
+//       ReceiveData++;
 
-      pMapParam->Num_grid_X=(int) msg->info.width;
-      pMapParam->Num_grid_Y=(int) msg->info.height;
-      pMapParam->map_step= (double) msg->info.resolution;  
+//       pMapParam->Num_grid_X=(int) msg->info.width;
+//       pMapParam->Num_grid_Y=(int) msg->info.height;
+//       pMapParam->map_step= (double) msg->info.resolution;  
 
-    }
+//     }
 
-   double base_origin_x =msg->info.origin.position.x;
-   double base_origin_y =msg->info.origin.position.y;
+//    double base_origin_x =msg->info.origin.position.x;
+//    double base_origin_y =msg->info.origin.position.y;
 
-   //ROS_INFO("origin x: %lf, y : %lf",base_origin_x,base_origin_y);
-   //ROS_INFO("int msg");
-   //  m_localoccupancy.resize(msg->data.size());
+//    //ROS_INFO("origin x: %lf, y : %lf",base_origin_x,base_origin_y);
+//    //ROS_INFO("int msg");
+//    //  m_localoccupancy.resize(msg->data.size());
 
-   // for(int i(0);i<msg->data.size();i++){
-   //      m_localoccupancy[i]=(msg->data)[i];
-   // }	
-   ReceiveData++;
+//    // for(int i(0);i<msg->data.size();i++){
+//    //      m_localoccupancy[i]=(msg->data)[i];
+//    // }	
+//    ReceiveData++;
 
 
-}
+// }
 
 
 void Dynamic_Manager::Global2MapCoord(const vector<double>& _globalcoord,vector<int>& _MapCoord)
@@ -1722,7 +1777,8 @@ void Dynamic_Manager::CellNum2Coord(const int Cell_idx, vector<int>& cell_xy)
 bool Dynamic_Manager::MDPsolve()
 {
 	ROS_INFO("Solve");
-	int colNum=6;
+    //why colNum==6?
+    int colNum=6;
 	int idx=0;
 
 	Points.clear();
@@ -2096,33 +2152,32 @@ void Dynamic_Manager::pathPublish(){
 }
 //Generate dynamic path from solution
 
-void Dynamic_Manager::set_dynamicPath()
+//FixMe
+void Dynamic_Manager::Publish_dynamicPath()
 {
-	nav_msgs::Path path ;
-  	path.header.frame_id = "map";
-  	geometry_msgs::PoseStamped pose;
-	// pose.header.frame_id = "map_local";
+	// nav_msgs::Path path ;
+ //  	path.header.frame_id = "map";
+ //  	geometry_msgs::PoseStamped pose;
 
-  		// pose.pose.position.x = 8.2;
-	   //  pose.pose.position.y = 0.65;
-	   //  // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
-	   //  pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
-	   //  path.poses.push_back(pose);
-	    pose.pose.position.x = 7.2;
-	    pose.pose.position.y = 2.3;
-	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
-	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.15);
-	    path.poses.push_back(pose);
+ //    // // pose.pose.position.x = 8.2;
+ //    // //  pose.pose.position.y = 0.65;
+ //    // //  printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
+ //    // //  pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.05);
+ //    // //  path.poses.push_back(pose);
+ //    // pose.pose.position.x = 7.2;
+ //    // pose.pose.position.y = 2.3;
+ //    // // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
+ //    // pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.15);
+ //    // path.poses.push_back(pose);
 
-	    pose.pose.position.x = 8.9;
-	    pose.pose.position.y = 6.5;
-	    // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
-	    pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.65);
-	    path.poses.push_back(pose);
+ //    // pose.pose.position.x = 8.9;
+ //    // pose.pose.position.y = 6.5;
+ //    // // printf("spline path index : %d, x coord : %lf , y coord : %lf \n", i,pose.pose.position.x,pose.pose.position.y);
+ //    // pose.pose.orientation = tf::createQuaternionMsgFromYaw(0.65);
+ //    // path.poses.push_back(pose);
 
 	
-	 
-	 SplinePath_pub2.publish(path);
+	//  SplinePath_pub2.publish(path);
 
 
 
@@ -2147,13 +2202,13 @@ void Dynamic_Manager::generate_dynamicPath()
 	vector<double> y_values;
 	vector<double> dyn_global_coords;
 
-	//double* = new double [13]
-	// x_values.push_back(m_Start[0]);
-	// y_values.push_back(m_Start[1]);
+	//convert m_start to dynamic_coordinate
 	Mapcoord2DynamicCoord(m_Start,dyn_global_coords);
+
 	x_values.push_back(dyn_global_coords[0]);
 	y_values.push_back(dyn_global_coords[1]);
 	cout<<"cur st id : "<<cur_stid<<endl;
+	
 	Dyn_MDPPath.push_back(cur_stid);
 	int pathcount=0;
 
@@ -2181,6 +2236,8 @@ void Dynamic_Manager::generate_dynamicPath()
 		pathcount++;
 		
 	}
+
+
 
 	//Making Spline path============================================
 	int data_size=x_values.size();

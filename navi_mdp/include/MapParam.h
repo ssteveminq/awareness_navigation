@@ -5,7 +5,8 @@
 #include <stdint.h>
 #include "ros/ros.h"
 #include <ros/package.h>
-#include <Eigen/Dense>
+// #include <Eigen/Dense>
+#include <eigen3/Eigen/Dense>
 #include "srBSpline.h"
 #include <tf/tf.h>
 #include <cmath>

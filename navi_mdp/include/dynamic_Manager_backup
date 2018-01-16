@@ -102,13 +102,10 @@ class Dynamic_Manager
  	int  			  num_of_detected_human_yolo;
 
 
-
  	//human sets
-
 
  	std::vector< std::vector< double > > Cur_leg_human;
     std::vector< std::vector< double > > cur_yolo_people;
-
 
  	std::vector<double> global_pose;
  	std::vector<double> Map_orig_Vector;
@@ -138,7 +135,6 @@ class Dynamic_Manager
  	srBSpline*           m_CubicSpline_x;
  	srBSpline*           m_CubicSpline_y;
 
-
  	bool    m_boolSolve;
  	int     dyn_path_num;
  	double	m_desired_heading;
@@ -158,6 +154,8 @@ class Dynamic_Manager
 	ros::Publisher   MDPSol_pub;
 	ros::Publisher   RobotHeading_pub;
 
+    ros::Subscriber SplinePath_sub;
+    
 
 	//Static_mdp
 	int  scaling=12;
@@ -198,17 +196,13 @@ class Dynamic_Manager
  	void 			generate_dynamicPath();
  	void            pathPublish();
  	void  			updateMap(vector<int>& localmap_,vector<int>& local_start, vector<int>& local_goal);
- 	void 			Local_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg);
+    void            mdppath_callback(const nav_msgs::Path::ConstPtr & msg);
  	void 			static_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg);
  	void 			dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg);
  	void			ClikedpointCallback(const geometry_msgs::PointStamped::ConstPtr& msg);
- 	void 			base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg);
- 	void 			Basepos_Callback(const geometry_msgs::PointStamped::ConstPtr& msg);
  	void 			Global2MapCoord(const vector<double>& _globalcoord, vector<int>& MapCoord);
  	void 			Human_target_cmdCallback(const std_msgs::Int8::ConstPtr& msg);
  	void			Human_MarkerCallback(const visualization_msgs::Marker::ConstPtr& msg);
- 	void			Human_Yolo_Callback(const visualization_msgs::MarkerArray::ConstPtr& msg);
- 	void 			human_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg);
  	void    		CoordinateTransform_Rviz_Grid_Start(double _x, double _y,int map_type);
 	void    		CoordinateTransform_Rviz_Grid_Goal(double _x, double _y,int map_type);
 	void 			CoordinateTransform_Rviz_Grid_Human(double _x, double _y,int map_type);

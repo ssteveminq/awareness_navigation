@@ -135,7 +135,6 @@ Evaluator::Evaluator(DSPOMDP* model, string belief_type, Solver* solver,
 	ros::Rate loop_rate(20);
 	// ros::spin();
 
-
     States_sub=m_node.subscribe<nav_msgs::OccupancyGrid>("/scaled_dynamic_map", 10, &Evaluator::dynamic_mapCallback,this);
     Action_pub = m_node.advertise<std_msgs::Int32>("despot/action", 10);
 

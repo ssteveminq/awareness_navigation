@@ -5,7 +5,8 @@
 #include <stdint.h>
 #include "ros/ros.h"
 #include <ros/package.h>
-#include <Eigen/Dense>
+#include <eigen3/Eigen/Dense>
+// #include <Eigen/Dense>
 #include <MapParam.h>
 #include "std_msgs/MultiArrayLayout.h"
 #include "std_msgs/MultiArrayDimension.h"
@@ -161,7 +162,7 @@ class Dynamic_Manager
 	ros::Publisher   Scaled_dynamic_map_path_pub;
     ros::Publisher  viewTarget_visual_pub; 
 	ros::Publisher   Path_Pub;
-	ros::Subscriber  Localmap_sub;
+	//ros::Subscriber  Localmap_sub;
 	ros::Publisher 	 SplinePath_pub;
 	ros::Publisher 	 SplinePath_pub2;
 	ros::Publisher   UnitGoalVec_pub;
@@ -220,17 +221,12 @@ class Dynamic_Manager
  	void            pathPublish();
  	void  			updateMap(vector<int>& localmap_,vector<int>& local_start, vector<int>& local_goal);
  	void 			keyboard_callback(const keyboard::Key::ConstPtr& msg);
+ 	void            mdppath_callback(const nav_msgs::Path::ConstPtr & msg);
  	void 			joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg);
- 	void 			Local_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg);
  	void 			static_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg);
  	void 			dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg);
  	void			ClikedpointCallback(const geometry_msgs::PointStamped::ConstPtr& msg);
- 	void 			base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg);
- 	void 			Basepos_Callback(const geometry_msgs::PointStamped::ConstPtr& msg);
- 	void 			Human_target_cmdCallback(const std_msgs::Int8::ConstPtr& msg);
  	void			Human_MarkerCallback(const visualization_msgs::Marker::ConstPtr& msg);
- 	void			Human_Yolo_Callback(const visualization_msgs::MarkerArray::ConstPtr& msg);
- 	void 			human_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg);
     void            filter_result_callback(const people_msgs::PositionMeasurement::ConstPtr& msg);
     void 			global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg);
     void 			Global2MapCoord(const vector<double>& _globalcoord, vector<int>& MapCoord);
@@ -238,6 +234,7 @@ class Dynamic_Manager
  	void    		CoordinateTransform_Rviz_Grid_Start(double _x, double _y,int map_type);
 	void    		CoordinateTransform_Rviz_Grid_Goal(double _x, double _y,int map_type);
 	void 			CoordinateTransform_Rviz_Grid_Human(double _x, double _y,int map_type);
+	void 			CoordinateTansform_Rviz_Dyn_map(double _x, double _y,vector<int>& dynamicCoord);
 	int 			CoordinateTransform_Global2_beliefMap(double global_x, double global_y);
 	int 			CoordinateTransform_Global2_cameraMap(float global_x, float global_y);
   	bool 			check_cameraregion(float x_pos,float y_pos);
@@ -250,20 +247,16 @@ class Dynamic_Manager
 	bool 			Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2,double criterion);void 			setDesiredHeading(double _heading);
 	void 			getCameraregion();
 	bool 			NotUpdatedCameraregion(int idx);
+	//Publish
 	void			MDPsolPublish();
 	void 			publishpaths();
 	void 			publishZeropaths();	
-	void  			publish_leg_boxes();
 	void 			publish_filtered_human_boxes();
   	void 			publish_cameraregion();
   	void            publish_viewpointTarget();
   	void            Publish_filter_measurment(int measurement_type);
   	void 			Publish_beliefmap();
-  	void 			mixlegyolo();
-  	void 			Findlegfromtarget();
-  	int 			FindNearesetLegIdx(int yolo_idx); 
-  	int 			FindNearesetLegIdx_Target(int target_idx);
-  	void 			set_dynamicPath();
+  	void 			Publish_dynamicPath();
 
   	void 			put_human_occ_map_leg();
   	void 			put_human_occ_map_yolo();

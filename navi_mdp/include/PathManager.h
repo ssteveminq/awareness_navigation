@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include "ros/ros.h"
 #include <ros/package.h>
-#include <Eigen/Dense>
+#include <eigen3/Eigen/Dense>
 #include "std_msgs/MultiArrayLayout.h"
 #include "std_msgs/MultiArrayDimension.h"
 #include "std_msgs/Int32MultiArray.h"
@@ -35,6 +35,7 @@
 #include "tf/transform_listener.h"
 #include "tf/message_filter.h"
 #include <tf/transform_datatypes.h>
+#include <villa_navi_service/GoTargetPos.h>
 #include <cmath>
 #include <cfloat>
 
@@ -55,6 +56,7 @@ class PathManager
  	PathManager();
  	~PathManager();
 
+ 	void pomdp_cmd_callback(const std_msgs::Int8::ConstPtr& msg);
  	void global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg);
  	void dyn_path_callback(const nav_msgs::Path::ConstPtr& msg);
  	void setPath(const nav_msgs::Path::ConstPtr& msg);
@@ -83,6 +85,7 @@ class PathManager
     ros::Publisher head_cmd_pub;
  	tf::TransformListener     listener;
  	tf2_ros::Buffer tf_buffer_;
+ 	ros::ServiceClient nav_client;
  	// _Client trj_cli;
 
  	std::vector< std::vector<double> > base_trajectory;

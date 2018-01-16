@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   sensor_msgs
   trajectory_msgs
+  actionlib
   people_msgs
   control_msgs
   message_generation
@@ -68,3 +69,8 @@ target_link_libraries(base_actionlib_mk ${catkin_LIBRARIES})
 
 add_executable(conti_base_actionlib src/base_conti_actionlib.cpp)
 target_link_libraries(conti_base_actionlib ${catkin_LIBRARIES})
+
+install(DIRECTORY scripts/
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  USE_SOURCE_PERMISSIONS
+)

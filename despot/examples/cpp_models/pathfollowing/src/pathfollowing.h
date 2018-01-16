@@ -21,7 +21,7 @@
 namespace despot {
 
 /* ==============================================================================
- * NavigationState class
+ * NavigationState class by MK 
  * ==============================================================================*/
 
 class NavigationState: public State {

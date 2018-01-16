@@ -237,7 +237,6 @@ void Edgeleg_manager::edge_leg_callback(const geometry_msgs::PoseArray::ConstPtr
 void Edgeleg_manager::publish_cameraregion()
 {
 
-
    getCameraregion();
    static_belief_map.header.stamp =  ros::Time::now();
    static_belief_map.header.frame_id = "map"; 
@@ -255,7 +254,6 @@ void Edgeleg_manager::getCameraregion()
   double global_robot_theta = global_pose[2]+Head_Pos[0];
 
   visiblie_idx_set.clear();
-
   global_robot_theta=0.0;
   //Iteration for belief grid
   for(int i(0);i<static_belief_map.info.width;i++)
