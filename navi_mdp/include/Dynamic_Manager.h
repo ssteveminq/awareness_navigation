@@ -107,11 +107,11 @@ class Dynamic_Manager
  	int  			  num_of_detected_human_yolo;
  	vector<double>    filtered_target;
 
-
  	//human sets
  	std::vector< std::vector< double > > Cur_leg_human;
  	std::vector< std::vector< double > > Filtered_leg_human;
     std::vector< std::vector< double > > cur_yolo_people;
+    std::vector< std::vector< double > > cur_people;
     std::vector< std::vector< double > > Cur_existed_human;
     std::vector< std::vector<double> > leg_targetSet;
 
@@ -130,7 +130,6 @@ class Dynamic_Manager
 	std::vector<double> HeadingVector;
     std::vector<double> viewTarget;
     
-
  	double Ra;
  	double gamma;
 	double Prob_good;
@@ -157,7 +156,6 @@ class Dynamic_Manager
 	ros::NodeHandle  m_node;
 	ros::Publisher   obsmap_Pub;
 	ros::Publisher   Scaled_static_map_pub;
-	ros::Publisher   Scaled_static_map_path_pub;
 	ros::Publisher   Scaled_dynamic_map_pub;
 	ros::Publisher   Scaled_dynamic_map_path_pub;
     ros::Publisher  viewTarget_visual_pub; 
@@ -165,7 +163,6 @@ class Dynamic_Manager
 	//ros::Subscriber  Localmap_sub;
 	ros::Publisher 	 SplinePath_pub;
 	ros::Publisher 	 SplinePath_pub2;
-	ros::Publisher   UnitGoalVec_pub;
 	ros::Publisher   MDPSol_pub;
 	ros::Publisher   RobotHeading_pub;
 	ros::Publisher   Leg_boxes_pub;
@@ -227,6 +224,7 @@ class Dynamic_Manager
  	void 			dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg);
  	void			ClikedpointCallback(const geometry_msgs::PointStamped::ConstPtr& msg);
  	void			Human_MarkerCallback(const visualization_msgs::Marker::ConstPtr& msg);
+ 	void			Human_MarkerArrayCallback(const visualization_msgs::MarkerArray::ConstPtr& msg);
     void            filter_result_callback(const people_msgs::PositionMeasurement::ConstPtr& msg);
     void 			global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg);
     void 			Global2MapCoord(const vector<double>& _globalcoord, vector<int>& MapCoord);

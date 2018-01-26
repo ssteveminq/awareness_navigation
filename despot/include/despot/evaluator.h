@@ -67,12 +67,16 @@ protected:
 	clock_t start_clockt_;
 	State* state_;
 
+	//-------variables for ROS added by MK
 	nav_msgs::OccupancyGrid m_dynamicgrid;
 	ros::Publisher    Action_pub;
 	ros::Subscriber   States_sub;
 	ros::NodeHandle   m_node;
 	std_msgs::Int32   action_cmd;
 
+	//-------variables for ROS added by MK
+
+	//
 	int step_;
 	double target_finish_time_;
 	std::ostream* out_;
@@ -142,8 +146,11 @@ public:
 	double AverageDiscountedRoundReward() const;
 	double StderrDiscountedRoundReward() const;
 
+	//added by MK
+	virtual void UpdateModelStates();
 	void dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg);
 	void publishAction(int action_cmd_);
+
 
 };
 
@@ -210,6 +217,7 @@ public:
 	bool ExecuteAction(int action, double& reward, OBS_TYPE& obs);
 	double End();
 	void UpdateTimePerMove(double step_time);
+	void UpdateModelStates();
 	// void publishAction(int action_cmd_);
 };
 

@@ -36,8 +36,6 @@ public:
 	std::vector<int> eyecontact;
 	//int power_steps;
 	
-
-
 	NavigationState();
 	NavigationState(int _state_id);
 
@@ -115,8 +113,6 @@ public:
 	Navigation(int xsize, int ysize_);
 	Navigation(std::string params_file = "DEFAULT");
 	~Navigation(){m_fileout.close();}
-
-
 
 	virtual bool Step(State& state, double random_num, int action,
 		double& reward, OBS_TYPE& obs) const;

@@ -42,6 +42,7 @@ int main(int argc, char **argv)
   ros::Subscriber dynamicmap_sub;
   ros::Subscriber global_pos_sub;
   ros::Subscriber jointstates_sub;
+  ros::Subscriber  human_yolo_sub;
   //ros::Subscriber edge_leg_sub;
   ros::Subscriber filtered_result_sub;
   //ros::Subscriber keyboard_sub;
@@ -58,6 +59,7 @@ int main(int argc, char **argv)
   filtered_result_sub = n.subscribe<people_msgs::PositionMeasurement>("people_tracker_filter", 10,&Dynamic_Manager::filter_result_callback,&dynamicManager);  
   //keyboard_sub=n.subscribe<keyboard::Key>("/keyboard/keydown",10, &Dynamic_Manager::keyboard_callback,&dynamicManager);
   SplinePath_sub=  n.subscribe<nav_msgs::Path>("/mdp_path", 10, &Dynamic_Manager::mdppath_callback,&dynamicManager);
+  human_yolo_sub   = n.subscribe<visualization_msgs::MarkerArray>("/human_boxes", 10, &Dynamic_Manager::Human_MarkerArrayCallback,&dynamicManager);
 
   // filter_result_sub=nh_.subscribe<people_msgs::PositionMeasurement>("people_tracker_filter", 10,&Edgeleg_manager::filter_result_callback,&dynamicManager);
 

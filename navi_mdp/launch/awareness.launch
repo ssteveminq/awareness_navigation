@@ -1,0 +1,12 @@
+<launch>
+   <node name="mdp_node" pkg="navi_mdp" type="mdpplanner" respawn="false" output="screen"/>
+   <node name="dyn_mdp_node" pkg="navi_mdp" type="dynamic_planner" respawn="false" output="screen"/>
+   <node name="human_marker_node" pkg="navi_mdp" type="human_marker.py" respawn="false" />
+   <node name="nav_service" pkg="villa_navi_service" type="nav_service_test" respawn="false" />
+
+
+<!-- <arg name="gui" default="flase" />
+ <param name="use_gui" value="$(arg gui)"/>
+ <node pkg="rviz" type="rviz" name="rviz" args="-d $(find MDP)/launch/hsr_rviz.rviz" /> -->
+
+</launch>

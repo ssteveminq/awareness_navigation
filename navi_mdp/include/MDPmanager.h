@@ -65,7 +65,7 @@ class MDPManager
 {
  public:
  	MDPManager(MapParam* _pMapParam);
- 	MDPManager():maxiter(Maxiteration),Action_dim(8),gamma(1),Ra(ra),publishnum(0),m_boolSolve(false){}
+ 	MDPManager():maxiter(Maxiteration),Action_dim(8),gamma(1),Ra(ra),publishnum(0),m_boolPath(false),m_boolSolve(false){}
  	~MDPManager();
 
  	MapParam* 	pMapParam;
@@ -135,6 +135,7 @@ class MDPManager
 
 
  	bool    m_boolSolve;
+ 	bool    m_boolPath;
  	int     dyn_path_num;
  	double	m_desired_heading;
 
@@ -162,9 +163,9 @@ class MDPManager
 	nav_msgs::OccupancyGrid Scaled_dynamic_map;
 	nav_msgs::OccupancyGrid Scaled_dynamic_map_path;
 
-	bool       booltrackHuman;
-	nav_msgs::Path path;
-	nav_msgs::Path Pre_dynamicSplinePath;
+	bool       			booltrackHuman;
+	nav_msgs::Path 		path;
+	nav_msgs::Path 		Pre_dynamicSplinePath;
 
 	//functions
  	void 			Init();								 //Initialize function

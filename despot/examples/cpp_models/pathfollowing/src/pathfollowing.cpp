@@ -267,21 +267,8 @@ public:
 					if (newpos.x >= 0 && newpos.y >= 0 && !CheckFlag(observation, a))
 						preferred_actions_.push_back(a);
 
-				}
-			// If power pill and can see a ghost then chase it
-			// if (navstate.power_steps > 0 && ((observation & 15) != 0)) {
-			// 	for (int a = 0; a < 2; a++)
-			// 		if (CheckFlag(observation, a))
-			// 			preferred_actions_.push_back(a);
-			// } else { // Otherwise avoid observed ghosts and avoid changing directions
-			// 	for (int a = 0; a < 2; a++) {
-			// 		Coord newpos = navigation_->NextPos_Path(navstate.robot_pos, a,navigation_->path_index);
-			// 		if (newpos.x >= 0 && newpos.y >= 0
-			// 			&& !CheckFlag(observation, a)
-			// 			&& Compass::Opposite(a) != action)
-			// 			preferred_actions_.push_back(a);
-			// 	}
-			// }
+			}
+
 		}
 	}
 };
@@ -517,6 +504,9 @@ bool Navigation::Step(State& s, double random_num, int action, double& reward,
 	OBS_TYPE& obs) const {
 		
 
+	//receive states vector from ROS
+
+
 	if(random_num==-100.0)
 	{
 		// StepReal(s,random_num,action,reward,obs);
@@ -526,6 +516,7 @@ bool Navigation::Step(State& s, double random_num, int action, double& reward,
 	else	//general
 	{
 		// cout<<"STEP"<<endl;
+		//cout<<"STEP Y"<<endl;
 		NavigationState& navstate = static_cast<NavigationState&>(s);
 		Random random(random_num);
 		
@@ -591,7 +582,7 @@ bool Navigation::sendcmd()
 
  bool Navigation::StepReal(State& state, double random_num, int action, double& reward, OBS_TYPE& obs)
  {
-	// cout<<"STEP"<<endl;
+	cout<<"STEP X"<<endl;
 	 NavigationState& navstate = static_cast<NavigationState&>(state);
 	 Random random(random_num);
 	

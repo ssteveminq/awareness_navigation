@@ -49,18 +49,18 @@ int main(int argc, char **argv)
   while (ros::ok())
   {
      // problemmanager.MDPsolPublish();  //check,,, why tis line is required
-     //  if(problemmanager.m_boolSolve)
-     //  {
-     //     printf("Begin to solve\n");
-     //     problemmanager.pathPublish();
-     //     problemmanager.MDPsolve(); 
-     //     // problemmanager.printPath(); 
-     //     problemmanager.generatePath();
+      if(problemmanager.m_boolSolve)
+      {
+         printf("Begin to solve\n");
+         problemmanager.pathPublish();
+         problemmanager.MDPsolve(); 
+         // problemmanager.printPath(); 
+         problemmanager.generatePath();
         
-     //     printf("End solve\n");
-     //     problemmanager.m_boolSolve=false;
-     //  }
-    problemmanager.setpub_path();
+         printf("End solve\n");
+         problemmanager.m_boolSolve=false;
+      }
+   // problemmanager.setpub_path();
 
   	 ros::spinOnce();
      loop_rate.sleep();  

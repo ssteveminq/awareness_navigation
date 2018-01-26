@@ -127,12 +127,9 @@ void Dynamic_Manager::Init()
 
 	//Declare publisher
 	 // obsmap_Pub= m_node.advertise<std_msgs::Int32MultiArray>("MDP/costmap", 10);
-	 // Path_Pub= m_node.advertise<std_msgs::Int32MultiArray>("MDP/path", 10);
 	SplinePath_pub=  m_node.advertise<nav_msgs::Path>("mdp_path", 10, true);
 	SplinePath_pub2=  m_node.advertise<nav_msgs::Path>("mdp_path_dynamic", 10, true);
-	UnitGoalVec_pub = m_node.advertise<std_msgs::Float32MultiArray>("/CBA_unit_goal", 10, true);
 	Scaled_static_map_pub=m_node.advertise<nav_msgs::OccupancyGrid>("/scaled_static_map", 10, true);
-	Scaled_static_map_path_pub=m_node.advertise<nav_msgs::OccupancyGrid>("/scaled_static_map_path", 10, true);
 	Scaled_dynamic_map_pub=m_node.advertise<nav_msgs::OccupancyGrid>("/scaled_dynamic_map", 10, true);
 	Scaled_dynamic_map_path_pub=m_node.advertise<nav_msgs::OccupancyGrid>("/scaled_dynamic_map_path", 10, true);
 	MDPSol_pub = m_node.advertise<std_msgs::Int32MultiArray>("MDP/Solution", 10);
@@ -140,14 +137,11 @@ void Dynamic_Manager::Init()
 	Gaze_point_pub= m_node.advertise<geometry_msgs::Point>("/gazed_point_fixing_node/target_point", 50, true);
 	Gaze_activate_pub= m_node.advertise<std_msgs::Bool>("/gazed_point_fixing_node/activate", 50, true);
     viewTarget_visual_pub = m_node.advertise<visualization_msgs::Marker>("viewTarget_marker",30, true);
-	 // Leg_boxes_pub=m_node.advertise<visualization_msgs::MarkerArray>("/leg_boxes", 10,true);
 	camera_map_pub=m_node.advertise<nav_msgs::OccupancyGrid>("/camera_region_map", 10, true);
 	Human_boxes_pub=m_node.advertise<visualization_msgs::MarkerArray>("/filtered_humans", 10);
 	Leg_boxes_pub=m_node.advertise<visualization_msgs::MarkerArray>("/filtered_leg_target", 10);
 	people_measurement_pub_ = m_node.advertise<people_msgs::PositionMeasurement>("people_tracker_measurements", 10);
 	belief_pub=m_node.advertise<nav_msgs::OccupancyGrid>("/Human_belief_map", 10, true);
-
-
 
 	Scaled_static_map_path.info.width=Grid_Num_X;
 	Scaled_static_map_path.info.height= Grid_Num_Y;
@@ -155,7 +149,6 @@ void Dynamic_Manager::Init()
 	Scaled_static_map_path.info.origin.position.x=-4;
 	Scaled_static_map_path.info.origin.position.y=-4;
 	Scaled_static_map_path.data.resize(Scaled_static_map_path.info.width*Scaled_static_map_path.info.height);
-
 
    	Scaled_dynamic_map_path.info.width=10;
 	Scaled_dynamic_map_path.info.height= 10;
@@ -419,13 +412,6 @@ void Dynamic_Manager::Human_MarkerCallback(const visualization_msgs::Marker::Con
 	//float human_target_goal_x=  msg->pose.position.x;
     //float human_target_goal_y=  msg->pose.position.y;
 
-    control the time
-    //human_callback_count++;
-    //if(human_callback_count<30)
-        //return;
-    //else
-        //human_callback_count=0;
-
     //CoordinateTransform_Rviz_Grid_Human(human_target_goal_x,human_target_goal_y,1);
    
 
@@ -453,43 +439,45 @@ void Dynamic_Manager::Human_MarkerCallback(const visualization_msgs::Marker::Con
 			//GoalVector[0]=human_target_goal_x;
             GoalectoFiltered_leg_human.clear();
 
-	//for(int i(0);i<num_yolo;i++)
-	//{
-		//Nearest_leg_idx=FindNearesetLegIdx(i);
+H   */
+}
 
-		//IsCloseToYolo=false;
-		//if(Comparetwopoistions(Cur_leg_human[Nearest_leg_idx],cur_yolo_people[i],max_off_yolo_laser))
-		//{
-			//Filtered_leg_human.push_back(Cur_leg_human[Nearest_leg_idx]);
-		
-             //string num_s = std::to_string(i);
-             //string person("person ");
-             //string new_str_name=person+num_s;
-              std::cout<<"person name = "<<new_str_name.c_str()<<std::endl;
-			
-             //people_msgs::PositionMeasurement pos;
-             //pos.header.stamp = ros::Time();
-             //pos.header.frame_id = "/map";
-             //pos.name = "leg_laser";
-             //pos.object_id =new_str_name;
-             //pos.pos.x = Filtered_leg_human[i][0];
-             //pos.pos.y = Filtered_leg_human[i][1];
-             //pos.pos.z = 1.0;
-             //pos.reliability = 0.85;
-             //pos.covariance[0] = pow(0.01 / pos.reliability, 2.0);
-             //pos.covariance[1] = 0.0;
-             //pos.covariance[2] = 0.0;
-             //pos.covariance[3] = 0.0;
-             //pos.covariance[4] = pow(0.01 / pos.reliability, 2.0);
-             //pos.covariance[5] = 0.0;
-             //pos.covariance[6] = 0.0;
-             //pos.covariance[7] = 0.0;
-             //pos.covariance[8] = 10000.0;
-             //pos.initialization = 0;
-             //people_measurement_pub_.publish(pos);
-        //}
-	//}
-    */
+void Dynamic_Manager::Human_MarkerArrayCallback(const visualization_msgs::MarkerArray::ConstPtr& msg)
+{
+
+    int num_of_detected_human=msg->markers.size();
+
+    if(num_of_detected_human>0)
+       cur_people.resize(num_of_detected_human);
+    else
+    {
+      return;
+    }
+
+    for(int i(0);i<num_of_detected_human;i++)
+    {
+      geometry_msgs::Vector3Stamped gV, tV;
+
+      gV.vector.x = msg->markers[i].pose.position.x;
+      gV.vector.y = msg->markers[i].pose.position.y;
+      gV.vector.z = msg->markers[i].pose.position.z;
+
+      // std::cout<<"x :"<<_x<<"_y:"<<_y<<"_z:"<<_z<<std::endl;
+      tf::StampedTransform maptransform;
+      listener.waitForTransform("head_rgbd_sensor_rgb_frame", "map", ros::Time(0), ros::Duration(1.0));
+              
+      gV.header.stamp = ros::Time();
+      gV.header.frame_id = "/head_rgbd_sensor_rgb_frame";
+      listener.transformVector(std::string("/map"), gV, tV);
+              
+      cur_people[i].resize(2,0.0);
+      cur_people[i][0]=tV.vector.x+global_pose[0];
+      cur_people[i][1]=tV.vector.y+global_pose[1];
+   }
+ 
+    //CoordinateTransform_Rviz_Grid_Human(human_target_goal_x,human_target_goal_y,1);
+ 
+
 }
 /*
 void Dynamic_Manager::Human_Yolo_Callback(const visualization_msgs::MarkerArray::ConstPtr& msg)
@@ -1016,21 +1004,7 @@ void Dynamic_Manager::ClikedpointCallback(const geometry_msgs::PointStamped::Con
 	CoordinateTransform_Rviz_Grid_Goal(GoalVector[0],GoalVector[1],1);
 	updateMap(m_dynamic_occupancy,cur_coord,Goal_Coord);
 
-	 //Pulbish unitvector
-    //std::vector<float> unitgoalvector(2,0.0);
-	//unitgoalvector[0] = GoalVector[0]-CurVector[0];
-	//unitgoalvector[1] = GoalVector[1]-CurVector[1];
-	//float vector_norm=sqrt(unitgoalvector[0]*unitgoalvector[0]+unitgoalvector[1]*unitgoalvector[1]);
-	//unitgoalvector[0] =unitgoalvector[0]/vector_norm;
-	//unitgoalvector[1] =unitgoalvector[1]/vector_norm;
-
-	//std_msgs::Float32MultiArray unitgoal_msg;
-	//unitgoal_msg.data.resize(unitgoalvector.size());
-	//for(int i(0);i<unitgoalvector.size();i++)
-	//unitgoal_msg.data[i] = unitgoalvector[i];
-	//UnitGoalVec_pub.publish(unitgoal_msg);
-	//ROS_INFO("clicked goal_uint goal x : %.3lf, y : %.3lf\n",unitgoalvector[0],unitgoalvector[1]);
-    // printf("x index is %.3f, y index is %.3f \n",Goal_Coord[0],Goal_Coord[1]);  
+	 
     m_boolSolve=true;
 
     return;
@@ -1627,57 +1601,57 @@ void Dynamic_Manager::Global2MapCoord(const vector<double>& _globalcoord,vector<
 
 void Dynamic_Manager::Publish_filter_measurment(int measurement_type)
 {
-	double pos_x = 0.0;
-	double pos_y = 0.0;
+	//double pos_x = 0.0;
+	//double pos_y = 0.0;
 
-	// std::vector< std::vector<double> > targetHumans = Filtered_leg_human;
+     //std::vector< std::vector<double> > targetHumans = Filtered_leg_human;
 
-	switch(measurement_type){
-		case 0:
-			pos_x =0.0;
-			pos_y =0.0; 
-			break;
-		case 1:
-			pos_x =0.0;
-			pos_y =0.0;
-			break;
-		case 2:
-			pos_x = 0.0;
-			pos_y = 0.0;
-			break;
-		default: 
-			pos_x = 0.0;
-			pos_y = 0.0;
+	//switch(measurement_type){
+		//case 0:
+			//pos_x =0.0;
+			//pos_y =0.0; 
+			//break;
+		//case 1:
+			//pos_x =0.0;
+			//pos_y =0.0;
+			//break;
+		//case 2:
+			//pos_x = 0.0;
+			//pos_y = 0.0;
+			//break;
+		//default: 
+			//pos_x = 0.0;
+			//pos_y = 0.0;
 			
-	}
+	//}
 
-	for(int idx(0);idx<leg_targetSet.size();idx++){
-        string num_s = std::to_string(idx);
-        string person("person ");
-        string new_str_name=person+num_s;
-        // std::cout<<"person name = "<<new_str_name.c_str()<<std::endl;
+	//for(int idx(0);idx<leg_targetSet.size();idx++){
+        //string num_s = std::to_string(idx);
+        //string person("person ");
+        //string new_str_name=person+num_s;
+         //std::cout<<"person name = "<<new_str_name.c_str()<<std::endl;
 		
-        people_msgs::PositionMeasurement pos;
-        pos.header.stamp = ros::Time();
-        pos.header.frame_id = "/map";
-        pos.name = "leg_laser";
-        pos.object_id =new_str_name;
-        pos.pos.x = leg_targetSet[idx][0];
-        pos.pos.y = leg_targetSet[idx][1];
-        pos.pos.z = 1.0;
-        pos.reliability = 0.85;
-        pos.covariance[0] = pow(0.01 / pos.reliability, 2.0);
-        pos.covariance[1] = 0.0;
-        pos.covariance[2] = 0.0;
-        pos.covariance[3] = 0.0;
-        pos.covariance[4] = pow(0.01 / pos.reliability, 2.0);
-        pos.covariance[5] = 0.0;
-        pos.covariance[6] = 0.0;
-        pos.covariance[7] = 0.0;
-        pos.covariance[8] = 10000.0;
-        pos.initialization = 0;
-        people_measurement_pub_.publish(pos);
-        }
+        //people_msgs::PositionMeasurement pos;
+        //pos.header.stamp = ros::Time();
+        //pos.header.frame_id = "/map";
+        //pos.name = "leg_laser";
+        //pos.object_id =new_str_name;
+        //pos.pos.x = leg_targetSet[idx][0];
+        //pos.pos.y = leg_targetSet[idx][1];
+        //pos.pos.z = 1.0;
+        //pos.reliability = 0.85;
+        //pos.covariance[0] = pow(0.01 / pos.reliability, 2.0);
+        //pos.covariance[1] = 0.0;
+        //pos.covariance[2] = 0.0;
+        //pos.covariance[3] = 0.0;
+        //pos.covariance[4] = pow(0.01 / pos.reliability, 2.0);
+        //pos.covariance[5] = 0.0;
+        //pos.covariance[6] = 0.0;
+        //pos.covariance[7] = 0.0;
+        //pos.covariance[8] = 10000.0;
+        //pos.initialization = 0;
+        //people_measurement_pub_.publish(pos);
+        //}
 
 
 }
@@ -2701,18 +2675,6 @@ void Dynamic_Manager::generatePath()
 	 SplinePath_pub.publish(path);
 
 	 // Publish static map_path
-	for(int j(0);j<Scaled_static_map_path.data.size();j++)
-	 {	
-	 	Scaled_static_map_path.data[j]=0.0;
-	 }
-
-
-	 for(int k(0); k<MDPPath.size();k++)
-	 	Scaled_static_map_path.data[MDPPath[k]]=90;
-
-	 Scaled_static_map_path.header.stamp =  ros::Time::now();
-	 Scaled_static_map_path.header.frame_id = "map"; 
-     Scaled_static_map_path_pub.publish(Scaled_static_map_path);
 
     //MDP solution publsih
     std_msgs::Int32MultiArray MDPsolution_msg;

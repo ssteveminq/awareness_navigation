@@ -459,65 +459,65 @@ void MDPManager::Human_MarkerCallback(const visualization_msgs::Marker::ConstPtr
    // }
 
     //dynamic goal setting
-    if(booltrackHuman)
-    {
-    	if(dyn_path_num>0 && (!IsinDynamicMap(human_target_goal_x,human_target_goal_y)))
-    		return;
+   //  if(booltrackHuman)
+   //  {
+   //  	if(dyn_path_num>0 && (!IsinDynamicMap(human_target_goal_x,human_target_goal_y)))
+   //  		return;
 
-    	if(dyn_path_num==0 || IsTargetMoved(human_target_goal_x,human_target_goal_y, 0.5))
-    	{ 
-	    	//global coordinate
-	    	GoalVector.resize(2,0);
-	    	GoalVector[0]=human_target_goal_x;
-			GoalVector[1]=human_target_goal_y;
-			double temp_yaw =atan(HeadingVector[1]/HeadingVector[0]);
+   //  	if(dyn_path_num==0 || IsTargetMoved(human_target_goal_x,human_target_goal_y, 0.5))
+   //  	{ 
+	  //   	//global coordinate
+	  //   	GoalVector.resize(2,0);
+	  //   	GoalVector[0]=human_target_goal_x;
+			// GoalVector[1]=human_target_goal_y;
+			// double temp_yaw =atan(HeadingVector[1]/HeadingVector[0]);
 
 			
-			if(getdistance(CurVector,GoalVector)<1.2)
-				return;
+			// if(getdistance(CurVector,GoalVector)<1.2)
+			// 	return;
 
-			HeadingVector.resize(2,0.0);
-			HeadingVector[0]= GoalVector[0]-CurVector[0];
-			HeadingVector[1]= GoalVector[1]-CurVector[1];
-			setDesiredHeading(atan(HeadingVector[1]/HeadingVector[0]));
+			// HeadingVector.resize(2,0.0);
+			// HeadingVector[0]= GoalVector[0]-CurVector[0];
+			// HeadingVector[1]= GoalVector[1]-CurVector[1];
+			// setDesiredHeading(atan(HeadingVector[1]/HeadingVector[0]));
 
-			 ROS_INFO("Human target (global)  x : %.3lf, y : %.3lf\n",GoalVector[0],GoalVector[1]);
-			//should be transfertodynamic_coordinate
-	    	cur_coord.resize(2);
-		 	Human_Goal_Coord.resize(2);
+			//  ROS_INFO("Human target (global)  x : %.3lf, y : %.3lf\n",GoalVector[0],GoalVector[1]);
+			// //should be transfertodynamic_coordinate
+	  //   	cur_coord.resize(2);
+		 // 	Human_Goal_Coord.resize(2);
 		 	
-		 	ROS_INFO("Cur robot (global)  x : %.3lf, y : %.3lf\n",CurVector[0],CurVector[1]);
-		 	CoordinateTransform_Rviz_Grid_Start(CurVector[0],CurVector[1],1);
-		 	CoordinateTransform_Rviz_Grid_Goal(GoalVector[0],GoalVector[1],1);
+		 // 	ROS_INFO("Cur robot (global)  x : %.3lf, y : %.3lf\n",CurVector[0],CurVector[1]);
+		 // 	CoordinateTransform_Rviz_Grid_Start(CurVector[0],CurVector[1],1);
+		 // 	CoordinateTransform_Rviz_Grid_Goal(GoalVector[0],GoalVector[1],1);
 
-		 	ROS_INFO("Start : x : %d, y : %d , Goal : x %d, y : %d \n",cur_coord[0],cur_coord[1],Goal_Coord[0],Goal_Coord[1]);
-		 	updateMap(m_dynamic_occupancy,cur_coord,Goal_Coord);
+		 // 	ROS_INFO("Start : x : %d, y : %d , Goal : x %d, y : %d \n",cur_coord[0],cur_coord[1],Goal_Coord[0],Goal_Coord[1]);
+		 // 	updateMap(m_dynamic_occupancy,cur_coord,Goal_Coord);
 
-		 	geometry_msgs::Pose heading_msg;
-		 	heading_msg.position.x=0;
-		 	heading_msg.position.y=0;
-		 	heading_msg.position.z=0;
+		 // 	geometry_msgs::Pose heading_msg;
+		 // 	heading_msg.position.x=0;
+		 // 	heading_msg.position.y=0;
+		 // 	heading_msg.position.z=0;
 
-		 	heading_msg.orientation.x=0;
-		 	heading_msg.orientation.y=0;
-		 	heading_msg.orientation.z=m_desired_heading;
-		 	heading_msg.orientation.w=0;
+		 // 	heading_msg.orientation.x=0;
+		 // 	heading_msg.orientation.y=0;
+		 // 	heading_msg.orientation.z=m_desired_heading;
+		 // 	heading_msg.orientation.w=0;
 		 	
-		 	RobotHeading_pub.publish(heading_msg);
+		 // 	RobotHeading_pub.publish(heading_msg);
 
-		 	if(Goal_Coord[0]<0 || Goal_Coord[1]<0)
-		 		return;
+		 // 	if(Goal_Coord[0]<0 || Goal_Coord[1]<0)
+		 // 		return;
 
-		 	m_boolSolve=true;
-	 	}
+		 // 	m_boolSolve=true;
+	 	// }
 
 
-    }
-    else{
+   //  }
+   //  else{
     
-    	m_boolSolve=false;
+   //  	m_boolSolve=false;
 
-    }
+   //  }
 
 
 
@@ -529,12 +529,7 @@ void MDPManager::setstaticGoal()
 	GoalVector.resize(2,0);
     GoalVector[0]=8.7;
 	GoalVector[1]=7.2;
-    // GoalVector[0]=msg->point.x-Map_orig_Vector[0];
-    // GoalVector[1]=msg->point.y-Map_orig_Vector[1];
-    // CurVector[0]=0.0;
-    // CurVector[1]=0.0;
-    // printf(" cur x index is %.3f, cur y index is %.3f \n",CurVector[0],CurVector[1]);  
-    // printf(" goal x index is %.3f, goal y index is %.3f \n",GoalVector[0],GoalVector[1]);  
+ 
      cur_coord.resize(2);
 	 Goal_Coord.resize(2);
 	 
@@ -1746,17 +1741,11 @@ void MDPManager::publishZeropaths()
 
 void MDPManager::publishpaths()
 {
-	// if(booltrackHuman)
- 	// {
+	if(m_boolPath)
  		SplinePath_pub.publish(path);
-		//SplinePath_pub2.publish(Pre_dynamicSplinePath);
-		Scaled_dynamic_map_path_pub.publish(Scaled_dynamic_map_path);
-	// }
-	// else
-	// {	
-	// 	//publishZeropaths();
-
-	// }
+ 	else
+ 		return;
+	
 }
 
 //Generate path from solution
@@ -1852,7 +1841,7 @@ void MDPManager::generatePath()
      }
 
      //Publish SPline Path
-  	nav_msgs::Path path ;
+  	// nav_msgs::Path path ;
   	path.header.frame_id = "map";
   	geometry_msgs::PoseStamped pose;
 	// pose.header.frame_id = "map_local";
@@ -1867,6 +1856,7 @@ void MDPManager::generatePath()
 	}
 	 
 	 SplinePath_pub.publish(path);
+	 m_boolPath=true;
 
 	 // Publish static map_path
 	for(int j(0);j<Scaled_static_map_path.data.size();j++)

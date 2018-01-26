@@ -293,18 +293,27 @@ void Evaluator::ReportStepReward() {
 			<< " / " << total_undiscounted_reward_ << endl;
 }
 
+void Evaluator::UpdateModelStates()
+{
+	std::cout<<"UpdateModelstates_Evaluator";
+
+};
+
 void Evaluator::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)
 {
-	int mapsize=msg->data.size();
-	m_dynamicgrid.data.resize(mapsize);
-	for(int i(0);i<mapsize;i++)
-	{
+ //    std::cout<<"dynamic_mapcallback"<<std::endl;
+ //    m_dynamicgrid=(*msg);
+	// int mapsize=msg->data.size();
+	// // m_dynamicgrid.data.resize(mapsize);
+	
+	// for(int i(0);i<mapsize;i++)
+	// {
 
-		m_dynamicgrid.data[i]=msg->data[i];
-		std::cout<<m_dynamicgrid.data[i]<<" , ";
-		if(i%10==0)
-			std::cout<<std::endl;
-	}
+	// 	m_dynamicgrid.data[i]=msg->data[i];
+	// 	std::cout<<m_dynamicgrid.data[i]<<" , ";
+	// 	if(i%10==0)
+	// 		std::cout<<std::endl;
+	// }
 
 }
 
@@ -313,8 +322,6 @@ void Evaluator::publishAction(int action_cmd_)
 
 	action_cmd.data=action_cmd_;
 	Action_pub.publish(action_cmd);
-
-
 }
 
 /* =============================================================================
@@ -613,7 +620,6 @@ double POMDPEvaluator::EndRound() {
 
 	discounted_round_rewards_.push_back(total_discounted_reward_);
 	undiscounted_round_rewards_.push_back(total_undiscounted_reward_);
-
 	return total_undiscounted_reward_;
 }
 
@@ -622,14 +628,20 @@ bool POMDPEvaluator::ExecuteAction(int action, double& reward, OBS_TYPE& obs) {
 
 	std::cout<<"this is only for one?"<<std::endl; //yes it is 
 	ros::spinOnce();
+	
+
+	//mkbookmark1. FixMe : You should update states here
+	
+	UpdateModelStates();
 	bool terminal = model_->Step(*state_, random_num, action, reward, obs);
+	
 	// bool terminal = model_->StepReal(*state_, random_num, action, reward, obs);
 	//TODO : I have to publish command for robot 
 	// How I can figure out this is reaL EXECUT
-	// model_->Action_Pub
+	
 	publishAction(action);
 	
-		//bool terminal = model_->Step(*state_, random_num, action, reward, obs);
+	//bool terminal = model_->Step(*state_, random_num, action, reward, obs);
 	model_->saveLastAction(*state_,action);
 	cout<<"ExecuteAction MK"<<endl;
 
@@ -683,14 +695,20 @@ void POMDPEvaluator::UpdateTimePerMove(double step_time) {
 	}
 }
 
-// void POMDPEvaluator::publishAction(int action_cmd_)
-// {
 
-// 	action_cmd.data=action_cmd_;
-// 	Action_pub.publish(action_cmd);
+void POMDPEvaluator::UpdateModelStates(){
 
+	std::cout<<"UpdateModelstates)POMDPEvaluator";
+	for(int i(0);i<m_dynamicgrid.data.size();i++)
+	{
+		std::cout<<m_dynamicgrid.data[i];
+	}
 
-// }
+	std::cout<<std::endl;
+	// m_dynamicgrid;
 
+}
+
+ 
 
 } // namespace despot

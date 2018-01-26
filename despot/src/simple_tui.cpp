@@ -390,9 +390,7 @@ int SimpleTUI::run(int argc, char *argv[]) {
     //    ros::spinOnce();
     //    loop_rate.sleep();  
     // }
-
-
-
+        
   RunEvaluator(model, simulator, options, num_runs, search_solver, solver,
                simulator_type, main_clock_start, start_run);
 
