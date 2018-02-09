@@ -32,7 +32,7 @@
 #include "tf/message_filter.h"
 #include <tf/transform_datatypes.h>
 #include <people_msgs/PositionMeasurement.h>
-#include <keyboard/Key.h>
+//#include <keyboard/Key.h>
 #include <cmath>
 #include <cfloat>
 
@@ -217,7 +217,7 @@ class Dynamic_Manager
  	void 			generate_dynamicPath();
  	void            pathPublish();
  	void  			updateMap(vector<int>& localmap_,vector<int>& local_start, vector<int>& local_goal);
- 	void 			keyboard_callback(const keyboard::Key::ConstPtr& msg);
+     //void 			keyboard_callback(const keyboard::Key::ConstPtr& msg);
  	void            mdppath_callback(const nav_msgs::Path::ConstPtr & msg);
  	void 			joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg);
  	void 			static_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg);

@@ -19,6 +19,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   std_msgs
   tf
+  villa_navi_service
 )
 
 find_package(Eigen3 QUIET)
@@ -29,7 +30,7 @@ if(NOT EIGEN3_FOUND)
 endif()
 
 
-#find_package(Eigen3 REQUIRED)
+find_package(Boost REQUIRED COMPONENTS thread)
   include_directories(${EIGEN3_INCLUDE_DIR}
   include
   src
@@ -37,15 +38,13 @@ endif()
 
 catkin_package(
   INCLUDE_DIRS include
-#  LIBRARIES classifier
-#  CATKIN_DEPENDS roscpp geometry_msgs
-  DEPENDS
-  	roscpp
-  	geometry_msgs
-  	sensor_msgs
+    CATKIN_DEPENDS
+    roscpp
+    geometry_msgs
+    std_msgs
+    sensor_msgs
     people_msgs
-  	message_runtime
-    eigen
+    message_runtime
     tf
  )
 
@@ -63,6 +62,8 @@ target_link_libraries(dynamic_planner ${catkin_LIBRARIES})
 
 add_executable(path_follow src/follow_test.cpp ${SOURCES})
 target_link_libraries(path_follow ${catkin_LIBRARIES})
+#add_dependencies(path_follow ${${navi_mdp}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGET})
+add_dependencies(path_follow ${catkin_EXPORTED_TARGETS})
 
 add_executable(base_actionlib_mk src/base_actionlib.cpp)
 target_link_libraries(base_actionlib_mk ${catkin_LIBRARIES})

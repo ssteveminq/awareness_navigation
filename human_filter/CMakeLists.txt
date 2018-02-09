@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(human_filter)
 
 # Look for bfl (Bayesian Filtering Library)
-find_package(PkgConfig)
+find_package(PkgConfig REQUIRED)
 pkg_check_modules(BFL REQUIRED orocos-bfl)
 
 include_directories(${BFL_INCLUDE_DIRS})

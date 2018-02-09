@@ -4,8 +4,8 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-ACTION_A	despot/examples/cpp_models/chain/src/chain.h	/^		ACTION_A, ACTION_B$/;"	e	enum:despot::Chain::__anon3
-ACTION_B	despot/examples/cpp_models/chain/src/chain.h	/^		ACTION_A, ACTION_B$/;"	e	enum:despot::Chain::__anon3
+ACTION_A	despot/examples/cpp_models/chain/src/chain.h	/^		ACTION_A, ACTION_B$/;"	e	enum:despot::Chain::__anon14
+ACTION_B	despot/examples/cpp_models/chain/src/chain.h	/^		ACTION_A, ACTION_B$/;"	e	enum:despot::Chain::__anon14
 ADVENTURER_H	despot/examples/cpp_models/adventurer/src/adventurer.h	2;"	d
 AEMS	despot/include/despot/solver/aems.h	/^class AEMS: public Solver {$/;"	c	namespace:despot
 AEMS	despot/src/solver/aems.cpp	/^AEMS::AEMS(const DSPOMDP* model, BeliefLowerBound* lower_bound,$/;"	f	class:despot::AEMS
@@ -27,20 +27,20 @@ ARG_IGNORE	despot/include/despot/util/optionparser.h	/^	ARG_IGNORE,$/;"	e	enum:d
 ARG_ILLEGAL	despot/include/despot/util/optionparser.h	/^	ARG_ILLEGAL$/;"	e	enum:despot::option::ArgStatus
 ARG_NONE	despot/include/despot/util/optionparser.h	/^	ARG_NONE,$/;"	e	enum:despot::option::ArgStatus
 ARG_OK	despot/include/despot/util/optionparser.h	/^	ARG_OK,$/;"	e	enum:despot::option::ArgStatus
-A_CHECK	despot/examples/cpp_models/simpleNavi/src/simpleNavi.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleNavi::__anon7
-A_CHECK	despot/examples/cpp_models/simple_rock_sample/src/simple_rock_sample.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleRockSample::__anon1
-A_EAST	despot/examples/cpp_models/simpleNavi/src/simpleNavi.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleNavi::__anon7
-A_EAST	despot/examples/cpp_models/simple_rock_sample/src/simple_rock_sample.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleRockSample::__anon1
-A_LEFT	despot/examples/cpp_models/adventurer/src/adventurer.h	/^		A_LEFT,$/;"	e	enum:despot::Adventurer::__anon4
-A_LEFT	despot/examples/cpp_models/reg_demo/src/reg_demo.h	/^		A_LEFT,$/;"	e	enum:despot::RegDemo::__anon9
-A_RIGHT	despot/examples/cpp_models/adventurer/src/adventurer.h	/^		A_RIGHT$/;"	e	enum:despot::Adventurer::__anon4
-A_RIGHT	despot/examples/cpp_models/reg_demo/src/reg_demo.h	/^		A_RIGHT$/;"	e	enum:despot::RegDemo::__anon9
-A_SAMPLE	despot/examples/cpp_models/simpleNavi/src/simpleNavi.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleNavi::__anon7
-A_SAMPLE	despot/examples/cpp_models/simple_rock_sample/src/simple_rock_sample.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleRockSample::__anon1
-A_STAY	despot/examples/cpp_models/adventurer/src/adventurer.h	/^		A_STAY,$/;"	e	enum:despot::Adventurer::__anon4
-A_STAY	despot/examples/cpp_models/reg_demo/src/reg_demo.h	/^		A_STAY,$/;"	e	enum:despot::RegDemo::__anon9
-A_WEST	despot/examples/cpp_models/simpleNavi/src/simpleNavi.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleNavi::__anon7
-A_WEST	despot/examples/cpp_models/simple_rock_sample/src/simple_rock_sample.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleRockSample::__anon1
+A_CHECK	despot/examples/cpp_models/simpleNavi/src/simpleNavi.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleNavi::__anon12
+A_CHECK	despot/examples/cpp_models/simple_rock_sample/src/simple_rock_sample.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleRockSample::__anon7
+A_EAST	despot/examples/cpp_models/simpleNavi/src/simpleNavi.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleNavi::__anon12
+A_EAST	despot/examples/cpp_models/simple_rock_sample/src/simple_rock_sample.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleRockSample::__anon7
+A_LEFT	despot/examples/cpp_models/adventurer/src/adventurer.h	/^		A_LEFT,$/;"	e	enum:despot::Adventurer::__anon6
+A_LEFT	despot/examples/cpp_models/reg_demo/src/reg_demo.h	/^		A_LEFT,$/;"	e	enum:despot::RegDemo::__anon10
+A_RIGHT	despot/examples/cpp_models/adventurer/src/adventurer.h	/^		A_RIGHT$/;"	e	enum:despot::Adventurer::__anon6
+A_RIGHT	despot/examples/cpp_models/reg_demo/src/reg_demo.h	/^		A_RIGHT$/;"	e	enum:despot::RegDemo::__anon10
+A_SAMPLE	despot/examples/cpp_models/simpleNavi/src/simpleNavi.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleNavi::__anon12
+A_SAMPLE	despot/examples/cpp_models/simple_rock_sample/src/simple_rock_sample.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleRockSample::__anon7
+A_STAY	despot/examples/cpp_models/adventurer/src/adventurer.h	/^		A_STAY,$/;"	e	enum:despot::Adventurer::__anon6
+A_STAY	despot/examples/cpp_models/reg_demo/src/reg_demo.h	/^		A_STAY,$/;"	e	enum:despot::RegDemo::__anon10
+A_WEST	despot/examples/cpp_models/simpleNavi/src/simpleNavi.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleNavi::__anon12
+A_WEST	despot/examples/cpp_models/simple_rock_sample/src/simple_rock_sample.h	/^		A_SAMPLE = 0, A_EAST = 1, A_WEST = 2, A_CHECK = 3$/;"	e	enum:despot::SimpleRockSample::__anon7
 Accept	despot/src/util/tinyxml/tinyxml.cpp	/^bool TiXmlComment::Accept(TiXmlVisitor* visitor) const {$/;"	f	class:despot::util::tinyxml::TiXmlComment
 Accept	despot/src/util/tinyxml/tinyxml.cpp	/^bool TiXmlDeclaration::Accept(TiXmlVisitor* visitor) const {$/;"	f	class:despot::util::tinyxml::TiXmlDeclaration
 Accept	despot/src/util/tinyxml/tinyxml.cpp	/^bool TiXmlDocument::Accept(TiXmlVisitor* visitor) const {$/;"	f	class:despot::util::tinyxml::TiXmlDocument
@@ -219,13 +219,9 @@ CXX	despot/examples/cpp_models/tag/Makefile	/^CXX = g++$/;"	m
 CXX	despot/examples/cpp_models/tiger/Makefile	/^CXX = g++$/;"	m
 CXX	despot/examples/pomdpx_models/Makefile	/^CXX = g++$/;"	m
 CXXFLAGS	despot/Makefile	/^CXXFLAGS = -O3 -c -Wall -Wno-sign-compare -fpic $(INCL) $(GPROF)$/;"	m
-Camera_angle	human_tracking/include/human_scan.h	/^	double Camera_angle;$/;"	m	class:Human_Belief_Scan
-Camera_angle	human_tracking/include/humantracking.h	/^	double Camera_angle;$/;"	m	class:Human_Belief
 Camera_angle	villa_navi_service/include/navi_service_node.h	/^	double Camera_angle;$/;"	m	class:villa_navi_srv
 CellNum2Coord	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::CellNum2Coord(const int Cell_idx, vector<int>& cell_xy)$/;"	f	class:Dynamic_Manager
 CellNum2Coord	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::CellNum2Coord(const int Cell_idx, vector<int>& cell_xy)$/;"	f	class:MDPManager
-CellNum2globalCoord	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::CellNum2globalCoord(const int Cell_idx, std::vector<double>& cell_xy)$/;"	f	class:Human_Belief_Scan
-CellNum2globalCoord	human_tracking/src/humantracking.cpp	/^void Human_Belief::CellNum2globalCoord(const int Cell_idx, std::vector<double>& cell_xy)$/;"	f	class:Human_Belief
 CellNum2globalCoord	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::CellNum2globalCoord(const int Cell_idx, std::vector<double>& cell_xy)$/;"	f	class:Dynamic_Manager
 Cell_Info	navi_mdp/include/MapParam.h	/^	std::vector<int>    Cell_Info;$/;"	m	class:MapParam
 Chain	despot/examples/cpp_models/chain/src/chain.cpp	/^Chain::Chain() {$/;"	f	class:despot::Chain
@@ -241,8 +237,6 @@ CheckDESPOTSTAR	despot/src/solver/despot.cpp	/^double DESPOT::CheckDESPOTSTAR(co
 CheckFlag	despot/include/despot/util/util.h	/^inline bool CheckFlag(int flags, int bit) {$/;"	f	namespace:despot
 CheckPedCollision	despot/examples/cpp_models/pathfollowing/src/pathfollowing.cpp	/^bool Navigation::CheckPedCollision(NavigationState& navstate, int g ,int step_col) const {$/;"	f	class:despot::Navigation
 CheckPosCollision	despot/examples/cpp_models/pathfollowing/src/pathfollowing.cpp	/^bool Navigation::CheckPosCollision(const Coord& currentPos, NavigationState& navstate, int step_col) const$/;"	f	class:despot::Navigation
-Check_beliefmap	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::Check_beliefmap()$/;"	f	class:Human_Belief_Scan
-Check_beliefmap	human_tracking/src/humantracking.cpp	/^void Human_Belief::Check_beliefmap()$/;"	f	class:Human_Belief
 Child	despot/include/despot/util/tinyxml/tinyxml.h	/^	TiXmlHandle Child( const std::string& _value, int index ) const {$/;"	f	class:despot::util::tinyxml::TiXmlHandle
 Child	despot/src/core/node.cpp	/^QNode* VNode::Child(int action) {$/;"	f	class:despot::VNode
 Child	despot/src/core/node.cpp	/^VNode* QNode::Child(OBS_TYPE obs) {$/;"	f	class:despot::QNode
@@ -284,10 +278,6 @@ CompareSecond	despot/include/despot/util/util.h	/^bool CompareSecond(std::pair<K
 Comparetwopoistions	human_filter/src/edge_leg_filter_node.cpp	/^bool Edgeleg_manager::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)$/;"	f	class:Edgeleg_manager
 Comparetwopoistions	human_filter/src/followme_action.cpp	/^bool Edgeleg_manager_action::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)$/;"	f	class:Edgeleg_manager_action
 Comparetwopoistions	human_filter/src/service_test.cpp	/^bool Edgeleg_manager_srv::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)$/;"	f	class:Edgeleg_manager_srv
-Comparetwopoistions	human_tracking/src/human_scan.cpp	/^bool Human_Belief_Scan::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2)$/;"	f	class:Human_Belief_Scan
-Comparetwopoistions	human_tracking/src/human_scan.cpp	/^bool Human_Belief_Scan::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)$/;"	f	class:Human_Belief_Scan
-Comparetwopoistions	human_tracking/src/humantracking.cpp	/^bool Human_Belief::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2)$/;"	f	class:Human_Belief
-Comparetwopoistions	human_tracking/src/humantracking.cpp	/^bool Human_Belief::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)$/;"	f	class:Human_Belief
 Comparetwopoistions	navi_mdp/src/Dynamic_Manager.cpp	/^bool Dynamic_Manager::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)$/;"	f	class:Dynamic_Manager
 Comparetwopoistions	navi_mdp/src/MDPmanager.cpp	/^bool MDPManager::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)$/;"	f	class:MDPManager
 Compass	despot/include/despot/util/coord.h	/^struct Compass {$/;"	s	namespace:despot
@@ -344,8 +334,6 @@ Config	despot/include/despot/config.h	/^struct Config {$/;"	s	namespace:despot
 Construct	despot/include/despot/util/memorypool.h	/^	T* Construct() {$/;"	f	class:despot::MemoryPool
 ConstructTree	despot/src/solver/despot.cpp	/^VNode* DESPOT::ConstructTree(vector<State*>& particles, RandomStreams& streams,$/;"	f	class:despot::DESPOT
 ConstructTree	despot/src/solver/pomcp.cpp	/^VNode* DPOMCP::ConstructTree(vector<State*>& particles, RandomStreams& streams,$/;"	f	class:despot::DPOMCP
-ConvertAngle2LaserIdx	human_tracking/src/human_scan.cpp	/^int Human_Belief_Scan::ConvertAngle2LaserIdx(double angle_rad)$/;"	f	class:Human_Belief_Scan
-ConvertAngle2LaserIdx	human_tracking/src/humantracking.cpp	/^int Human_Belief::ConvertAngle2LaserIdx(double angle_rad)$/;"	f	class:Human_Belief
 ConvertUTF32ToUTF8	despot/src/util/tinyxml/tinyxmlparser.cpp	/^void TiXmlBase::ConvertUTF32ToUTF8(unsigned long input, char* output,$/;"	f	class:despot::util::tinyxml::TiXmlBase
 Coord	despot/include/despot/util/coord.h	/^struct Coord {$/;"	s	namespace:despot
 Coord	despot/src/util/coord.cpp	/^Coord::Coord() :$/;"	f	class:despot::Coord
@@ -354,17 +342,11 @@ Coord2CellNum	navi_mdp/src/Dynamic_Manager.cpp	/^int  Dynamic_Manager::Coord2Cel
 Coord2CellNum	navi_mdp/src/MDPmanager.cpp	/^int  MDPManager::Coord2CellNum(std::vector<int> cell_xy)$/;"	f	class:MDPManager
 CoordToIndex	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.cpp	/^int BaseRockSample::CoordToIndex(Coord c) const {$/;"	f	class:despot::BaseRockSample
 CoordinateTansform_Rviz_Dyn_map	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::CoordinateTansform_Rviz_Dyn_map(double _x, double _y,vector<int>& dynamicCoord)$/;"	f	class:Dynamic_Manager
-CoordinateTransform_Global2_beliefMap	human_tracking/src/human_scan.cpp	/^int Human_Belief_Scan::CoordinateTransform_Global2_beliefMap(double global_x, double global_y)$/;"	f	class:Human_Belief_Scan
-CoordinateTransform_Global2_beliefMap	human_tracking/src/humantracking.cpp	/^int Human_Belief::CoordinateTransform_Global2_beliefMap(double global_x, double global_y)$/;"	f	class:Human_Belief
 CoordinateTransform_Global2_beliefMap	navi_mdp/src/Dynamic_Manager.cpp	/^int Dynamic_Manager::CoordinateTransform_Global2_beliefMap(double global_x, double global_y)$/;"	f	class:Dynamic_Manager
 CoordinateTransform_Global2_cameraMap	navi_mdp/src/Dynamic_Manager.cpp	/^int Dynamic_Manager::CoordinateTransform_Global2_cameraMap(float global_x, float global_y)$/;"	f	class:Dynamic_Manager
-CoordinateTransform_Global2_dynMap	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::CoordinateTransform_Global2_dynMap(double global_x, double global_y)$/;"	f	class:Human_Belief_Scan
-CoordinateTransform_Global2_dynMap	human_tracking/src/humantracking.cpp	/^void Human_Belief::CoordinateTransform_Global2_dynMap(double global_x, double global_y)$/;"	f	class:Human_Belief
 CoordinateTransform_Global2_staticMap	human_filter/src/edge_leg_filter_node.cpp	/^int Edgeleg_manager::CoordinateTransform_Global2_staticMap(float global_x, float global_y)$/;"	f	class:Edgeleg_manager
 CoordinateTransform_Global2_staticMap	human_filter/src/followme_action.cpp	/^int Edgeleg_manager_action::CoordinateTransform_Global2_staticMap(float global_x, float global_y)$/;"	f	class:Edgeleg_manager_action
 CoordinateTransform_Global2_staticMap	human_filter/src/service_test.cpp	/^int Edgeleg_manager_srv::CoordinateTransform_Global2_staticMap(float global_x, float global_y)$/;"	f	class:Edgeleg_manager_srv
-CoordinateTransform_Global2_staticMap	human_tracking/src/human_scan.cpp	/^int Human_Belief_Scan::CoordinateTransform_Global2_staticMap(double global_x, double global_y)$/;"	f	class:Human_Belief_Scan
-CoordinateTransform_Global2_staticMap	human_tracking/src/humantracking.cpp	/^int Human_Belief::CoordinateTransform_Global2_staticMap(double global_x, double global_y)$/;"	f	class:Human_Belief
 CoordinateTransform_Rviz_Grid_Goal	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::CoordinateTransform_Rviz_Grid_Goal(double _x, double _y,int map_type=0)$/;"	f	class:Dynamic_Manager
 CoordinateTransform_Rviz_Grid_Goal	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::CoordinateTransform_Rviz_Grid_Goal(double _x, double _y,int map_type=0)$/;"	f	class:MDPManager
 CoordinateTransform_Rviz_Grid_Human	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::CoordinateTransform_Rviz_Grid_Human(double _x, double _y,int map_type=0)$/;"	f	class:Dynamic_Manager
@@ -497,23 +479,15 @@ CubicSplineInterpolationwithecontinuity	navi_mdp/src/srBSpline.cpp	/^void srBSpl
 CubicSurfaceInterpolation	navi_mdp/src/srBSpline.cpp	/^void srBSpline::CubicSurfaceInterpolation( std::vector<double>& t,std::vector<std::vector<double>>& Q,std::vector<double>& t2,std::vector<double>& W, int NumData_Q , int NumData_W )$/;"	f	class:srBSpline
 CurVector	navi_mdp/include/Dynamic_Manager.h	/^	std::vector<double> CurVector;$/;"	m	class:Dynamic_Manager
 CurVector	navi_mdp/include/MDPmanager.h	/^	std::vector<double> CurVector;$/;"	m	class:MDPManager
-Cur_detected_human	human_tracking/include/human_scan.h	/^	std::vector< std::vector< double > > Cur_detected_human;$/;"	m	class:Human_Belief_Scan
-Cur_detected_human	human_tracking/include/humantracking.h	/^	std::vector< std::vector< double > > Cur_detected_human;$/;"	m	class:Human_Belief
 Cur_detected_human	villa_navi_service/include/navi_service_node.h	/^	std::vector< std::vector< double > > Cur_detected_human;$/;"	m	class:villa_navi_srv
-Cur_existed_human	human_tracking/include/human_scan.h	/^	std::vector< std::vector< double > > Cur_existed_human;$/;"	m	class:Human_Belief_Scan
-Cur_existed_human	human_tracking/include/humantracking.h	/^	std::vector< std::vector< double > > Cur_existed_human;$/;"	m	class:Human_Belief
 Cur_existed_human	navi_mdp/include/Dynamic_Manager.h	/^    std::vector< std::vector< double > > Cur_existed_human;$/;"	m	class:Dynamic_Manager
 Cur_existed_human	villa_navi_service/include/navi_service_node.h	/^	std::vector< std::vector< double > > Cur_existed_human;$/;"	m	class:villa_navi_srv
 Cur_leg_human	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  std::vector< std::vector< double > > Cur_leg_human;$/;"	m	class:Edgeleg_manager
 Cur_leg_human	human_filter/include/people_tracking_filter/followme_action.h	/^  std::vector< std::vector< double > > Cur_leg_human;$/;"	m	class:Edgeleg_manager_action
 Cur_leg_human	human_filter/include/people_tracking_filter/service_test.h	/^  std::vector< std::vector< double > > Cur_leg_human;$/;"	m	class:Edgeleg_manager_srv
-Cur_leg_human	human_tracking/include/human_scan.h	/^	std::vector< std::vector< double > > Cur_leg_human;$/;"	m	class:Human_Belief_Scan
-Cur_leg_human	human_tracking/include/humantracking.h	/^	std::vector< std::vector< double > > Cur_leg_human;$/;"	m	class:Human_Belief
 Cur_leg_human	navi_mdp/include/Dynamic_Manager.h	/^ 	std::vector< std::vector< double > > Cur_leg_human;$/;"	m	class:Dynamic_Manager
 Cur_leg_human	navi_mdp/include/MDPmanager.h	/^ 	std::vector< std::vector< double > > Cur_leg_human;$/;"	m	class:MDPManager
 Cur_leg_human	villa_navi_service/include/navi_service_node.h	/^	std::vector< std::vector< double > > Cur_leg_human;$/;"	m	class:villa_navi_srv
-Cur_leg_yolo_human	human_tracking/include/human_scan.h	/^	std::vector< std::vector< double > > Cur_leg_yolo_human;$/;"	m	class:Human_Belief_Scan
-Cur_leg_yolo_human	human_tracking/include/humantracking.h	/^	std::vector< std::vector< double > > Cur_leg_yolo_human;$/;"	m	class:Human_Belief
 Cur_leg_yolo_human	villa_navi_service/include/navi_service_node.h	/^	std::vector< std::vector< double > > Cur_leg_yolo_human;$/;"	m	class:villa_navi_srv
 Cursor	despot/src/util/tinyxml/tinyxmlparser.cpp	/^	const TiXmlCursor& Cursor() {$/;"	f	class:despot::util::tinyxml::TiXmlParsingData
 CurveDerivCpts	navi_mdp/src/srBSpline.cpp	/^void srBSpline::CurveDerivCpts( OUT double** PK \/* PK[d+1][r2-r1+1] *\/$/;"	f	class:srBSpline
@@ -591,12 +565,12 @@ Dyn_MDPPath	navi_mdp/include/MDPmanager.h	/^ 	vector<int>  Dyn_MDPPath;$/;"	m	cl
 Dynamic_Manager	navi_mdp/include/Dynamic_Manager.h	/^ 	Dynamic_Manager():maxiter(Maxiteration),Action_dim(8),gamma(1),Ra(ra),publishnum(0),Yolo_iter(0),m_boolSolve(false),OnceTarget(false){}$/;"	f	class:Dynamic_Manager
 Dynamic_Manager	navi_mdp/include/Dynamic_Manager.h	/^class Dynamic_Manager$/;"	c
 Dynamic_Manager	navi_mdp/src/Dynamic_Manager.cpp	/^Dynamic_Manager::Dynamic_Manager(MapParam* _pMapParam):maxiter(Maxiteration),Action_dim(8),gamma(1),Ra(ra),publishnum(0),ReceiveData(0),m_boolSolve(false),dyn_path_num(0)$/;"	f	class:Dynamic_Manager
-EAST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon15
+EAST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon1
 ELEMENT	despot/include/despot/util/tinyxml/tinyxml.h	/^		DOCUMENT, ELEMENT, COMMENT, UNKNOWN, TEXT, DECLARATION, TYPECOUNT$/;"	e	enum:despot::util::tinyxml::TiXmlNode::NodeType
 ERROR	despot/include/despot/util/logging.h	/^	static const int NONE, ERROR, WARN, INFO, DEBUG, VERBOSE;$/;"	m	class:despot::logging
 ERROR	despot/src/util/logging.cpp	/^const int logging::ERROR = 1;$/;"	m	class:despot::logging	file:
 EXECTRACKER_H	despot/include/despot/util/exec_tracker.h	2;"	d
-E_BAD	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.h	/^		E_BAD = 0,$/;"	e	enum:despot::BaseRockSample::__anon5
+E_BAD	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.h	/^		E_BAD = 0,$/;"	e	enum:despot::BaseRockSample::__anon8
 E_BELIEF	despot/include/despot/simple_tui.h	/^  E_BELIEF,$/;"	e	enum:despot::OptionIndex
 E_BLBTYPE	despot/include/despot/simple_tui.h	/^  E_BLBTYPE,$/;"	e	enum:despot::OptionIndex
 E_BUBTYPE	despot/include/despot/simple_tui.h	/^  E_BUBTYPE,$/;"	e	enum:despot::OptionIndex
@@ -605,31 +579,31 @@ E_DEPTH	despot/include/despot/simple_tui.h	/^  E_DEPTH,$/;"	e	enum:despot::Optio
 E_DISCOUNT	despot/include/despot/simple_tui.h	/^  E_DISCOUNT,$/;"	e	enum:despot::OptionIndex
 E_EVALUATOR	despot/include/despot/simple_tui.h	/^  E_EVALUATOR,$/;"	e	enum:despot::OptionIndex
 E_GAP	despot/include/despot/simple_tui.h	/^  E_GAP,$/;"	e	enum:despot::OptionIndex
-E_GOOD	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.h	/^		E_GOOD = 1,$/;"	e	enum:despot::BaseRockSample::__anon5
+E_GOOD	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.h	/^		E_GOOD = 1,$/;"	e	enum:despot::BaseRockSample::__anon8
 E_HELP	despot/include/despot/simple_tui.h	/^  E_HELP,$/;"	e	enum:despot::OptionIndex
 E_KNOWLEDGE	despot/include/despot/simple_tui.h	/^  E_KNOWLEDGE,$/;"	e	enum:despot::OptionIndex
 E_LBTYPE	despot/include/despot/simple_tui.h	/^  E_LBTYPE,$/;"	e	enum:despot::OptionIndex
 E_LOG	despot/include/despot/simple_tui.h	/^  E_LOG,$/;"	e	enum:despot::OptionIndex
 E_MAX_POLICY_SIM_LEN	despot/include/despot/simple_tui.h	/^  E_MAX_POLICY_SIM_LEN,$/;"	e	enum:despot::OptionIndex
 E_NOISE	despot/include/despot/simple_tui.h	/^  E_NOISE,$/;"	e	enum:despot::OptionIndex
-E_NONE	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.h	/^		E_NONE = 2$/;"	e	enum:despot::BaseRockSample::__anon5
+E_NONE	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.h	/^		E_NONE = 2$/;"	e	enum:despot::BaseRockSample::__anon8
 E_NUMBER	despot/include/despot/simple_tui.h	/^  E_NUMBER,$/;"	e	enum:despot::OptionIndex
 E_NUMPARTICLES	despot/include/despot/simple_tui.h	/^  E_NUMPARTICLES,$/;"	e	enum:despot::OptionIndex
 E_PARAMS_FILE	despot/include/despot/simple_tui.h	/^  E_PARAMS_FILE,$/;"	e	enum:despot::OptionIndex
-E_PASSABLE	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon10
-E_PASSABLE	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon8
+E_PASSABLE	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon15
+E_PASSABLE	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon5
 E_PASSABLE	despot/examples/cpp_models/pocman/src/pocman.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Pocman::__anon11
 E_PORT	despot/include/despot/simple_tui.h	/^  E_PORT,$/;"	e	enum:despot::OptionIndex
-E_POWER	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon10
-E_POWER	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon8
+E_POWER	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon15
+E_POWER	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon5
 E_POWER	despot/examples/cpp_models/pocman/src/pocman.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Pocman::__anon11
 E_PRIOR	despot/include/despot/simple_tui.h	/^  E_PRIOR,$/;"	e	enum:despot::OptionIndex
 E_PRUNE	despot/include/despot/simple_tui.h	/^  E_PRUNE,$/;"	e	enum:despot::OptionIndex
 E_RUNS	despot/include/despot/simple_tui.h	/^  E_RUNS,$/;"	e	enum:despot::OptionIndex
-E_SAMPLE	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.h	/^		E_SAMPLE = 4$/;"	e	enum:despot::BaseRockSample::__anon6
+E_SAMPLE	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.h	/^		E_SAMPLE = 4$/;"	e	enum:despot::BaseRockSample::__anon9
 E_SEARCH_SOLVER	despot/include/despot/simple_tui.h	/^  E_SEARCH_SOLVER,$/;"	e	enum:despot::OptionIndex
-E_SEED	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon10
-E_SEED	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon8
+E_SEED	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon15
+E_SEED	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Navigation::__anon5
 E_SEED	despot/examples/cpp_models/pocman/src/pocman.h	/^		E_PASSABLE, E_SEED, E_POWER$/;"	e	enum:despot::Pocman::__anon11
 E_SEED	despot/include/despot/simple_tui.h	/^  E_SEED,$/;"	e	enum:despot::OptionIndex
 E_SERVER	despot/include/despot/simple_tui.h	/^  E_SERVER,$/;"	e	enum:despot::OptionIndex
@@ -704,8 +678,6 @@ FLOOR_H	despot/include/despot/util/floor.h	2;"	d
 FOVW	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	39;"	d
 FOVW	human_filter/include/people_tracking_filter/followme_action.h	44;"	d
 FOVW	human_filter/include/people_tracking_filter/service_test.h	40;"	d
-FOVW	human_tracking/include/human_scan.h	40;"	d
-FOVW	human_tracking/include/humantracking.h	39;"	d
 FOVW	navi_mdp/include/Dynamic_Manager.h	63;"	d
 FOVW	villa_navi_service/include/navi_service_node.h	36;"	d
 FREE_CELL	navi_mdp/include/Dynamic_Manager.h	39;"	d
@@ -726,7 +698,6 @@ Find	despot/include/despot/util/tinyxml/tinyxml.h	/^	TiXmlAttribute* Find(const 
 Find	despot/src/util/tinyxml/tinyxml.cpp	/^const TiXmlAttribute* TiXmlAttributeSet::Find( const std::string& name ) const$/;"	f	class:despot::util::tinyxml::TiXmlAttributeSet
 Find	despot/src/util/tinyxml/tinyxml.cpp	/^const TiXmlAttribute* TiXmlAttributeSet::Find(const char* name) const {$/;"	f	class:despot::util::tinyxml::TiXmlAttributeSet
 FindBlocker	despot/src/solver/despot.cpp	/^VNode* DESPOT::FindBlocker(VNode* vnode) {$/;"	f	class:despot::DESPOT
-FindHuman	human_tracking/src/human_scan.cpp	/^bool Human_Belief_Scan::FindHuman(human_tracking::peoplefinder::Request &req, human_tracking::peoplefinder::Response &res)$/;"	f	class:Human_Belief_Scan
 FindMaxApproxErrorLeaf	despot/src/solver/aems.cpp	/^VNode* AEMS::FindMaxApproxErrorLeaf(VNode* root) {$/;"	f	class:despot::AEMS
 FindMaxApproxErrorLeaf	despot/src/solver/aems.cpp	/^void AEMS::FindMaxApproxErrorLeaf(QNode* qnode, double likelihood,$/;"	f	class:despot::AEMS
 FindMaxApproxErrorLeaf	despot/src/solver/aems.cpp	/^void AEMS::FindMaxApproxErrorLeaf(VNode* vnode, double likelihood,$/;"	f	class:despot::AEMS
@@ -736,8 +707,6 @@ FindMultiplicity	navi_mdp/src/srBSpline.cpp	/^int srBSpline::FindMultiplicity(do
 FindNearesetLegIdx	human_filter/src/edge_leg_filter_node.cpp	/^int Edgeleg_manager::FindNearesetLegIdx()$/;"	f	class:Edgeleg_manager
 FindNearesetLegIdx	human_filter/src/followme_action.cpp	/^int Edgeleg_manager_action::FindNearesetLegIdx()$/;"	f	class:Edgeleg_manager_action
 FindNearesetLegIdx	human_filter/src/service_test.cpp	/^int Edgeleg_manager_srv::FindNearesetLegIdx()$/;"	f	class:Edgeleg_manager_srv
-FindNearesetLegIdx	human_tracking/src/human_scan.cpp	/^int Human_Belief_Scan::FindNearesetLegIdx()$/;"	f	class:Human_Belief_Scan
-FindNearesetLegIdx	human_tracking/src/humantracking.cpp	/^int Human_Belief::FindNearesetLegIdx()$/;"	f	class:Human_Belief
 FindPattern	edge_leg_detector/src/detector.cpp	/^void FindPattern( string str, string pattern, list <int> *element_found ){$/;"	f
 FindPattern	edge_leg_detector/src/edge_leg_detector/detector.cpp	/^void FindPattern( string str, string pattern, list <int> *element_found ){$/;"	f
 First	despot/include/despot/util/tinyxml/tinyxml.h	/^	TiXmlAttribute* First() {$/;"	f	class:despot::util::tinyxml::TiXmlAttributeSet
@@ -765,7 +734,6 @@ FirstChildElement	despot/src/util/tinyxml/tinyxml.cpp	/^const TiXmlElement* TiXm
 Floor	despot/include/despot/util/floor.h	/^class Floor {$/;"	c	namespace:despot
 Floor	despot/src/util/floor.cpp	/^Floor::Floor() :$/;"	f	class:despot::Floor
 Floor	despot/src/util/floor.cpp	/^Floor::Floor(int num_rows, int num_cols) :$/;"	f	class:despot::Floor
-Founded_human	human_tracking/include/human_scan.h	/^	std::vector< std::vector< double > > Founded_human;$/;"	m	class:Human_Belief_Scan
 Free	despot/examples/cpp_models/adventurer/src/adventurer.cpp	/^void Adventurer::Free(State* particle) const {$/;"	f	class:despot::Adventurer
 Free	despot/examples/cpp_models/bridge/src/bridge.cpp	/^void Bridge::Free(State* particle) const {$/;"	f	class:despot::Bridge
 Free	despot/examples/cpp_models/chain/src/chain.cpp	/^void Chain::Free(State* particle) const {$/;"	f	class:despot::Chain
@@ -803,13 +771,9 @@ GaussianPosVel	human_filter/include/people_tracking_filter/gaussian_pos_vel.h	/^
 GaussianPosVel	human_filter/src/gaussian_pos_vel.cpp	/^GaussianPosVel::GaussianPosVel(const StatePosVel& mu, const StatePosVel& sigma)$/;"	f	class:BFL::GaussianPosVel
 GaussianVector	human_filter/include/people_tracking_filter/gaussian_vector.h	/^class GaussianVector: public Pdf<tf::Vector3>$/;"	c	namespace:BFL
 GaussianVector	human_filter/src/gaussian_vector.cpp	/^GaussianVector::GaussianVector(const Vector3& mu, const Vector3& sigma)$/;"	f	class:BFL::GaussianVector
-Gaze_activate_pub	human_tracking/include/human_scan.h	/^	ros::Publisher Gaze_activate_pub;$/;"	m	class:Human_Belief_Scan
-Gaze_activate_pub	human_tracking/include/humantracking.h	/^	ros::Publisher Gaze_activate_pub;$/;"	m	class:Human_Belief
 Gaze_activate_pub	navi_mdp/include/Dynamic_Manager.h	/^	ros::Publisher   Gaze_activate_pub;$/;"	m	class:Dynamic_Manager
 Gaze_activate_pub	navi_mdp/include/PathManager.h	/^	ros::Publisher Gaze_activate_pub;$/;"	m	class:PathManager
 Gaze_activate_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher Gaze_activate_pub;$/;"	m	class:villa_navi_srv
-Gaze_point_pub	human_tracking/include/human_scan.h	/^	ros::Publisher Gaze_point_pub;$/;"	m	class:Human_Belief_Scan
-Gaze_point_pub	human_tracking/include/humantracking.h	/^	ros::Publisher Gaze_point_pub;$/;"	m	class:Human_Belief
 Gaze_point_pub	navi_mdp/include/Dynamic_Manager.h	/^	ros::Publisher   Gaze_point_pub;$/;"	m	class:Dynamic_Manager
 Gaze_point_pub	navi_mdp/include/PathManager.h	/^ 	ros::Publisher Gaze_point_pub;$/;"	m	class:PathManager
 Gaze_point_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher Gaze_point_pub;$/;"	m	class:villa_navi_srv
@@ -961,16 +925,10 @@ HasValue	despot/src/pomdpx/parser/variable.cpp	/^const bool Variable::HasValue(s
 Head_Pos	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  std::vector<double> Head_Pos; $/;"	m	class:Edgeleg_manager
 Head_Pos	human_filter/include/people_tracking_filter/followme_action.h	/^  std::vector<double> Head_Pos; $/;"	m	class:Edgeleg_manager_action
 Head_Pos	human_filter/include/people_tracking_filter/service_test.h	/^  std::vector<double> Head_Pos; $/;"	m	class:Edgeleg_manager_srv
-Head_Pos	human_tracking/include/human_scan.h	/^	std::vector<double> Head_Pos;				\/\/x,y,theta$/;"	m	class:Human_Belief_Scan
-Head_Pos	human_tracking/include/humantracking.h	/^	std::vector<double> Head_Pos;				\/\/x,y,theta$/;"	m	class:Human_Belief
 Head_Pos	navi_mdp/include/Dynamic_Manager.h	/^	std::vector<double> Head_Pos; 	$/;"	m	class:Dynamic_Manager
 Head_Pos	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> Head_Pos;				\/\/x,y,theta$/;"	m	class:villa_navi_srv
-Head_vel	human_tracking/include/human_scan.h	/^	std::vector<double> Head_vel;				\/\/x,y,theta$/;"	m	class:Human_Belief_Scan
-Head_vel	human_tracking/include/humantracking.h	/^	std::vector<double> Head_vel;				\/\/x,y,theta$/;"	m	class:Human_Belief
 HeadingVector	navi_mdp/include/Dynamic_Manager.h	/^	std::vector<double> HeadingVector;$/;"	m	class:Dynamic_Manager
 HeadingVector	navi_mdp/include/MDPmanager.h	/^	std::vector<double> HeadingVector;$/;"	m	class:MDPManager
-Headscan_pub	human_tracking/include/human_scan.h	/^	ros::Publisher Headscan_pub;$/;"	m	class:Human_Belief_Scan
-Headscan_pub	human_tracking/include/humantracking.h	/^	ros::Publisher Headscan_pub;$/;"	m	class:Human_Belief
 Headscan_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher Headscan_pub;$/;"	m	class:villa_navi_srv
 HearGhost	despot/examples/cpp_models/pocman/src/pocman.cpp	/^bool Pocman::HearGhost(const PocmanState& pocstate) const {$/;"	f	class:despot::Pocman
 HierarchyCPT	despot/include/despot/pomdpx/parser/function.h	/^class HierarchyCPT: public CPT {$/;"	c	namespace:despot
@@ -978,13 +936,6 @@ HierarchyCPT	despot/src/pomdpx/parser/function.cpp	/^HierarchyCPT::HierarchyCPT(
 History	despot/include/despot/core/history.h	/^class History {$/;"	c	namespace:despot
 HumanPose	edge_leg_detector/src/detector.cpp	/^void HumanPose( vector <double> *r_x, vector <double> *r_y, list <int> Pattern_list, int TYPE,  vector <int> flank_id0,  vector <int> flank_id1, vector <double> laser_x, vector <double> laser_y ){$/;"	f
 HumanPose	edge_leg_detector/src/edge_leg_detector/detector.cpp	/^void HumanPose( vector <double> *r_x, vector <double> *r_y, list <int> Pattern_list, int TYPE,  vector <int> flank_id0,  vector <int> flank_id1, vector <double> laser_x, vector <double> laser_y ){$/;"	f
-Human_Belief	human_tracking/include/humantracking.h	/^class Human_Belief{$/;"	c
-Human_Belief	human_tracking/src/humantracking.cpp	/^Human_Belief::Human_Belief():index(0),m_numofhuman(0),m_receiveiter(0){$/;"	f	class:Human_Belief
-Human_Belief	human_tracking/src/humantracking.cpp	/^Human_Belief::Human_Belief(int numofhuman)$/;"	f	class:Human_Belief
-Human_Belief_Scan	human_tracking/include/human_scan.h	/^class Human_Belief_Scan{$/;"	c
-Human_Belief_Scan	human_tracking/src/human_scan.cpp	/^Human_Belief_Scan::Human_Belief_Scan():index(0),m_numofhuman(0),m_receiveiter(0){$/;"	f	class:Human_Belief_Scan
-Human_Belief_Scan	human_tracking/src/human_scan.cpp	/^Human_Belief_Scan::Human_Belief_Scan(int numofhuman)$/;"	f	class:Human_Belief_Scan
-Human_Belief_Scan_map	human_tracking/include/human_scan.h	/^	nav_msgs::OccupancyGrid Human_Belief_Scan_map;$/;"	m	class:Human_Belief_Scan
 Human_Belief_Scan_map	navi_mdp/include/Dynamic_Manager.h	/^	nav_msgs::OccupancyGrid Human_Belief_Scan_map;$/;"	m	class:Dynamic_Manager
 Human_CELL	navi_mdp/include/Dynamic_Manager.h	42;"	d
 Human_CELL	navi_mdp/include/MDPmanager.h	38;"	d
@@ -993,15 +944,9 @@ Human_Goal_Coord	navi_mdp/include/MDPmanager.h	/^	std::vector<int> Human_Goal_Co
 Human_MarkerArrayCallback	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::Human_MarkerArrayCallback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:Dynamic_Manager
 Human_MarkerCallback	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::Human_MarkerCallback(const visualization_msgs::Marker::ConstPtr& msg)$/;"	f	class:Dynamic_Manager
 Human_MarkerCallback	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::Human_MarkerCallback(const visualization_msgs::Marker::ConstPtr& msg)$/;"	f	class:MDPManager
-Human_MarkerarrayCallback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::Human_MarkerarrayCallback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
-Human_MarkerarrayCallback	human_tracking/src/humantracking.cpp	/^void Human_Belief::Human_MarkerarrayCallback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:Human_Belief
 Human_Yolo_Callback	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::Human_Yolo_Callback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:MDPManager
-Human_boxes_pub	human_tracking/include/human_scan.h	/^	ros::Publisher Human_boxes_pub;$/;"	m	class:Human_Belief_Scan
-Human_boxes_pub	human_tracking/include/humantracking.h	/^	ros::Publisher Human_boxes_pub;$/;"	m	class:Human_Belief
 Human_boxes_pub	navi_mdp/include/Dynamic_Manager.h	/^	ros::Publisher   Human_boxes_pub;$/;"	m	class:Dynamic_Manager
 Human_boxes_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher Human_boxes_pub;$/;"	m	class:villa_navi_srv
-Human_target_candidate	human_tracking/include/human_scan.h	/^	std::vector<double> Human_target_candidate;				\/\/x,y,theta$/;"	m	class:Human_Belief_Scan
-Human_target_candidate	human_tracking/include/humantracking.h	/^	std::vector<double> Human_target_candidate;				\/\/x,y,theta$/;"	m	class:Human_Belief
 Human_target_candidate	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> Human_target_candidate;				\/\/x,y,theta$/;"	m	class:villa_navi_srv
 Human_target_cmdCallback	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::Human_target_cmdCallback(const std_msgs::Int8::ConstPtr& msg)$/;"	f	class:MDPManager
 IN	navi_mdp/include/srBSpline.h	10;"	d
@@ -1072,8 +1017,6 @@ Init_4_4	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.cpp	/^
 Init_5_5	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.cpp	/^void BaseRockSample::Init_5_5() {$/;"	f	class:despot::BaseRockSample
 Init_5_7	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.cpp	/^void BaseRockSample::Init_5_7() {$/;"	f	class:despot::BaseRockSample
 Init_7_8	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.cpp	/^void BaseRockSample::Init_7_8() {$/;"	f	class:despot::BaseRockSample
-Init_parameters	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::Init_parameters()$/;"	f	class:Human_Belief_Scan
-Init_parameters	human_tracking/src/humantracking.cpp	/^void Human_Belief::Init_parameters()$/;"	f	class:Human_Belief
 InitialBelief	despot/examples/cpp_models/adventurer/src/adventurer.cpp	/^Belief* Adventurer::InitialBelief(const State* start, string type) const {$/;"	f	class:despot::Adventurer
 InitialBelief	despot/examples/cpp_models/bridge/src/bridge.cpp	/^Belief* Bridge::InitialBelief(const State* start, string type) const {$/;"	f	class:despot::Bridge
 InitialBelief	despot/examples/cpp_models/chain/src/chain.cpp	/^Belief* Chain::InitialBelief(const State* start, string type) const {$/;"	f	class:despot::Chain
@@ -1092,8 +1035,6 @@ InitialBelief	despot/examples/cpp_models/tiger/src/tiger.cpp	/^Belief* Tiger::In
 InitialBelief	despot/src/pomdpx/pomdpx.cpp	/^Belief* POMDPX::InitialBelief(const State* start, string type) const {$/;"	f	class:despot::POMDPX
 InitialParticleSet	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.cpp	/^vector<State*> BaseRockSample::InitialParticleSet() const {$/;"	f	class:despot::BaseRockSample
 InitialWeight	despot/src/pomdpx/parser/parser.cpp	/^double Parser::InitialWeight(const vector<int>& state) const {$/;"	f	class:despot::Parser
-InitializeBelief	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::InitializeBelief()$/;"	f	class:Human_Belief_Scan
-InitializeBelief	human_tracking/src/humantracking.cpp	/^void Human_Belief::InitializeBelief()$/;"	f	class:Human_Belief
 InitializeDefaultParameters	despot/examples/cpp_models/adventurer/src/main.cpp	/^  void InitializeDefaultParameters() {$/;"	f	class:TUI
 InitializeDefaultParameters	despot/examples/cpp_models/bridge/src/main.cpp	/^	void InitializeDefaultParameters() {$/;"	f	class:TUI
 InitializeDefaultParameters	despot/examples/cpp_models/chain/src/main.cpp	/^  void InitializeDefaultParameters() {$/;"	f	class:TUI
@@ -1144,21 +1085,15 @@ IntValue	despot/src/util/tinyxml/tinyxml.cpp	/^int TiXmlAttribute::IntValue() co
 IsAllocated	despot/include/despot/util/memorypool.h	/^	bool IsAllocated() const {$/;"	f	class:despot::MemoryObject
 IsAlpha	despot/src/util/tinyxml/tinyxmlparser.cpp	/^\/*static*\/int TiXmlBase::IsAlpha(unsigned char anyByte,$/;"	f	class:despot::util::tinyxml::TiXmlBase
 IsAlphaNum	despot/src/util/tinyxml/tinyxmlparser.cpp	/^\/*static*\/int TiXmlBase::IsAlphaNum(unsigned char anyByte,$/;"	f	class:despot::util::tinyxml::TiXmlBase
-IsHeadMoving	human_tracking/include/human_scan.h	/^	bool IsHeadMoving;$/;"	m	class:Human_Belief_Scan
-IsHeadMoving	human_tracking/include/humantracking.h	/^	bool IsHeadMoving;$/;"	m	class:Human_Belief
 IsIdentityUnderConstraint	despot/src/pomdpx/parser/function.cpp	/^bool HierarchyCPT::IsIdentityUnderConstraint(const NamedVar* var,$/;"	f	class:despot::HierarchyCPT
 IsIdentityUnderConstraint	despot/src/pomdpx/parser/function.cpp	/^bool TabularCPT::IsIdentityUnderConstraint(const NamedVar* var,$/;"	f	class:despot::TabularCPT
 IsInTerminalStateSet	despot/src/pomdpx/parser/parser.cpp	/^bool Parser::IsInTerminalStateSet(const vector<int>& state) const {$/;"	f	class:despot::Parser
-IsJointMoving	human_tracking/src/human_scan.cpp	/^bool Human_Belief_Scan::IsJointMoving(int joint_idx)$/;"	f	class:Human_Belief_Scan
-IsJointMoving	human_tracking/src/humantracking.cpp	/^bool Human_Belief::IsJointMoving(int joint_idx)$/;"	f	class:Human_Belief
 IsLeaf	despot/src/core/node.cpp	/^bool VNode::IsLeaf() {$/;"	f	class:despot::VNode
 IsNotInitilized	human_filter/src/edge_leg_filter_node.cpp	/^bool IsNotInitilized = true;$/;"	v
 IsNotInitilized	human_filter/src/followme_action.cpp	/^bool IsNotInitilized = true;$/;"	v
 IsNotInitilized	human_filter/src/people_tracking_node.cpp	/^bool IsNotInitilized = true;$/;"	v
 IsNotInitilized	human_filter/src/service_test.cpp	/^bool IsNotInitilized = true;$/;"	v
 IsSelfLoopingWithoutReward	despot/src/pomdpx/parser/parser.cpp	/^bool Parser::IsSelfLoopingWithoutReward(const vector<int>& state) const {$/;"	f	class:despot::Parser
-IsTargetMoved	human_tracking/src/human_scan.cpp	/^bool Human_Belief_Scan::IsTargetMoved(const std::vector<double> possible_target_pos, float criterion)$/;"	f	class:Human_Belief_Scan
-IsTargetMoved	human_tracking/src/humantracking.cpp	/^bool Human_Belief::IsTargetMoved(const std::vector<double> possible_target_pos, float criterion)$/;"	f	class:Human_Belief
 IsTargetMoved	navi_mdp/src/Dynamic_Manager.cpp	/^bool Dynamic_Manager::IsTargetMoved(float target_x, float target_y, float criterion)$/;"	f	class:Dynamic_Manager
 IsTargetMoved	navi_mdp/src/MDPmanager.cpp	/^bool MDPManager::IsTargetMoved(float target_x, float target_y, float criterion)$/;"	f	class:MDPManager
 IsTerminalState	despot/include/despot/pomdpx/parser/parser.h	/^	inline bool IsTerminalState(const std::vector<int>& state) const {$/;"	f	class:despot::Parser
@@ -1182,27 +1117,14 @@ IterateChildren	despot/src/util/tinyxml/tinyxml.cpp	/^const TiXmlNode* TiXmlNode
 Keyboard	ros-keyboard/src/keyboard.cpp	/^keyboard::Keyboard::Keyboard( int repeat_delay, int repeat_interval )$/;"	f	class:keyboard::Keyboard
 Keyboard	ros-keyboard/src/keyboard.h	/^  class Keyboard {$/;"	c	namespace:keyboard
 LASERTAG_H	despot/examples/cpp_models/tag/src/laser_tag/laser_tag.h	2;"	d
-LASER_ANGLE_MAX	human_tracking/include/human_scan.h	59;"	d
-LASER_ANGLE_MAX	human_tracking/include/humantracking.h	57;"	d
 LASER_ANGLE_MAX	villa_navi_service/include/navi_service_node.h	54;"	d
-LASER_ANGLE_MIN	human_tracking/include/human_scan.h	58;"	d
-LASER_ANGLE_MIN	human_tracking/include/humantracking.h	56;"	d
 LASER_ANGLE_MIN	villa_navi_service/include/navi_service_node.h	53;"	d
-LASER_ANGLE_RES	human_tracking/include/human_scan.h	52;"	d
-LASER_ANGLE_RES	human_tracking/include/humantracking.h	51;"	d
 LASER_ANGLE_RES	villa_navi_service/include/navi_service_node.h	48;"	d
-LASER_ANGLE_STEP	human_tracking/include/human_scan.h	60;"	d
-LASER_ANGLE_STEP	human_tracking/include/humantracking.h	58;"	d
 LASER_ANGLE_STEP	villa_navi_service/include/navi_service_node.h	55;"	d
-LASER_Data_Length	human_tracking/include/human_scan.h	53;"	d
-LASER_Data_Length	human_tracking/include/humantracking.h	52;"	d
 LASER_Data_Length	villa_navi_service/include/navi_service_node.h	49;"	d
 LASER_Dist_person	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	42;"	d
 LASER_Dist_person	human_filter/include/people_tracking_filter/followme_action.h	47;"	d
 LASER_Dist_person	human_filter/include/people_tracking_filter/service_test.h	43;"	d
-LASER_Dist_person	human_tracking/include/human_scan.h	55;"	d
-LASER_Point_Step	human_tracking/include/human_scan.h	54;"	d
-LASER_Point_Step	human_tracking/include/humantracking.h	53;"	d
 LASER_Point_Step	villa_navi_service/include/navi_service_node.h	50;"	d
 LASER_TAG_BIN	despot/examples/cpp_models/tag/Makefile	/^LASER_TAG_BIN = lasertag $/;"	m
 LASER_TAG_SOURCES	despot/examples/cpp_models/tag/Makefile	/^LASER_TAG_SOURCES = $(shell find -L $(SRCDIR)\/base $(SRCDIR)\/laser_tag -name '*.cpp')$/;"	m
@@ -1268,10 +1190,6 @@ LastChild	despot/include/despot/util/tinyxml/tinyxml.h	/^	const TiXmlNode* LastC
 LastChild	despot/src/util/tinyxml/tinyxml.cpp	/^const TiXmlNode* TiXmlNode::LastChild(const char * _value) const {$/;"	f	class:despot::util::tinyxml::TiXmlNode
 LastObservation	despot/include/despot/core/history.h	/^	OBS_TYPE LastObservation() const {$/;"	f	class:despot::History
 Last_Action	despot/src/evaluator.cpp	/^int Last_Action =0;$/;"	m	namespace:despot	file:
-Last_Head_vel	human_tracking/include/human_scan.h	/^	std::vector<double> Last_Head_vel;				\/\/x,y,theta$/;"	m	class:Human_Belief_Scan
-Last_Head_vel	human_tracking/include/humantracking.h	/^	std::vector<double> Last_Head_vel;				\/\/x,y,theta$/;"	m	class:Human_Belief
-Last_detected_human	human_tracking/include/human_scan.h	/^	std::vector< std::vector< double > > Last_detected_human;$/;"	m	class:Human_Belief_Scan
-Last_detected_human	human_tracking/include/humantracking.h	/^	std::vector< std::vector< double > > Last_detected_human;$/;"	m	class:Human_Belief
 Last_detected_human	villa_navi_service/include/navi_service_node.h	/^	std::vector< std::vector< double > > Last_detected_human;$/;"	m	class:villa_navi_srv
 Learn	despot/src/core/lower_bound.cpp	/^void BeliefLowerBound::Learn(VNode* tree) {$/;"	f	class:despot::BeliefLowerBound
 Learn	despot/src/core/lower_bound.cpp	/^void ScenarioLowerBound::Learn(VNode* tree) {$/;"	f	class:despot::ScenarioLowerBound
@@ -1329,16 +1247,10 @@ MARKERS_MAX	navi_mdp/scripts/human_marker.py	/^MARKERS_MAX = 100$/;"	v
 MATH_PI	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	40;"	d
 MATH_PI	human_filter/include/people_tracking_filter/followme_action.h	45;"	d
 MATH_PI	human_filter/include/people_tracking_filter/service_test.h	41;"	d
-MATH_PI	human_tracking/include/human_scan.h	41;"	d
-MATH_PI	human_tracking/include/humantracking.h	40;"	d
 MATH_PI	navi_mdp/include/Dynamic_Manager.h	64;"	d
 MATH_PI	villa_navi_service/include/navi_service_node.h	37;"	d
-MAX_ENTITY_LENGTH	despot/include/despot/util/tinyxml/tinyxml.h	/^		NUM_ENTITY = 5, MAX_ENTITY_LENGTH = 6$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon14
-MAX_UPDATE_ITER	human_tracking/include/human_scan.h	50;"	d
-MAX_UPDATE_ITER	human_tracking/include/humantracking.h	49;"	d
+MAX_ENTITY_LENGTH	despot/include/despot/util/tinyxml/tinyxml.h	/^		NUM_ENTITY = 5, MAX_ENTITY_LENGTH = 6$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon4
 MAX_UPDATE_ITER	villa_navi_service/include/navi_service_node.h	46;"	d
-MAX_VIEW_UPDATE_ITER	human_tracking/include/human_scan.h	51;"	d
-MAX_VIEW_UPDATE_ITER	human_tracking/include/humantracking.h	50;"	d
 MAX_VIEW_UPDATE_ITER	villa_navi_service/include/navi_service_node.h	47;"	d
 MCPDF_POSVEL_H	human_filter/include/people_tracking_filter/mcpdf_pos_vel.h	38;"	d
 MCPDF_VECTOR_H	human_filter/include/people_tracking_filter/mcpdf_vector.h	38;"	d
@@ -1451,12 +1363,12 @@ NOISY_TAG_BIN	despot/examples/cpp_models/tag/Makefile	/^NOISY_TAG_BIN = noisytag
 NOISY_TAG_SOURCES	despot/examples/cpp_models/tag/Makefile	/^NOISY_TAG_SOURCES = $(shell find -L $(SRCDIR)\/base $(SRCDIR)\/noisy_laser_tag -name '*.cpp')$/;"	m
 NONE	despot/include/despot/util/logging.h	/^	static const int NONE, ERROR, WARN, INFO, DEBUG, VERBOSE;$/;"	m	class:despot::logging
 NONE	despot/src/util/logging.cpp	/^const int logging::NONE = 0;$/;"	m	class:despot::logging	file:
-NORTH	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon15
-NORTHEAST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon15
-NORTHWEST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon15
+NORTH	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon1
+NORTHEAST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon1
+NORTHWEST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon1
 NUM_CONDARG	human_filter/src/mcpdf_pos_vel.cpp	/^static const unsigned int NUM_CONDARG   = 1;$/;"	v	file:
 NUM_CONDARG	human_filter/src/mcpdf_vector.cpp	/^static const unsigned int NUM_CONDARG   = 1;$/;"	v	file:
-NUM_ENTITY	despot/include/despot/util/tinyxml/tinyxml.h	/^		NUM_ENTITY = 5, MAX_ENTITY_LENGTH = 6$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon14
+NUM_ENTITY	despot/include/despot/util/tinyxml/tinyxml.h	/^		NUM_ENTITY = 5, MAX_ENTITY_LENGTH = 6$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon4
 NUM_MDP_STATES	despot/examples/cpp_models/chain/src/chain.h	/^	const static int NUM_MDP_STATES = 5;$/;"	m	class:despot::Chain
 NUM_MEASMODEL_POS_COND_ARGS	human_filter/src/measmodel_pos.cpp	/^static const unsigned int NUM_MEASMODEL_POS_COND_ARGS   = 1;$/;"	v	file:
 NUM_MEASMODEL_VECTOR_COND_ARGS	human_filter/src/measmodel_vector.cpp	/^static const unsigned int NUM_MEASMODEL_VECTOR_COND_ARGS  = 1;$/;"	v	file:
@@ -1467,7 +1379,6 @@ NameTStr	despot/include/despot/util/tinyxml/tinyxml.h	/^	const TIXML_STRING& Nam
 NamedVar	despot/include/despot/pomdpx/parser/variable.h	/^class NamedVar: public Variable {$/;"	c	namespace:despot
 NamedVar	despot/src/pomdpx/parser/variable.cpp	/^NamedVar::NamedVar() {$/;"	f	class:despot::NamedVar
 NamedVar	despot/src/pomdpx/parser/variable.cpp	/^NamedVar::NamedVar(string name) :$/;"	f	class:despot::NamedVar
-Names_set	human_tracking/include/human_scan.h	/^	std::vector<std::string> Names_set;$/;"	m	class:Human_Belief_Scan
 Navigation	despot/examples/cpp_models/localnavigation/src/localnavigation.cpp	/^Navigation::Navigation(int xsize, int ysize):localmap( xsize, ysize), num_peds_(3),pedes_range_(2),	smell_range_(2), round_num(0){$/;"	f	class:despot::Navigation
 Navigation	despot/examples/cpp_models/localnavigation/src/localnavigation.cpp	/^Navigation::Navigation(string params_file) {$/;"	f	class:despot::Navigation
 Navigation	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^class Navigation: public DSPOMDP {$/;"	c	namespace:despot
@@ -1542,8 +1453,6 @@ NoisyLaserTag	despot/examples/cpp_models/tag/src/noisy_laser_tag/noisy_laser_tag
 NoisyLaserTag	despot/examples/cpp_models/tag/src/noisy_laser_tag/noisy_laser_tag.h	/^class NoisyLaserTag: public BaseTag {$/;"	c	namespace:despot
 NoisyStep	despot/src/pomdpx/pomdpx.cpp	/^bool POMDPX::NoisyStep(State& s, double random_num, int action) const {$/;"	f	class:despot::POMDPX
 None	despot/include/despot/util/optionparser.h	/^	static ArgStatus None(const Option&, bool) {$/;"	f	struct:despot::option::Arg
-NotUpdatedCameraregion	human_tracking/src/human_scan.cpp	/^bool Human_Belief_Scan::NotUpdatedCameraregion(int idx)$/;"	f	class:Human_Belief_Scan
-NotUpdatedCameraregion	human_tracking/src/humantracking.cpp	/^bool Human_Belief::NotUpdatedCameraregion(int idx)$/;"	f	class:Human_Belief
 NotUpdatedCameraregion	navi_mdp/src/Dynamic_Manager.cpp	/^bool Dynamic_Manager::NotUpdatedCameraregion(int idx)$/;"	f	class:Dynamic_Manager
 NumActions	despot/examples/cpp_models/adventurer/src/adventurer.h	/^	inline int NumActions() const {$/;"	f	class:despot::Adventurer
 NumActions	despot/examples/cpp_models/bridge/src/bridge.cpp	/^int Bridge::NumActions() const {$/;"	f	class:despot::Bridge
@@ -1637,8 +1546,6 @@ OnceTarget	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^
 OnceTarget	human_filter/include/people_tracking_filter/followme_action.h	/^  bool OnceTarget;$/;"	m	class:Edgeleg_manager_action
 OnceTarget	human_filter/include/people_tracking_filter/service_test.h	/^  bool OnceTarget;$/;"	m	class:Edgeleg_manager_srv
 OnceTarget	navi_mdp/include/Dynamic_Manager.h	/^ 	bool 	OnceTarget;$/;"	m	class:Dynamic_Manager
-OnceTargeted	human_tracking/include/human_scan.h	/^	bool OnceTargeted;$/;"	m	class:Human_Belief_Scan
-OnceTargeted	human_tracking/include/humantracking.h	/^	bool OnceTargeted;$/;"	m	class:Human_Belief
 OnceTargeted	villa_navi_service/include/navi_service_node.h	/^	bool OnceTargeted;$/;"	m	class:villa_navi_srv
 OneBasisFun	navi_mdp/src/srBSpline.cpp	/^double srBSpline::OneBasisFun( int i, double u )$/;"	f	class:srBSpline
 OneBasisFunDers	navi_mdp/src/srBSpline.cpp	/^double srBSpline::OneBasisFunDers( int i, double u, int n )$/;"	f	class:srBSpline
@@ -1693,20 +1600,10 @@ POMDP_H	despot/include/despot/core/pomdp.h	2;"	d
 PORT	despot/include/despot/ippc/client.h	/^	std::string PORT;$/;"	m	class:despot::Client
 POS_ERR	navi_mdp/include/PathManager.h	46;"	d
 POS_INFTY	despot/src/core/globals.cpp	/^const double POS_INFTY = std::numeric_limits<double>::is_iec559 ?$/;"	m	namespace:despot::Globals	file:
-P_H	human_tracking/include/human_scan.h	42;"	d
-P_H	human_tracking/include/humantracking.h	41;"	d
 P_H	villa_navi_service/include/navi_service_node.h	38;"	d
-P_S_given_H	human_tracking/include/human_scan.h	43;"	d
-P_S_given_H	human_tracking/include/humantracking.h	42;"	d
 P_S_given_H	villa_navi_service/include/navi_service_node.h	39;"	d
-P_S_given_Hc	human_tracking/include/human_scan.h	44;"	d
-P_S_given_Hc	human_tracking/include/humantracking.h	43;"	d
 P_S_given_Hc	villa_navi_service/include/navi_service_node.h	40;"	d
-P_Sc_given_H	human_tracking/include/human_scan.h	46;"	d
-P_Sc_given_H	human_tracking/include/humantracking.h	45;"	d
 P_Sc_given_H	villa_navi_service/include/navi_service_node.h	42;"	d
-P_Sc_given_Hc	human_tracking/include/human_scan.h	47;"	d
-P_Sc_given_Hc	human_tracking/include/humantracking.h	46;"	d
 P_Sc_given_Hc	villa_navi_service/include/navi_service_node.h	43;"	d
 Parent	despot/include/despot/util/tinyxml/tinyxml.h	/^	TiXmlNode* Parent() {$/;"	f	class:despot::util::tinyxml::TiXmlNode
 Parent	despot/include/despot/util/tinyxml/tinyxml.h	/^	const TiXmlNode* Parent() const {$/;"	f	class:despot::util::tinyxml::TiXmlNode
@@ -1899,20 +1796,12 @@ ProbabilityGet	human_filter/src/sysmodel_vector.cpp	/^SysPdfVector::ProbabilityG
 ProbabilityGet	human_filter/src/uniform_vector.cpp	/^Probability UniformVector::ProbabilityGet(const Vector3& input) const$/;"	f	class:BFL::UniformVector
 Prune	despot/src/solver/despot.cpp	/^QNode* DESPOT::Prune(QNode* qnode, double& pruned_value) {$/;"	f	class:despot::DESPOT
 Prune	despot/src/solver/despot.cpp	/^VNode* DESPOT::Prune(VNode* vnode, int& pruned_action, double& pruned_value) {$/;"	f	class:despot::DESPOT
-Publish_beliefmap	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::Publish_beliefmap()$/;"	f	class:Human_Belief_Scan
-Publish_beliefmap	human_tracking/src/humantracking.cpp	/^void Human_Belief::Publish_beliefmap()$/;"	f	class:Human_Belief
 Publish_beliefmap	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::Publish_beliefmap()$/;"	f	class:Dynamic_Manager
 Publish_dynamicPath	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::Publish_dynamicPath()$/;"	f	class:Dynamic_Manager
 Publish_filter_measurment	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::Publish_filter_measurment(int measurement_type)$/;"	f	class:Dynamic_Manager
-Publish_human_boxes	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::Publish_human_boxes()$/;"	f	class:Human_Belief_Scan
-Publish_human_boxes	human_tracking/src/humantracking.cpp	/^void Human_Belief::Publish_human_boxes()$/;"	f	class:Human_Belief
-Publish_human_target	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::Publish_human_target()$/;"	f	class:Human_Belief_Scan
-Publish_human_target	human_tracking/src/humantracking.cpp	/^void Human_Belief::Publish_human_target()$/;"	f	class:Human_Belief
 Publish_nav_target	human_filter/src/edge_leg_filter_node.cpp	/^void Edgeleg_manager::Publish_nav_target()$/;"	f	class:Edgeleg_manager
 Publish_nav_target	human_filter/src/followme_action.cpp	/^void Edgeleg_manager_action::Publish_nav_target()$/;"	f	class:Edgeleg_manager_action
 Publish_nav_target	human_filter/src/service_test.cpp	/^void Edgeleg_manager_srv::Publish_nav_target()$/;"	f	class:Edgeleg_manager_srv
-Publish_nav_target	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::Publish_nav_target()$/;"	f	class:Human_Belief_Scan
-Publish_nav_target	human_tracking/src/humantracking.cpp	/^void Human_Belief::Publish_nav_target()$/;"	f	class:Human_Belief
 Publish_nav_target	villa_navi_service/src/navi_service_node.cpp	/^void villa_navi_srv::Publish_nav_target(float _x, float _y, float _theta)$/;"	f	class:villa_navi_srv
 QNode	despot/include/despot/core/node.h	/^class QNode {$/;"	c	namespace:despot
 QNode	despot/src/core/node.cpp	/^QNode::QNode(VNode* parent, int edge) :$/;"	f	class:despot::QNode
@@ -2001,8 +1890,6 @@ RobOppIndicesToStateIndex	despot/examples/cpp_models/tag/src/base/base_tag.h	/^	
 RobotHeading_V	navi_mdp/include/MapParam.h	/^	std::vector<float>  RobotHeading_V;$/;"	m	class:MapParam
 RobotHeading_pub	navi_mdp/include/Dynamic_Manager.h	/^	ros::Publisher   RobotHeading_pub;$/;"	m	class:Dynamic_Manager
 RobotHeading_pub	navi_mdp/include/MDPmanager.h	/^	ros::Publisher   RobotHeading_pub;$/;"	m	class:MDPManager
-Robot_Pos	human_tracking/include/human_scan.h	/^	std::vector<double> Robot_Pos;				\/\/x,y,theta$/;"	m	class:Human_Belief_Scan
-Robot_Pos	human_tracking/include/humantracking.h	/^	std::vector<double> Robot_Pos;				\/\/x,y,theta$/;"	m	class:Human_Belief
 Robot_Pos	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> Robot_Pos;				\/\/x,y,theta$/;"	m	class:villa_navi_srv
 Robot_localpos	navi_mdp/include/MapParam.h	/^	std::vector<int>    Robot_localpos;$/;"	m	class:MapParam
 Robotheading_Callback	navi_mdp/src/base_conti_actionlib.cpp	/^void Robotheading_Callback(const geometry_msgs::Pose::ConstPtr& msg)$/;"	f
@@ -2046,7 +1933,7 @@ SIMPLEROCKSAMPLE_H	despot/examples/cpp_models/simpleNavi/src/simpleNavi.h	2;"	d
 SIMPLEROCKSAMPLE_H	despot/examples/cpp_models/simple_rock_sample/src/simple_rock_sample.h	2;"	d
 SIMPLETUI_H	despot/include/despot/simple_tui.h	2;"	d
 SIMULATOR_H	despot/include/despot/evaluator.h	2;"	d
-SLIP	despot/examples/cpp_models/chain/src/chain.h	/^		SUCCESS, SLIP$/;"	e	enum:despot::SemiChainBelief::__anon2
+SLIP	despot/examples/cpp_models/chain/src/chain.h	/^		SUCCESS, SLIP$/;"	e	enum:despot::SemiChainBelief::__anon13
 SOLVER_H	despot/include/despot/core/solver.h	2;"	d
 SOURCES	despot/Makefile	/^SOURCES = $(shell find -L $(SRCDIR) -name '*.cpp')$/;"	m
 SOURCES	despot/examples/cpp_models/adventurer/Makefile	/^SOURCES = $(shell find -L $(SRCDIR) -name '*.cpp')$/;"	m
@@ -2061,9 +1948,9 @@ SOURCES	despot/examples/cpp_models/simpleNavi/Makefile	/^SOURCES = $(shell find 
 SOURCES	despot/examples/cpp_models/simple_rock_sample/Makefile	/^SOURCES = $(shell find -L $(SRCDIR) -name '*.cpp')$/;"	m
 SOURCES	despot/examples/cpp_models/tiger/Makefile	/^SOURCES = $(shell find -L $(SRCDIR) -name '*.cpp')$/;"	m
 SOURCES	despot/examples/pomdpx_models/Makefile	/^SOURCES = $(shell find -L $(SRCDIR) -name '*.cpp')$/;"	m
-SOUTH	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon15
-SOUTHEAST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon15
-SOUTHWEST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon15
+SOUTH	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon1
+SOUTHEAST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon1
+SOUTHWEST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon1
 SRCDIR	despot/Makefile	/^SRCDIR = src$/;"	m
 SRCDIR	despot/examples/cpp_models/adventurer/Makefile	/^SRCDIR = src$/;"	m
 SRCDIR	despot/examples/cpp_models/bridge/Makefile	/^SRCDIR = src$/;"	m
@@ -2127,11 +2014,9 @@ SR_ZERO	navi_mdp/include/types.h	9;"	d
 STATE_NUM_THRESHOLD	despot/include/despot/pomdpx/pomdpx.h	/^	static int STATE_NUM_THRESHOLD;$/;"	m	class:despot::POMDPX
 STATE_NUM_THRESHOLD	despot/src/pomdpx/pomdpx.cpp	/^int POMDPX::STATE_NUM_THRESHOLD = 1000000;$/;"	m	class:despot::POMDPX	file:
 STATE_POS_VEL_H	human_filter/include/people_tracking_filter/state_pos_vel.h	39;"	d
-SUCCESS	despot/examples/cpp_models/chain/src/chain.h	/^		SUCCESS, SLIP$/;"	e	enum:despot::SemiChainBelief::__anon2
+SUCCESS	despot/examples/cpp_models/chain/src/chain.h	/^		SUCCESS, SLIP$/;"	e	enum:despot::SemiChainBelief::__anon13
 SYSMODEL_POS_VEL_H	human_filter/include/people_tracking_filter/sysmodel_pos_vel.h	38;"	d
 SYSMODEL_VECTOR_H	human_filter/include/people_tracking_filter/sysmodel_vector.h	38;"	d
-Same_POS_diff	human_tracking/include/human_scan.h	49;"	d
-Same_POS_diff	human_tracking/include/humantracking.h	48;"	d
 Same_POS_diff	villa_navi_service/include/navi_service_node.h	45;"	d
 Sample	despot/examples/cpp_models/chain/src/chain.cpp	/^vector<State*> FullChainBelief::Sample(int num_particles) const {$/;"	f	class:despot::FullChainBelief
 Sample	despot/examples/cpp_models/chain/src/chain.cpp	/^vector<State*> SemiChainBelief::Sample(int num_particles) const {$/;"	f	class:despot::SemiChainBelief
@@ -2246,9 +2131,6 @@ SetSize	despot/include/despot/util/util.h	/^void SetSize(std::vector<std::vector
 SetSize	despot/include/despot/util/util.h	/^void SetSize(std::vector<std::vector<std::vector<T> > >& v, int d1, int d2, int d3) {$/;"	f	namespace:despot
 SetStreamPrinting	despot/include/despot/util/tinyxml/tinyxml.h	/^	void SetStreamPrinting() {$/;"	f	class:despot::util::tinyxml::TiXmlPrinter
 SetTabSize	despot/include/despot/util/tinyxml/tinyxml.h	/^	void SetTabSize(int _tabsize) {$/;"	f	class:despot::util::tinyxml::TiXmlDocument
-SetTarget	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::SetTarget()$/;"	f	class:Human_Belief_Scan
-SetTarget	human_tracking/src/humantracking.cpp	/^void Human_Belief::SetTarget()$/;"	f	class:Human_Belief
-SetTarget_face_detection	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::SetTarget_face_detection()$/;"	f	class:Human_Belief_Scan
 SetTransition	despot/examples/cpp_models/chain/src/chain.cpp	/^void ChainState::SetTransition(int state, int action, vector<double> row) {$/;"	f	class:despot::ChainState
 SetTransition	despot/examples/cpp_models/chain/src/chain.h	/^	void SetTransition(int state1, int action, int state2, double value) {$/;"	f	class:despot::ChainState
 SetUserData	despot/include/despot/util/tinyxml/tinyxml.h	/^	void SetUserData(void* user) {$/;"	f	class:despot::util::tinyxml::TiXmlBase
@@ -2415,23 +2297,23 @@ TIXML_DEFAULT_ENCODING	despot/include/despot/util/tinyxml/tinyxml.h	/^const TiXm
 TIXML_ENCODING_LEGACY	despot/include/despot/util/tinyxml/tinyxml.h	/^	TIXML_ENCODING_UNKNOWN, TIXML_ENCODING_UTF8, TIXML_ENCODING_LEGACY$/;"	e	enum:despot::util::tinyxml::TiXmlEncoding
 TIXML_ENCODING_UNKNOWN	despot/include/despot/util/tinyxml/tinyxml.h	/^	TIXML_ENCODING_UNKNOWN, TIXML_ENCODING_UTF8, TIXML_ENCODING_LEGACY$/;"	e	enum:despot::util::tinyxml::TiXmlEncoding
 TIXML_ENCODING_UTF8	despot/include/despot/util/tinyxml/tinyxml.h	/^	TIXML_ENCODING_UNKNOWN, TIXML_ENCODING_UTF8, TIXML_ENCODING_LEGACY$/;"	e	enum:despot::util::tinyxml::TiXmlEncoding
-TIXML_ERROR	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_DOCUMENT_EMPTY	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_DOCUMENT_EMPTY,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_DOCUMENT_TOP_ONLY	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_DOCUMENT_TOP_ONLY,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_EMBEDDED_NULL	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_EMBEDDED_NULL,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_FAILED_TO_READ_ELEMENT_NAME	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_FAILED_TO_READ_ELEMENT_NAME,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_OPENING_FILE	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_OPENING_FILE,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_OUT_OF_MEMORY	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_OUT_OF_MEMORY,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_PARSING_CDATA	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_CDATA,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_PARSING_COMMENT	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_COMMENT,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_PARSING_DECLARATION	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_DECLARATION,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_PARSING_ELEMENT	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_ELEMENT,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_PARSING_EMPTY	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_EMPTY,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_PARSING_UNKNOWN	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_UNKNOWN,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_READING_ATTRIBUTES	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_READING_ATTRIBUTES,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_READING_ELEMENT_VALUE	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_READING_ELEMENT_VALUE,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_READING_END_TAG	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_READING_END_TAG,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
-TIXML_ERROR_STRING_COUNT	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_STRING_COUNT$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
+TIXML_ERROR	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_DOCUMENT_EMPTY	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_DOCUMENT_EMPTY,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_DOCUMENT_TOP_ONLY	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_DOCUMENT_TOP_ONLY,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_EMBEDDED_NULL	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_EMBEDDED_NULL,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_FAILED_TO_READ_ELEMENT_NAME	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_FAILED_TO_READ_ELEMENT_NAME,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_OPENING_FILE	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_OPENING_FILE,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_OUT_OF_MEMORY	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_OUT_OF_MEMORY,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_PARSING_CDATA	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_CDATA,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_PARSING_COMMENT	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_COMMENT,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_PARSING_DECLARATION	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_DECLARATION,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_PARSING_ELEMENT	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_ELEMENT,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_PARSING_EMPTY	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_EMPTY,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_PARSING_UNKNOWN	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_PARSING_UNKNOWN,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_READING_ATTRIBUTES	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_READING_ATTRIBUTES,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_READING_ELEMENT_VALUE	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_READING_ELEMENT_VALUE,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_READING_END_TAG	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_READING_END_TAG,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
+TIXML_ERROR_STRING_COUNT	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_ERROR_STRING_COUNT$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
 TIXML_EXPLICIT	despot/include/despot/util/tinyxml/tinystr.h	51;"	d
 TIXML_EXPLICIT	despot/include/despot/util/tinyxml/tinystr.h	54;"	d
 TIXML_EXPLICIT	despot/include/despot/util/tinyxml/tinystr.h	56;"	d
@@ -2439,8 +2321,8 @@ TIXML_LOG	despot/src/util/tinyxml/tinyxmlparser.cpp	34;"	d	file:
 TIXML_LOG	despot/src/util/tinyxml/tinyxmlparser.cpp	36;"	d	file:
 TIXML_MAJOR_VERSION	despot/include/despot/util/tinyxml/tinyxml.h	/^const int TIXML_MAJOR_VERSION = 2;$/;"	m	namespace:despot::util::tinyxml
 TIXML_MINOR_VERSION	despot/include/despot/util/tinyxml/tinyxml.h	/^const int TIXML_MINOR_VERSION = 5;$/;"	m	namespace:despot::util::tinyxml
-TIXML_NO_ATTRIBUTE	despot/include/despot/util/tinyxml/tinyxml.h	/^	TIXML_SUCCESS, TIXML_NO_ATTRIBUTE, TIXML_WRONG_TYPE$/;"	e	enum:despot::util::tinyxml::__anon12
-TIXML_NO_ERROR	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_NO_ERROR = 0,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon13
+TIXML_NO_ATTRIBUTE	despot/include/despot/util/tinyxml/tinyxml.h	/^	TIXML_SUCCESS, TIXML_NO_ATTRIBUTE, TIXML_WRONG_TYPE$/;"	e	enum:despot::util::tinyxml::__anon2
+TIXML_NO_ERROR	despot/include/despot/util/tinyxml/tinyxml.h	/^		TIXML_NO_ERROR = 0,$/;"	e	enum:despot::util::tinyxml::TiXmlBase::__anon3
 TIXML_PATCH_VERSION	despot/include/despot/util/tinyxml/tinyxml.h	/^const int TIXML_PATCH_VERSION = 3;$/;"	m	namespace:despot::util::tinyxml
 TIXML_SAFE	despot/include/despot/util/tinyxml/tinyxml.h	59;"	d
 TIXML_SNPRINTF	despot/include/despot/util/tinyxml/tinyxml.h	64;"	d
@@ -2456,11 +2338,11 @@ TIXML_SSCANF	despot/include/despot/util/tinyxml/tinyxml.h	80;"	d
 TIXML_STRING	despot/include/despot/util/tinyxml/tinyxml.h	49;"	d
 TIXML_STRING	despot/include/despot/util/tinyxml/tinyxml.h	52;"	d
 TIXML_STRING_INCLUDED	despot/include/despot/util/tinyxml/tinystr.h	40;"	d
-TIXML_SUCCESS	despot/include/despot/util/tinyxml/tinyxml.h	/^	TIXML_SUCCESS, TIXML_NO_ATTRIBUTE, TIXML_WRONG_TYPE$/;"	e	enum:despot::util::tinyxml::__anon12
+TIXML_SUCCESS	despot/include/despot/util/tinyxml/tinyxml.h	/^	TIXML_SUCCESS, TIXML_NO_ATTRIBUTE, TIXML_WRONG_TYPE$/;"	e	enum:despot::util::tinyxml::__anon2
 TIXML_UTF_LEAD_0	despot/src/util/tinyxml/tinyxmlparser.cpp	/^const unsigned char TIXML_UTF_LEAD_0 = 0xefU;$/;"	m	namespace:despot::util::tinyxml	file:
 TIXML_UTF_LEAD_1	despot/src/util/tinyxml/tinyxmlparser.cpp	/^const unsigned char TIXML_UTF_LEAD_1 = 0xbbU;$/;"	m	namespace:despot::util::tinyxml	file:
 TIXML_UTF_LEAD_2	despot/src/util/tinyxml/tinyxmlparser.cpp	/^const unsigned char TIXML_UTF_LEAD_2 = 0xbfU;$/;"	m	namespace:despot::util::tinyxml	file:
-TIXML_WRONG_TYPE	despot/include/despot/util/tinyxml/tinyxml.h	/^	TIXML_SUCCESS, TIXML_NO_ATTRIBUTE, TIXML_WRONG_TYPE$/;"	e	enum:despot::util::tinyxml::__anon12
+TIXML_WRONG_TYPE	despot/include/despot/util/tinyxml/tinyxml.h	/^	TIXML_SUCCESS, TIXML_NO_ATTRIBUTE, TIXML_WRONG_TYPE$/;"	e	enum:despot::util::tinyxml::__anon2
 TUI	despot/examples/cpp_models/adventurer/src/main.cpp	/^	TUI() {$/;"	f	class:TUI
 TUI	despot/examples/cpp_models/adventurer/src/main.cpp	/^class TUI: public SimpleTUI {$/;"	c	file:
 TUI	despot/examples/cpp_models/bridge/src/main.cpp	/^	TUI() {$/;"	f	class:TUI
@@ -2635,8 +2517,6 @@ Tokenize	despot/src/util/util.cpp	/^vector<string> Tokenize(const string& str, c
 Tokenize	despot/src/util/util.cpp	/^vector<string> Tokenize(string line, char delim) {$/;"	f	namespace:despot
 Track	despot/include/despot/core/globals.h	/^inline void Track(std::string addr, std::string loc) {$/;"	f	namespace:despot::Globals
 Track	despot/src/util/exec_tracker.cpp	/^void ExecTracker::Track(string addr, string position) {$/;"	f	class:despot::ExecTracker
-Track_human_target	human_tracking/include/human_scan.h	/^	std::vector<double> Track_human_target;				\/\/x,y,theta$/;"	m	class:Human_Belief_Scan
-Track_human_target	human_tracking/include/humantracking.h	/^	std::vector<double> Track_human_target;				\/\/x,y,theta$/;"	m	class:Human_Belief
 Track_human_target	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> Track_human_target;				\/\/x,y,theta$/;"	m	class:villa_navi_srv
 Tracker	human_filter/include/people_tracking_filter/tracker.h	/^  Tracker(const std::string& name): name_(name) {};$/;"	f	class:estimation::Tracker
 Tracker	human_filter/include/people_tracking_filter/tracker.h	/^class Tracker$/;"	c	namespace:estimation
@@ -2706,8 +2586,6 @@ Update	despot/src/solver/pomcp.cpp	/^void DPOMCP::Update(int action, OBS_TYPE ob
 Update	despot/src/solver/pomcp.cpp	/^void POMCP::Update(int action, OBS_TYPE obs) {$/;"	f	class:despot::POMCP
 UpdateModelStates	despot/src/evaluator.cpp	/^void Evaluator::UpdateModelStates()$/;"	f	class:despot::Evaluator
 UpdateModelStates	despot/src/evaluator.cpp	/^void POMDPEvaluator::UpdateModelStates(){$/;"	f	class:despot::POMDPEvaluator
-UpdateTarget	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::UpdateTarget()$/;"	f	class:Human_Belief_Scan
-UpdateTarget	human_tracking/src/humantracking.cpp	/^void Human_Belief::UpdateTarget()$/;"	f	class:Human_Belief
 UpdateTimeInfo	despot/src/evaluator.cpp	/^void IPPCEvaluator::UpdateTimeInfo(string instance) {$/;"	f	class:despot::IPPCEvaluator
 UpdateTimePerMove	despot/src/evaluator.cpp	/^void IPPCEvaluator::UpdateTimePerMove(double step_time) {$/;"	f	class:despot::IPPCEvaluator
 UpdateTimePerMove	despot/src/evaluator.cpp	/^void POMDPEvaluator::UpdateTimePerMove(double step_time) {$/;"	f	class:despot::POMDPEvaluator
@@ -2795,7 +2673,7 @@ VisitExit	despot/src/util/tinyxml/tinyxml.cpp	/^bool TiXmlPrinter::VisitExit(con
 VisitExit	despot/src/util/tinyxml/tinyxml.cpp	/^bool TiXmlPrinter::VisitExit(const TiXmlElement& element) {$/;"	f	class:despot::util::tinyxml::TiXmlPrinter
 WARN	despot/include/despot/util/logging.h	/^	static const int NONE, ERROR, WARN, INFO, DEBUG, VERBOSE;$/;"	m	class:despot::logging
 WARN	despot/src/util/logging.cpp	/^const int logging::WARN = 2;$/;"	m	class:despot::logging	file:
-WEST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon15
+WEST	despot/include/despot/util/coord.h	/^		SOUTH, EAST, NORTH, WEST, NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST$/;"	e	enum:despot::Compass::__anon1
 WEU	despot/src/solver/despot.cpp	/^double DESPOT::WEU(VNode* vnode) {$/;"	f	class:despot::DESPOT
 WEU	despot/src/solver/despot.cpp	/^double DESPOT::WEU(VNode* vnode, double xi) {$/;"	f	class:despot::DESPOT
 Weight	despot/src/core/node.cpp	/^double QNode::Weight() const {$/;"	f	class:despot::QNode
@@ -2835,7 +2713,6 @@ action	despot/include/despot/core/policy.h	/^	int action;$/;"	m	struct:despot::V
 action_	despot/include/despot/core/policy.h	/^	int action_;$/;"	m	class:despot::BlindPolicy
 action_cmd	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^    std_msgs::Int32  action_cmd;$/;"	m	class:despot::Navigation
 action_cmd	despot/include/despot/evaluator.h	/^	std_msgs::Int32   action_cmd;$/;"	m	class:despot::Evaluator
-action_mode	human_tracking/include/human_scan.h	/^	int action_mode;$/;"	m	class:Human_Belief_Scan
 action_name_	human_filter/include/people_tracking_filter/followme_action.h	/^  std::string action_name_;$/;"	m	class:Edgeleg_manager_action
 action_probs_	despot/include/despot/core/policy.h	/^	std::vector<double> action_probs_;$/;"	m	class:despot::RandomPolicy
 action_vars_	despot/include/despot/pomdpx/parser/parser.h	/^	mutable std::vector<ActionVar> action_vars_;$/;"	m	class:despot::Parser
@@ -2854,11 +2731,7 @@ alpha_	despot/examples/cpp_models/chain/src/chain.h	/^	std::vector<std::vector<s
 alpha_	despot/include/despot/util/dirichlet.h	/^  std::vector<double> alpha_;$/;"	m	class:despot::Dirichlet
 alpha_vectors_	despot/examples/cpp_models/rock_sample/src/base/base_rock_sample.h	/^	std::vector<std::vector<double> > alpha_vectors_; \/\/ For blind policy$/;"	m	class:despot::BaseRockSample
 alpha_vectors_	despot/examples/cpp_models/tag/src/base/base_tag.cpp	/^	vector<vector<double> > alpha_vectors_;$/;"	m	class:despot::TagBlindBeliefPolicy	file:
-angle_criticalvalue	human_tracking/include/human_scan.h	/^	std::vector<double> angle_criticalvalue;$/;"	m	class:Human_Belief_Scan
-angle_criticalvalue	human_tracking/include/humantracking.h	/^	std::vector<double> angle_criticalvalue;$/;"	m	class:Human_Belief
 angle_criticalvalue	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> angle_criticalvalue;$/;"	m	class:villa_navi_srv
-angle_people_set	human_tracking/include/human_scan.h	/^	std::vector<double> angle_people_set;$/;"	m	class:Human_Belief_Scan
-angle_people_set	human_tracking/include/humantracking.h	/^	std::vector<double> angle_people_set;$/;"	m	class:Human_Belief
 angle_people_set	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> angle_people_set;$/;"	m	class:villa_navi_srv
 append	despot/include/despot/util/optionparser.h	/^	void append(Option* new_last) {$/;"	f	class:despot::option::Option
 append	despot/src/util/tinyxml/tinystr.cpp	/^TiXmlString& TiXmlString::append(const char* str, size_type len) {$/;"	f	class:despot::util::tinyxml::TiXmlString
@@ -2868,8 +2741,6 @@ as_	human_filter/include/people_tracking_filter/followme_action.h	/^  actionlib:
 assign	despot/src/util/tinyxml/tinystr.cpp	/^TiXmlString& TiXmlString::assign(const char* str, size_type len) {$/;"	f	class:despot::util::tinyxml::TiXmlString
 at	despot/include/despot/util/tinyxml/tinystr.h	/^	const char& at(size_type index) const {$/;"	f	class:despot::util::tinyxml::TiXmlString
 attributeSet	despot/include/despot/util/tinyxml/tinyxml.h	/^	TiXmlAttributeSet attributeSet;$/;"	m	class:despot::util::tinyxml::TiXmlElement
-base_pose_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
-base_pose_callback	human_tracking/src/humantracking.cpp	/^void Human_Belief::base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg)$/;"	f	class:Human_Belief
 base_pose_callback	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg)$/;"	f	class:MDPManager
 base_trajectory	navi_mdp/include/PathManager.h	/^ 	std::vector< std::vector<double> > base_trajectory;$/;"	m	class:PathManager
 belief	despot/examples/cpp_models/tag/src/base/base_tag.cpp	/^	void belief(Belief* belief) {$/;"	f	class:despot::TagHistoryModePolicy
@@ -2882,15 +2753,11 @@ belief	despot/src/solver/pomcp.cpp	/^void DPOMCP::belief(Belief* b) {$/;"	f	clas
 belief	despot/src/solver/pomcp.cpp	/^void POMCP::belief(Belief* b) {$/;"	f	class:despot::POMCP
 belief_	despot/include/despot/core/node.h	/^	Belief* belief_; \/\/ Used in AEMS$/;"	m	class:despot::VNode
 belief_	despot/include/despot/core/solver.h	/^	Belief* belief_;$/;"	m	class:despot::Solver
-belief_pub	human_tracking/include/human_scan.h	/^	ros::Publisher belief_pub;$/;"	m	class:Human_Belief_Scan
-belief_pub	human_tracking/include/humantracking.h	/^	ros::Publisher belief_pub;$/;"	m	class:Human_Belief
 belief_pub	navi_mdp/include/Dynamic_Manager.h	/^	ros::Publisher   belief_pub;$/;"	m	class:Dynamic_Manager
 belief_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher belief_pub;$/;"	m	class:villa_navi_srv
 belief_size	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  int belief_size;$/;"	m	class:Edgeleg_manager
 belief_size	human_filter/include/people_tracking_filter/followme_action.h	/^  int belief_size;$/;"	m	class:Edgeleg_manager_action
 belief_size	human_filter/include/people_tracking_filter/service_test.h	/^  int belief_size;$/;"	m	class:Edgeleg_manager_srv
-belief_size	human_tracking/include/human_scan.h	/^	int belief_size;$/;"	m	class:Human_Belief_Scan
-belief_size	human_tracking/include/humantracking.h	/^	int belief_size;$/;"	m	class:Human_Belief
 belief_size	villa_navi_service/include/navi_service_node.h	/^	int belief_size;$/;"	m	class:villa_navi_srv
 belief_type_	despot/include/despot/evaluator.h	/^	std::string belief_type_;$/;"	m	class:despot::Evaluator
 blind_alpha_	despot/include/despot/core/mdp.h	/^	std::vector<std::vector<double> > blind_alpha_; \/\/ For blind policy$/;"	m	class:despot::MDP
@@ -2960,8 +2827,6 @@ chunks_	despot/include/despot/util/memorypool.h	/^	std::vector<Chunk*> chunks_;$
 clear	despot/include/despot/util/tinyxml/tinystr.h	/^	void clear() {$/;"	f	class:despot::util::tinyxml::TiXmlString
 client_	despot/include/despot/evaluator.h	/^	Client* client_;$/;"	m	class:despot::IPPCEvaluator
 closeConnection	despot/src/ippc/client.cpp	/^void Client::closeConnection() {$/;"	f	class:despot::Client
-cloud	human_tracking/include/human_scan.h	/^	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud;$/;"	m	class:Human_Belief_Scan
-cloud	human_tracking/include/humantracking.h	/^	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud;$/;"	m	class:Human_Belief
 cloud	villa_navi_service/include/navi_service_node.h	/^	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud;$/;"	m	class:villa_navi_srv
 col	despot/include/despot/util/optionparser.h	/^		int col; \/\/!< Index of current column.$/;"	m	class:despot::option::PrintUsageImplementation::LinePartIterator
 col	despot/include/despot/util/tinyxml/tinyxml.h	/^	int col; \/\/ 0 based.$/;"	m	struct:despot::util::tinyxml::TiXmlCursor
@@ -2991,7 +2856,6 @@ cur_coord	navi_mdp/include/Dynamic_Manager.h	/^	std::vector<int> cur_coord;$/;"	
 cur_coord	navi_mdp/include/MDPmanager.h	/^	std::vector<int> cur_coord;$/;"	m	class:MDPManager
 cur_idx	navi_mdp/include/PathManager.h	/^	int cur_idx;$/;"	m	class:PathManager
 cur_people	navi_mdp/include/Dynamic_Manager.h	/^    std::vector< std::vector< double > > cur_people;$/;"	m	class:Dynamic_Manager
-cur_scan_idx	human_tracking/include/human_scan.h	/^	int cur_scan_idx;$/;"	m	class:Human_Belief_Scan
 cur_state_	despot/examples/cpp_models/chain/src/chain.h	/^	int cur_state_;$/;"	m	class:despot::FullChainBelief
 cur_state_	despot/examples/cpp_models/chain/src/chain.h	/^	int cur_state_;$/;"	m	class:despot::SemiChainBelief
 cur_yolo_people	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  std::vector< std::vector< double > > cur_yolo_people;$/;"	m	class:Edgeleg_manager
@@ -3161,8 +3025,6 @@ despot	despot/src/util/tinyxml/tinyxml.cpp	/^namespace despot {$/;"	n	file:
 despot	despot/src/util/tinyxml/tinyxmlerror.cpp	/^namespace despot {$/;"	n	file:
 despot	despot/src/util/tinyxml/tinyxmlparser.cpp	/^namespace despot {$/;"	n	file:
 despot	despot/src/util/util.cpp	/^namespace despot {$/;"	n	file:
-detect_iters	human_tracking/include/human_scan.h	/^	int detect_iters;$/;"	m	class:Human_Belief_Scan
-detect_iters	human_tracking/include/humantracking.h	/^	int detect_iters;$/;"	m	class:Human_Belief
 detect_iters	villa_navi_service/include/navi_service_node.h	/^	int detect_iters;$/;"	m	class:villa_navi_srv
 detector_initialized_	human_filter/include/people_tracking_filter/detector_particle.h	/^  bool detector_initialized_;$/;"	m	class:estimation::DetectorParticle
 disableBufferedIO	despot/src/simple_tui.cpp	/^void disableBufferedIO(void) {$/;"	f	namespace:despot
@@ -3180,16 +3042,12 @@ dyn_Recived_path	navi_mdp/include/PathManager.h	/^	std::vector< std::vector<doub
 dyn_cur_idx	navi_mdp/include/PathManager.h	/^	int dyn_cur_idx;$/;"	m	class:PathManager
 dyn_finalTarget	navi_mdp/include/PathManager.h	/^	std::vector<double> dyn_finalTarget;$/;"	m	class:PathManager
 dyn_lastSubTarget	navi_mdp/include/PathManager.h	/^	std::vector<double> dyn_lastSubTarget;$/;"	m	class:PathManager
-dyn_map_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::dyn_map_callback(const nav_msgs::OccupancyGrid::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
-dyn_map_callback	human_tracking/src/humantracking.cpp	/^void Human_Belief::dyn_map_callback(const nav_msgs::OccupancyGrid::ConstPtr& msg)$/;"	f	class:Human_Belief
 dyn_path_callback	navi_mdp/src/PathManager.cpp	/^void PathManager::dyn_path_callback(const nav_msgs::Path::ConstPtr& msg)$/;"	f	class:PathManager
 dyn_path_num	navi_mdp/include/Dynamic_Manager.h	/^ 	int     dyn_path_num;$/;"	m	class:Dynamic_Manager
 dyn_path_num	navi_mdp/include/MDPmanager.h	/^ 	int     dyn_path_num;$/;"	m	class:MDPManager
 dyn_pre_idx	navi_mdp/include/PathManager.h	/^	int dyn_pre_idx;$/;"	m	class:PathManager
 dyn_x_	navi_mdp/include/PathManager.h	/^	std::vector<double> dyn_x_;$/;"	m	class:PathManager
 dyn_y_	navi_mdp/include/PathManager.h	/^	std::vector<double> dyn_y_;$/;"	m	class:PathManager
-dynamic_belief_map	human_tracking/include/human_scan.h	/^	nav_msgs::OccupancyGrid dynamic_belief_map;$/;"	m	class:Human_Belief_Scan
-dynamic_belief_map	human_tracking/include/humantracking.h	/^	nav_msgs::OccupancyGrid dynamic_belief_map;$/;"	m	class:Human_Belief
 dynamic_belief_map	villa_navi_service/include/navi_service_node.h	/^	nav_msgs::OccupancyGrid dynamic_belief_map;$/;"	m	class:villa_navi_srv
 dynamic_mapCallback	despot/src/evaluator.cpp	/^void Evaluator::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)$/;"	f	class:despot::Evaluator
 dynamic_mapCallback	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::dynamic_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)$/;"	f	class:Dynamic_Manager
@@ -3201,8 +3059,6 @@ edge_	despot/include/despot/core/node.h	/^	int edge_;$/;"	m	class:despot::QNode
 edge_leg_callback	human_filter/src/edge_leg_filter_node.cpp	/^void Edgeleg_manager::edge_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg)$/;"	f	class:Edgeleg_manager
 edge_leg_callback	human_filter/src/followme_action.cpp	/^void Edgeleg_manager_action::edge_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_action
 edge_leg_callback	human_filter/src/service_test.cpp	/^void Edgeleg_manager_srv::edge_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_srv
-edge_leg_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::edge_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
-edge_leg_callback	human_tracking/src/humantracking.cpp	/^void Human_Belief::edge_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg)$/;"	f	class:Human_Belief
 edge_leg_iter	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  int edge_leg_iter;$/;"	m	class:Edgeleg_manager
 edge_leg_iter	human_filter/include/people_tracking_filter/followme_action.h	/^  int edge_leg_iter;$/;"	m	class:Edgeleg_manager_action
 edge_leg_iter	human_filter/include/people_tracking_filter/service_test.h	/^  int edge_leg_iter;$/;"	m	class:Edgeleg_manager_srv
@@ -3240,9 +3096,6 @@ exploration_constant_	despot/include/despot/solver/pomcp.h	/^	double exploration
 explore_constant_	despot/include/despot/core/lower_bound.h	/^	double explore_constant_;$/;"	m	class:despot::POMCPScenarioLowerBound
 eyecontact	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^	int eyecontact;$/;"	m	class:despot::NavigationState
 eyecontact	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^	std::vector<int> eyecontact;$/;"	m	class:despot::NavigationState
-face_detect_timer	human_tracking/include/human_scan.h	/^	ros::Timer face_detect_timer;$/;"	m	class:Human_Belief_Scan
-face_detected_name_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::face_detected_name_callback(const std_msgs::String::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
-facedetect_target	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::facedetect_target(const ros::TimerEvent& event)$/;"	f	class:Human_Belief_Scan
 fd	despot/include/despot/util/optionparser.h	/^		int fd;$/;"	m	struct:despot::option::PrintUsageImplementation::SyscallWriter
 featureVector	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^    std_msgs::Float32MultiArray featureVector;$/;"	m	class:despot::Navigation
 feedback_	human_filter/include/people_tracking_filter/followme_action.h	/^  human_filter::FollowMe feedback_;$/;"	m	class:Edgeleg_manager_action
@@ -3253,7 +3106,6 @@ filter_	human_filter/include/people_tracking_filter/tracker_particle.h	/^  BFL::
 filter_act_callback	human_filter/src/edge_leg_filter_node.cpp	/^void Edgeleg_manager::filter_act_callback(const std_msgs::Int8::ConstPtr& msg)$/;"	f	class:Edgeleg_manager
 filter_act_callback	human_filter/src/followme_action.cpp	/^void Edgeleg_manager_action::filter_act_callback(const std_msgs::Int8::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_action
 filter_act_callback	human_filter/src/service_test.cpp	/^void Edgeleg_manager_srv::filter_act_callback(const std_msgs::Int8::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_srv
-filter_act_pub	human_tracking/include/human_scan.h	/^	ros::Publisher filter_act_pub;$/;"	m	class:Human_Belief_Scan
 filter_act_sub	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  ros::Subscriber filter_act_sub;$/;"	m	class:Edgeleg_manager
 filter_act_sub	human_filter/include/people_tracking_filter/followme_action.h	/^  ros::Subscriber filter_act_sub;$/;"	m	class:Edgeleg_manager_action
 filter_act_sub	human_filter/include/people_tracking_filter/service_test.h	/^  ros::Subscriber filter_act_sub;$/;"	m	class:Edgeleg_manager_srv
@@ -3321,15 +3173,12 @@ followingLoop	human_filter/src/followme_action.cpp	/^bool Edgeleg_manager_action
 followingLoop	human_filter/src/service_test.cpp	/^bool Edgeleg_manager_srv::followingLoop(human_filter::set_target_to_follow::Request &req, human_filter::set_target_to_follow::Response &res)$/;"	f	class:Edgeleg_manager_srv
 food	despot/examples/cpp_models/pocman/src/pocman.h	/^	std::vector<bool> food; \/\/ bit vector$/;"	m	class:despot::PocmanState
 food_prob_	despot/examples/cpp_models/pocman/src/pocman.h	/^	double food_prob_, chase_prob_, defensive_slip_;$/;"	m	class:despot::Pocman
-founded_human_pub	human_tracking/include/human_scan.h	/^	ros::Publisher founded_human_pub;$/;"	m	class:Human_Belief_Scan
 freelist_	despot/include/despot/util/memorypool.h	/^	std::vector<T*> freelist_;$/;"	m	class:despot::MemoryPool
 freq_	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  double freq_, start_distance_min_, reliability_threshold_;$/;"	m	class:Edgeleg_manager
 freq_	human_filter/include/people_tracking_filter/followme_action.h	/^  double freq_, start_distance_min_, reliability_threshold_;$/;"	m	class:Edgeleg_manager_action
 freq_	human_filter/include/people_tracking_filter/people_tracking_node.h	/^  double freq_, start_distance_min_, reliability_threshold_;$/;"	m	class:estimation::PeopleTrackingNode
 freq_	human_filter/include/people_tracking_filter/service_test.h	/^  double freq_, start_distance_min_, reliability_threshold_;$/;"	m	class:Edgeleg_manager_srv
 fwrite	despot/include/despot/util/optionparser.h	/^		Function* fwrite;$/;"	m	struct:despot::option::PrintUsageImplementation::StreamWriter
-g_caught_sigint	human_tracking/src/scanning_test.cpp	/^bool g_caught_sigint=false;$/;"	v
-g_caught_sigint	human_tracking/src/tracking_test.cpp	/^bool g_caught_sigint=false;$/;"	v
 g_counter	edge_leg_detector/src/detector.cpp	/^int g_counter = 0;$/;"	v
 g_counter	edge_leg_detector/src/edge_leg_detector/detector.cpp	/^int g_counter = 0;$/;"	v
 gamma	navi_mdp/include/Dynamic_Manager.h	/^ 	double gamma;$/;"	m	class:Dynamic_Manager
@@ -3345,19 +3194,12 @@ getCPs	navi_mdp/src/srBSpline.cpp	/^double srBSpline::getCPs(int index)$/;"	f	cl
 getCameraregion	human_filter/src/edge_leg_filter_node.cpp	/^void Edgeleg_manager::getCameraregion()$/;"	f	class:Edgeleg_manager
 getCameraregion	human_filter/src/followme_action.cpp	/^void Edgeleg_manager_action::getCameraregion()$/;"	f	class:Edgeleg_manager_action
 getCameraregion	human_filter/src/service_test.cpp	/^void Edgeleg_manager_srv::getCameraregion()$/;"	f	class:Edgeleg_manager_srv
-getCameraregion	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::getCameraregion()$/;"	f	class:Human_Belief_Scan
-getCameraregion	human_tracking/src/humantracking.cpp	/^void Human_Belief::getCameraregion()$/;"	f	class:Human_Belief
 getCameraregion	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::getCameraregion()$/;"	f	class:Dynamic_Manager
 getCurveDerPoint	navi_mdp/src/srBSpline.cpp	/^bool srBSpline::getCurveDerPoint( double& ret, double u, int d )$/;"	f	class:srBSpline
 getCurvePoint	navi_mdp/src/srBSpline.cpp	/^bool srBSpline::getCurvePoint( double& ret, double u )$/;"	f	class:srBSpline
-getDistance	human_tracking/src/human_scan.cpp	/^double Human_Belief_Scan::getDistance(double _x, double _y)$/;"	f	class:Human_Belief_Scan
-getDistance	human_tracking/src/human_scan.cpp	/^double Human_Belief_Scan::getDistance(std::vector<double> pos1,std::vector<double> pos2)$/;"	f	class:Human_Belief_Scan
-getDistance	human_tracking/src/humantracking.cpp	/^double Human_Belief::getDistance(double _x, double _y)$/;"	f	class:Human_Belief
 getDistance_from_Vec	human_filter/src/edge_leg_filter_node.cpp	/^double Edgeleg_manager::getDistance_from_Vec(std::vector<double> origin, double _x, double _y)$/;"	f	class:Edgeleg_manager
 getDistance_from_Vec	human_filter/src/followme_action.cpp	/^double Edgeleg_manager_action::getDistance_from_Vec(std::vector<double> origin, double _x, double _y)$/;"	f	class:Edgeleg_manager_action
 getDistance_from_Vec	human_filter/src/service_test.cpp	/^double Edgeleg_manager_srv::getDistance_from_Vec(std::vector<double> origin, double _x, double _y)$/;"	f	class:Edgeleg_manager_srv
-getDistance_from_Vec	human_tracking/src/human_scan.cpp	/^double Human_Belief_Scan::getDistance_from_Vec(std::vector<double> origin, double _x, double _y)$/;"	f	class:Human_Belief_Scan
-getDistance_from_Vec	human_tracking/src/humantracking.cpp	/^double Human_Belief::getDistance_from_Vec(std::vector<double> origin, double _x, double _y)$/;"	f	class:Human_Belief
 getEstimate	human_filter/src/detector_particle.cpp	/^void DetectorParticle::getEstimate(people_msgs::PositionMeasurement& est) const$/;"	f	class:estimation::DetectorParticle
 getEstimate	human_filter/src/detector_particle.cpp	/^void DetectorParticle::getEstimate(tf::Vector3& est) const$/;"	f	class:estimation::DetectorParticle
 getEstimate	human_filter/src/tracker_kalman.cpp	/^void TrackerKalman::getEstimate(StatePosVel& est) const$/;"	f	class:estimation::TrackerKalman
@@ -3405,8 +3247,6 @@ getlastDerivate	navi_mdp/src/srBSpline.cpp	/^double srBSpline::getlastDerivate()
 getlinevalue	human_filter/src/edge_leg_filter_node.cpp	/^bool Edgeleg_manager::getlinevalue(int line_type,double input_x, double input_y)$/;"	f	class:Edgeleg_manager
 getlinevalue	human_filter/src/followme_action.cpp	/^bool Edgeleg_manager_action::getlinevalue(int line_type,double input_x, double input_y)$/;"	f	class:Edgeleg_manager_action
 getlinevalue	human_filter/src/service_test.cpp	/^bool Edgeleg_manager_srv::getlinevalue(int line_type,double input_x, double input_y)$/;"	f	class:Edgeleg_manager_srv
-getlinevalue	human_tracking/src/human_scan.cpp	/^bool Human_Belief_Scan::getlinevalue(int line_type,double input_x, double input_y)$/;"	f	class:Human_Belief_Scan
-getlinevalue	human_tracking/src/humantracking.cpp	/^bool Human_Belief::getlinevalue(int line_type,double input_x, double input_y)$/;"	f	class:Human_Belief
 getlinevalue	navi_mdp/src/Dynamic_Manager.cpp	/^bool Dynamic_Manager::getlinevalue(int line_type,double input_x, double input_y)$/;"	f	class:Dynamic_Manager
 getneighboractionset	navi_mdp/src/Dynamic_Manager.cpp	/^vector<int> Dynamic_Manager::getneighboractionset(int action_idx)$/;"	f	class:Dynamic_Manager
 getneighboractionset	navi_mdp/src/MDPmanager.cpp	/^vector<int> MDPManager::getneighboractionset(int action_idx)$/;"	f	class:MDPManager
@@ -3419,8 +3259,6 @@ ghost_range_	despot/examples/cpp_models/pocman/src/pocman.h	/^	int num_ghosts_, 
 global_pose	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  std::vector<double> global_pose;$/;"	m	class:Edgeleg_manager
 global_pose	human_filter/include/people_tracking_filter/followme_action.h	/^  std::vector<double> global_pose;$/;"	m	class:Edgeleg_manager_action
 global_pose	human_filter/include/people_tracking_filter/service_test.h	/^  std::vector<double> global_pose;$/;"	m	class:Edgeleg_manager_srv
-global_pose	human_tracking/include/human_scan.h	/^	std::vector<double> global_pose;$/;"	m	class:Human_Belief_Scan
-global_pose	human_tracking/include/humantracking.h	/^	std::vector<double> global_pose;$/;"	m	class:Human_Belief
 global_pose	navi_mdp/include/Dynamic_Manager.h	/^	std::vector<double> global_pose;$/;"	m	class:Dynamic_Manager
 global_pose	navi_mdp/include/MDPmanager.h	/^ 	std::vector<double> global_pose;$/;"	m	class:MDPManager
 global_pose	navi_mdp/include/PathManager.h	/^	std::vector<double> global_pose;$/;"	m	class:PathManager
@@ -3428,8 +3266,6 @@ global_pose	villa_navi_service/include/navi_service_node.h	/^	std::vector<double
 global_pose_callback	human_filter/src/edge_leg_filter_node.cpp	/^void Edgeleg_manager::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:Edgeleg_manager
 global_pose_callback	human_filter/src/followme_action.cpp	/^void Edgeleg_manager_action::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_action
 global_pose_callback	human_filter/src/service_test.cpp	/^void Edgeleg_manager_srv::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_srv
-global_pose_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
-global_pose_callback	human_tracking/src/humantracking.cpp	/^void Human_Belief::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:Human_Belief
 global_pose_callback	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:Dynamic_Manager
 global_pose_callback	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:MDPManager
 global_pose_callback	navi_mdp/src/PathManager.cpp	/^void PathManager::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:PathManager
@@ -3460,7 +3296,6 @@ half_pathsize	navi_mdp/include/PathManager.h	/^	int half_pathsize;$/;"	m	class:P
 handleButton	navi_mdp/scripts/gui_move.py	/^  def handleButton(self):$/;"	m	class:SpeechGui
 has_terminal_	despot/include/despot/pomdpx/parser/parser.h	/^	bool has_terminal_;$/;"	m	class:despot::Parser
 head	despot/include/despot/util/optionparser.h	/^		int head; \/\/!< @brief index for next write$/;"	m	class:despot::option::PrintUsageImplementation::LineWrapper
-head_cmd_pub	human_tracking/include/human_scan.h	/^	ros::Publisher head_cmd_pub;$/;"	m	class:Human_Belief_Scan
 head_cmd_pub	navi_mdp/include/PathManager.h	/^    ros::Publisher head_cmd_pub;$/;"	m	class:PathManager
 headiter	navi_mdp/include/PathManager.h	/^	int headiter;$/;"	m	class:PathManager
 hear_range_	despot/examples/cpp_models/pocman/src/pocman.h	/^	int num_ghosts_, passage_y_, ghost_range_, smell_range_, hear_range_;$/;"	m	class:despot::Pocman
@@ -3478,45 +3313,28 @@ hostname_	despot/include/despot/evaluator.h	/^	std::string hostname_;$/;"	m	clas
 hsrb_base_pose	navi_mdp/include/PathManager.h	/^	std::vector<double> hsrb_base_pose;$/;"	m	class:PathManager
 hsrb_odomCallback	navi_mdp/src/base_actionlib.cpp	/^void hsrb_odomCallback(const nav_msgs::Odometry ::ConstPtr& msg)$/;"	f
 hsrb_odomCallback	navi_mdp/src/base_conti_actionlib.cpp	/^void hsrb_odomCallback(const nav_msgs::Odometry::ConstPtr& msg)$/;"	f
-human_belief_map	human_tracking/include/humantracking.h	/^	nav_msgs::OccupancyGrid human_belief_map;$/;"	m	class:Human_Belief
 human_belief_map	villa_navi_service/include/navi_service_node.h	/^	nav_msgs::OccupancyGrid human_belief_map;$/;"	m	class:villa_navi_srv
-human_boxes_array	human_tracking/include/human_scan.h	/^	visualization_msgs::MarkerArray human_boxes_array;$/;"	m	class:Human_Belief_Scan
-human_boxes_array	human_tracking/include/humantracking.h	/^	visualization_msgs::MarkerArray human_boxes_array;$/;"	m	class:Human_Belief
 human_boxes_array	villa_navi_service/include/navi_service_node.h	/^	visualization_msgs::MarkerArray human_boxes_array;$/;"	m	class:villa_navi_srv
 human_callback_count	navi_mdp/include/Dynamic_Manager.h	/^ 	int               human_callback_count;$/;"	m	class:Dynamic_Manager
 human_callback_count	navi_mdp/include/MDPmanager.h	/^ 	int               human_callback_count;$/;"	m	class:MDPManager
 human_global	navi_mdp/include/Dynamic_Manager.h	/^ 	vector<float>	  human_global;$/;"	m	class:Dynamic_Manager
 human_global	navi_mdp/include/MDPmanager.h	/^ 	vector<float>	  human_global;$/;"	m	class:MDPManager
-human_laser_pub	human_tracking/include/human_scan.h	/^	ros::Publisher human_laser_pub;$/;"	m	class:Human_Belief_Scan
-human_laser_pub	human_tracking/include/humantracking.h	/^	ros::Publisher human_laser_pub;$/;"	m	class:Human_Belief
 human_laser_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher human_laser_pub;$/;"	m	class:villa_navi_srv
-human_laser_scan_pub	human_tracking/include/human_scan.h	/^	ros::Publisher human_laser_scan_pub;$/;"	m	class:Human_Belief_Scan
-human_laser_scan_pub	human_tracking/include/humantracking.h	/^	ros::Publisher human_laser_scan_pub;$/;"	m	class:Human_Belief
 human_laser_scan_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher human_laser_scan_pub;$/;"	m	class:villa_navi_srv
 human_leg_boxes_array	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  visualization_msgs::MarkerArray human_leg_boxes_array;$/;"	m	class:Edgeleg_manager
 human_leg_boxes_array	human_filter/include/people_tracking_filter/followme_action.h	/^  visualization_msgs::MarkerArray human_leg_boxes_array;$/;"	m	class:Edgeleg_manager_action
 human_leg_boxes_array	human_filter/include/people_tracking_filter/service_test.h	/^  visualization_msgs::MarkerArray human_leg_boxes_array;$/;"	m	class:Edgeleg_manager_srv
-human_leg_boxes_array	human_tracking/include/human_scan.h	/^	visualization_msgs::MarkerArray human_leg_boxes_array;$/;"	m	class:Human_Belief_Scan
 human_leg_boxes_array	navi_mdp/include/Dynamic_Manager.h	/^  	visualization_msgs::MarkerArray human_leg_boxes_array;$/;"	m	class:Dynamic_Manager
 human_leg_callback	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::human_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg)$/;"	f	class:MDPManager
-human_leg_target_pub	human_tracking/include/human_scan.h	/^	ros::Publisher human_leg_target_pub;$/;"	m	class:Human_Belief_Scan
-human_leg_target_pub	human_tracking/include/humantracking.h	/^	ros::Publisher human_leg_target_pub;$/;"	m	class:Human_Belief
 human_leg_target_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher human_leg_target_pub;$/;"	m	class:villa_navi_srv
-human_occupied_idx	human_tracking/include/human_scan.h	/^	std::vector<int> human_occupied_idx;$/;"	m	class:Human_Belief_Scan
-human_occupied_idx	human_tracking/include/humantracking.h	/^	std::vector<int> human_occupied_idx;$/;"	m	class:Human_Belief
 human_occupied_idx	navi_mdp/include/Dynamic_Manager.h	/^    std::vector<int> human_occupied_idx;$/;"	m	class:Dynamic_Manager
 human_occupied_idx	villa_navi_service/include/navi_service_node.h	/^	std::vector<int> human_occupied_idx;$/;"	m	class:villa_navi_srv
-human_occupied_leg_idx	human_tracking/include/human_scan.h	/^	std::vector<int> human_occupied_leg_idx;$/;"	m	class:Human_Belief_Scan
-human_occupied_leg_idx	human_tracking/include/humantracking.h	/^	std::vector<int> human_occupied_leg_idx;$/;"	m	class:Human_Belief
 human_occupied_leg_idx	navi_mdp/include/Dynamic_Manager.h	/^	std::vector<int> human_occupied_leg_idx;$/;"	m	class:Dynamic_Manager
 human_occupied_leg_idx	villa_navi_service/include/navi_service_node.h	/^	std::vector<int> human_occupied_leg_idx;$/;"	m	class:villa_navi_srv
-human_target_Intcmd_pub	human_tracking/include/humantracking.h	/^	ros::Publisher human_target_Intcmd_pub;$/;"	m	class:Human_Belief
 human_target_Intcmd_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher human_target_Intcmd_pub;$/;"	m	class:villa_navi_srv
 human_target_pub	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  ros::Publisher human_target_pub;$/;"	m	class:Edgeleg_manager
 human_target_pub	human_filter/include/people_tracking_filter/followme_action.h	/^  ros::Publisher human_target_pub;$/;"	m	class:Edgeleg_manager_action
 human_target_pub	human_filter/include/people_tracking_filter/service_test.h	/^  ros::Publisher human_target_pub;$/;"	m	class:Edgeleg_manager_srv
-human_target_pub	human_tracking/include/human_scan.h	/^	ros::Publisher human_target_pub;$/;"	m	class:Human_Belief_Scan
-human_target_pub	human_tracking/include/humantracking.h	/^	ros::Publisher human_target_pub;$/;"	m	class:Human_Belief
 human_target_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher human_target_pub;$/;"	m	class:villa_navi_srv
 human_yolo_callback	human_filter/src/edge_leg_filter_node.cpp	/^void Edgeleg_manager::human_yolo_callback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:Edgeleg_manager
 human_yolo_callback	human_filter/src/followme_action.cpp	/^void Edgeleg_manager_action::human_yolo_callback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_action
@@ -3526,12 +3344,8 @@ indent	despot/include/despot/util/optionparser.h	/^	static void indent(IStringWr
 indent	despot/include/despot/util/tinyxml/tinyxml.h	/^	bool simpleTextPrint;TIXML_STRING buffer;TIXML_STRING indent;TIXML_STRING lineBreak;$/;"	m	class:despot::util::tinyxml::TiXmlPrinter
 index	despot/include/despot/util/optionparser.h	/^	const unsigned index;$/;"	m	struct:despot::option::Descriptor
 index	despot/include/despot/util/optionparser.h	/^	int index() const {$/;"	f	class:despot::option::Option
-index	human_tracking/include/human_scan.h	/^	int index;$/;"	m	class:Human_Belief_Scan
-index	human_tracking/include/humantracking.h	/^	int index;$/;"	m	class:Human_Belief
 index	villa_navi_service/include/navi_service_node.h	/^	int index;$/;"	m	class:villa_navi_srv
 index_	despot/include/despot/pomdpx/parser/variable.h	/^	std::map<std::string, int> index_;$/;"	m	class:despot::Variable
-index_of_human_occ_cells_updated_recently	human_tracking/include/human_scan.h	/^	std::vector<int> index_of_human_occ_cells_updated_recently;$/;"	m	class:Human_Belief_Scan
-index_of_human_occ_cells_updated_recently	human_tracking/include/humantracking.h	/^	std::vector<int> index_of_human_occ_cells_updated_recently;$/;"	m	class:Human_Belief
 index_of_human_occ_cells_updated_recently	villa_navi_service/include/navi_service_node.h	/^	std::vector<int> index_of_human_occ_cells_updated_recently;$/;"	m	class:villa_navi_srv
 indexer_	despot/include/despot/core/policy.h	/^	const StateIndexer& indexer_;$/;"	m	class:despot::ModeStatePolicy
 indexer_	despot/include/despot/core/upper_bound.h	/^	const StateIndexer& indexer_;$/;"	m	class:despot::LookaheadUpperBound
@@ -3567,24 +3381,15 @@ is_small_	despot/include/despot/pomdpx/pomdpx.h	/^	bool is_small_;$/;"	m	class:d
 joint_states_callback	human_filter/src/edge_leg_filter_node.cpp	/^void Edgeleg_manager::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)$/;"	f	class:Edgeleg_manager
 joint_states_callback	human_filter/src/followme_action.cpp	/^void Edgeleg_manager_action::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_action
 joint_states_callback	human_filter/src/service_test.cpp	/^void Edgeleg_manager_srv::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_srv
-joint_states_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
-joint_states_callback	human_tracking/src/humantracking.cpp	/^void Human_Belief::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)$/;"	f	class:Human_Belief
 joint_states_callback	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)$/;"	f	class:Dynamic_Manager
 kOriginLink	navi_mdp/src/base_actionlib.cpp	/^const char* kOriginLink = "odom";$/;"	v
 kRobotBaseLink	navi_mdp/src/base_actionlib.cpp	/^const char* kRobotBaseLink = "base_link";$/;"	v
 k_	despot/include/despot/util/gamma.h	/^	double k_;$/;"	m	class:despot::Gamma
 keyboard	ros-keyboard/src/keyboard.h	/^namespace keyboard {$/;"	n
-keyboard_callback	human_filter/src/edge_leg_filter_node.cpp	/^void Edgeleg_manager::keyboard_callback(const keyboard::Key::ConstPtr& msg)$/;"	f	class:Edgeleg_manager
 keyboard_callback	human_filter/src/followme_action.cpp	/^void Edgeleg_manager_action::keyboard_callback(const keyboard::Key::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_action
-keyboard_callback	human_filter/src/service_test.cpp	/^void Edgeleg_manager_srv::keyboard_callback(const keyboard::Key::ConstPtr& msg)$/;"	f	class:Edgeleg_manager_srv
-keyboard_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::keyboard_callback(const keyboard::Key::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
 keyboard_sub	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  ros::Subscriber keyboard_sub;$/;"	m	class:Edgeleg_manager
 keyboard_sub	human_filter/include/people_tracking_filter/followme_action.h	/^  ros::Subscriber keyboard_sub;$/;"	m	class:Edgeleg_manager_action
 keyboard_sub	human_filter/include/people_tracking_filter/service_test.h	/^  ros::Subscriber keyboard_sub;$/;"	m	class:Edgeleg_manager_srv
-laser_pcl_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::laser_pcl_callback(const sensor_msgs::PointCloud2 ::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
-laser_pcl_callback	human_tracking/src/humantracking.cpp	/^void Human_Belief::laser_pcl_callback(const sensor_msgs::PointCloud2 ::ConstPtr& msg)$/;"	f	class:Human_Belief
-laser_scan_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::laser_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg)$/;"	f	class:Human_Belief_Scan
-laser_scan_callback	human_tracking/src/humantracking.cpp	/^void Human_Belief::laser_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg)$/;"	f	class:Human_Belief
 last	despot/include/despot/util/optionparser.h	/^	Option* last() {$/;"	f	class:despot::option::Option
 lastChild	despot/include/despot/util/tinyxml/tinyxml.h	/^	TiXmlNode* lastChild;$/;"	m	class:despot::util::tinyxml::TiXmlNode
 lastSubTarget	navi_mdp/include/PathManager.h	/^	std::vector<double> lastSubTarget;$/;"	m	class:PathManager
@@ -3592,8 +3397,6 @@ last_pose	human_filter/include/people_tracking_filter/followme_action.h	/^  geom
 leg_target	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  std::vector<double> leg_target;$/;"	m	class:Edgeleg_manager
 leg_target	human_filter/include/people_tracking_filter/followme_action.h	/^  std::vector<double> leg_target;$/;"	m	class:Edgeleg_manager_action
 leg_target	human_filter/include/people_tracking_filter/service_test.h	/^  std::vector<double> leg_target;$/;"	m	class:Edgeleg_manager_srv
-leg_target	human_tracking/include/human_scan.h	/^	std::vector<double> leg_target;				\/\/x,y,theta$/;"	m	class:Human_Belief_Scan
-leg_target	human_tracking/include/humantracking.h	/^	std::vector<double> leg_target;				\/\/x,y,theta$/;"	m	class:Human_Belief
 leg_target	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> leg_target;				\/\/x,y,theta$/;"	m	class:villa_navi_srv
 leg_targetSet	navi_mdp/include/Dynamic_Manager.h	/^    std::vector< std::vector<double> > leg_targetSet;$/;"	m	class:Dynamic_Manager
 legal_	despot/examples/cpp_models/localnavigation/src/localnavigation.cpp	/^	mutable vector<int> legal_;$/;"	m	class:despot::LocalnaviSmartPolicy	file:
@@ -3616,8 +3419,6 @@ line_in_block	despot/include/despot/util/optionparser.h	/^		int line_in_block; \
 listener	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  tf::TransformListener     listener;$/;"	m	class:Edgeleg_manager
 listener	human_filter/include/people_tracking_filter/followme_action.h	/^  tf::TransformListener     listener;$/;"	m	class:Edgeleg_manager_action
 listener	human_filter/include/people_tracking_filter/service_test.h	/^  tf::TransformListener     listener;$/;"	m	class:Edgeleg_manager_srv
-listener	human_tracking/include/human_scan.h	/^	tf::TransformListener 	  listener;$/;"	m	class:Human_Belief_Scan
-listener	human_tracking/include/humantracking.h	/^	tf::TransformListener 	  listener;$/;"	m	class:Human_Belief
 listener	navi_mdp/include/Dynamic_Manager.h	/^ 	tf::TransformListener 	  listener;$/;"	m	class:Dynamic_Manager
 listener	navi_mdp/include/MDPmanager.h	/^ 	tf::TransformListener 	  listener;$/;"	m	class:MDPManager
 listener	navi_mdp/include/PathManager.h	/^ 	tf::TransformListener     listener;$/;"	m	class:PathManager
@@ -3680,8 +3481,6 @@ m_cell_x_width	navi_mdp/include/MapParam.h	/^   	float 		  		m_cell_x_width;$/;"
 m_cell_y_width	navi_mdp/include/MapParam.h	/^	float 		  		m_cell_y_width;$/;"	m	class:MapParam
 m_desired_heading	navi_mdp/include/Dynamic_Manager.h	/^ 	double	m_desired_heading;$/;"	m	class:Dynamic_Manager
 m_desired_heading	navi_mdp/include/MDPmanager.h	/^ 	double	m_desired_heading;$/;"	m	class:MDPManager
-m_dyn_occupancy	human_tracking/include/human_scan.h	/^	std::vector<double> m_dyn_occupancy;$/;"	m	class:Human_Belief_Scan
-m_dyn_occupancy	human_tracking/include/humantracking.h	/^	std::vector<double> m_dyn_occupancy;$/;"	m	class:Human_Belief
 m_dyn_occupancy	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> m_dyn_occupancy;$/;"	m	class:villa_navi_srv
 m_dynamic_obs	navi_mdp/include/Dynamic_Manager.h	/^ 	vector<int>		  m_dynamic_obs;$/;"	m	class:Dynamic_Manager
 m_dynamic_obs	navi_mdp/include/MDPmanager.h	/^ 	vector<int>		  m_dynamic_obs;$/;"	m	class:MDPManager
@@ -3691,18 +3490,10 @@ m_dynamicgrid	despot/include/despot/evaluator.h	/^	nav_msgs::OccupancyGrid m_dyn
 m_fileout	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^	std::ofstream m_fileout;$/;"	m	class:despot::Navigation
 m_human_obs	navi_mdp/include/Dynamic_Manager.h	/^ 	vector<int>		  m_human_obs;$/;"	m	class:Dynamic_Manager
 m_human_obs	navi_mdp/include/MDPmanager.h	/^ 	vector<int>		  m_human_obs;$/;"	m	class:MDPManager
-m_human_posx	human_tracking/include/human_scan.h	/^	std::vector<double> m_human_posx;$/;"	m	class:Human_Belief_Scan
-m_human_posx	human_tracking/include/humantracking.h	/^	std::vector<double> m_human_posx;$/;"	m	class:Human_Belief
 m_human_posx	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> m_human_posx;$/;"	m	class:villa_navi_srv
-m_human_posy	human_tracking/include/human_scan.h	/^	std::vector<double> m_human_posy;$/;"	m	class:Human_Belief_Scan
-m_human_posy	human_tracking/include/humantracking.h	/^	std::vector<double> m_human_posy;$/;"	m	class:Human_Belief
 m_human_posy	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> m_human_posy;$/;"	m	class:villa_navi_srv
 m_last_action	despot/include/despot/core/pomdp.h	/^	int m_last_action;$/;"	m	class:despot::DSPOMDP
-m_leg_idx_set	human_tracking/include/human_scan.h	/^	std::vector<int>    m_leg_idx_set;$/;"	m	class:Human_Belief_Scan
-m_leg_idx_set	human_tracking/include/humantracking.h	/^	std::vector<int>    m_leg_idx_set;$/;"	m	class:Human_Belief
 m_leg_idx_set	villa_navi_service/include/navi_service_node.h	/^	std::vector<int>    m_leg_idx_set;$/;"	m	class:villa_navi_srv
-m_leg_updateiter	human_tracking/include/human_scan.h	/^	int m_leg_updateiter;$/;"	m	class:Human_Belief_Scan
-m_leg_updateiter	human_tracking/include/humantracking.h	/^	int m_leg_updateiter;$/;"	m	class:Human_Belief
 m_leg_updateiter	villa_navi_service/include/navi_service_node.h	/^	int m_leg_updateiter;$/;"	m	class:villa_navi_srv
 m_localoccupancy	navi_mdp/include/Dynamic_Manager.h	/^ 	vector<int>       m_localoccupancy;$/;"	m	class:Dynamic_Manager
 m_localoccupancy	navi_mdp/include/MDPmanager.h	/^ 	vector<int>       m_localoccupancy;$/;"	m	class:MDPManager
@@ -3710,31 +3501,17 @@ m_node	despot/include/despot/evaluator.h	/^	ros::NodeHandle   m_node;$/;"	m	clas
 m_node	navi_mdp/include/Dynamic_Manager.h	/^	ros::NodeHandle  m_node;$/;"	m	class:Dynamic_Manager
 m_node	navi_mdp/include/MDPmanager.h	/^	ros::NodeHandle  m_node;$/;"	m	class:MDPManager
 m_node	navi_mdp/include/PathManager.h	/^ 	ros::NodeHandle m_node;$/;"	m	class:PathManager
-m_numofhuman	human_tracking/include/human_scan.h	/^	int m_numofhuman;$/;"	m	class:Human_Belief_Scan
-m_numofhuman	human_tracking/include/humantracking.h	/^	int m_numofhuman;$/;"	m	class:Human_Belief
 m_numofhuman	villa_navi_service/include/navi_service_node.h	/^	int m_numofhuman;$/;"	m	class:villa_navi_srv
-m_prob_occupancy	human_tracking/include/human_scan.h	/^	std::vector<double> m_prob_occupancy;$/;"	m	class:Human_Belief_Scan
-m_prob_occupancy	human_tracking/include/humantracking.h	/^	std::vector<double> m_prob_occupancy;$/;"	m	class:Human_Belief
 m_prob_occupancy	villa_navi_service/include/navi_service_node.h	/^	std::vector<double> m_prob_occupancy;$/;"	m	class:villa_navi_srv
-m_receiveiter	human_tracking/include/human_scan.h	/^	int m_receiveiter;$/;"	m	class:Human_Belief_Scan
-m_receiveiter	human_tracking/include/humantracking.h	/^	int m_receiveiter;$/;"	m	class:Human_Belief
 m_receiveiter	villa_navi_service/include/navi_service_node.h	/^	int m_receiveiter;$/;"	m	class:villa_navi_srv
 m_service	human_filter/include/people_tracking_filter/service_test.h	/^  ros::ServiceServer m_service;$/;"	m	class:Edgeleg_manager_srv
 m_static_obs	navi_mdp/include/Dynamic_Manager.h	/^ 	vector<int>		  m_static_obs;$/;"	m	class:Dynamic_Manager
 m_static_obs	navi_mdp/include/MDPmanager.h	/^ 	vector<int>		  m_static_obs;$/;"	m	class:MDPManager
-m_updateiter	human_tracking/include/human_scan.h	/^	int m_updateiter;$/;"	m	class:Human_Belief_Scan
-m_updateiter	human_tracking/include/humantracking.h	/^	int m_updateiter;$/;"	m	class:Human_Belief
 m_updateiter	villa_navi_service/include/navi_service_node.h	/^	int m_updateiter;$/;"	m	class:villa_navi_srv
-m_viewupdateiter	human_tracking/include/human_scan.h	/^	int m_viewupdateiter;$/;"	m	class:Human_Belief_Scan
-m_viewupdateiter	human_tracking/include/humantracking.h	/^	int m_viewupdateiter;$/;"	m	class:Human_Belief
 m_viewupdateiter	villa_navi_service/include/navi_service_node.h	/^	int m_viewupdateiter;$/;"	m	class:villa_navi_srv
 m_xsize	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^	int m_xsize, m_ysize;$/;"	m	class:despot::Navigation
 m_xsize	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^	int m_xsize, m_ysize;$/;"	m	class:despot::Navigation
-m_yolo_idx_set	human_tracking/include/human_scan.h	/^	std::vector<int>    m_yolo_idx_set;$/;"	m	class:Human_Belief_Scan
-m_yolo_idx_set	human_tracking/include/humantracking.h	/^	std::vector<int>    m_yolo_idx_set;$/;"	m	class:Human_Belief
 m_yolo_idx_set	villa_navi_service/include/navi_service_node.h	/^	std::vector<int>    m_yolo_idx_set;$/;"	m	class:villa_navi_srv
-m_yolo_recieveiter	human_tracking/include/human_scan.h	/^	int m_yolo_recieveiter;$/;"	m	class:Human_Belief_Scan
-m_yolo_recieveiter	human_tracking/include/humantracking.h	/^	int m_yolo_recieveiter;$/;"	m	class:Human_Belief
 m_yolo_recieveiter	villa_navi_service/include/navi_service_node.h	/^	int m_yolo_recieveiter;$/;"	m	class:villa_navi_srv
 m_ysize	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^	int m_xsize, m_ysize;$/;"	m	class:despot::Navigation
 m_ysize	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^	int m_xsize, m_ysize;$/;"	m	class:despot::Navigation
@@ -3761,8 +3538,6 @@ main	human_filter/src/edge_leg_filter_node.cpp	/^int main(int argc, char **argv)
 main	human_filter/src/followme_action.cpp	/^int main(int argc, char **argv)$/;"	f
 main	human_filter/src/people_tracking_node.cpp	/^int main(int argc, char **argv)$/;"	f
 main	human_filter/src/service_test.cpp	/^int main(int argc, char **argv)$/;"	f
-main	human_tracking/src/scanning_test.cpp	/^int main(int argc, char **argv)$/;"	f
-main	human_tracking/src/tracking_test.cpp	/^int main(int argc, char **argv)$/;"	f
 main	navi_mdp/src/base_actionlib.cpp	/^int main(int argc, char **argv)$/;"	f
 main	navi_mdp/src/base_conti_actionlib.cpp	/^int main(int argc, char **argv)$/;"	f
 main	navi_mdp/src/dynamic_planner.cpp	/^int main(int argc, char **argv)$/;"	f
@@ -3771,8 +3546,6 @@ main	navi_mdp/src/global_planner.cpp	/^int main(int argc, char **argv)$/;"	f
 main	ros-keyboard/src/main.cpp	/^int main(int argc, char** argv)$/;"	f
 main	villa_navi_service/src/service_test.cpp	/^int main(int argc, char **argv)$/;"	f
 map_	despot/include/despot/pomdpx/parser/function.h	/^  std::vector<std::map<int, double> > map_; \/\/ map_[parents][child]$/;"	m	class:despot::Function
-map_index_of_human_cells_to_prob	human_tracking/include/human_scan.h	/^	std::map<int, float> map_index_of_human_cells_to_prob;$/;"	m	class:Human_Belief_Scan
-map_index_of_human_cells_to_prob	human_tracking/include/humantracking.h	/^	std::map<int, float> map_index_of_human_cells_to_prob;$/;"	m	class:Human_Belief
 map_index_of_human_cells_to_prob	villa_navi_service/include/navi_service_node.h	/^	std::map<int, float> map_index_of_human_cells_to_prob;$/;"	m	class:villa_navi_srv
 map_step	navi_mdp/include/MapParam.h	/^    double   		  	map_step;$/;"	m	class:MapParam
 marker	navi_mdp/scripts/human_marker.py	/^   marker = Marker()$/;"	v
@@ -3847,7 +3620,6 @@ mu_	human_filter/include/people_tracking_filter/gaussian_vector.h	/^  tf::Vector
 mu_	human_filter/include/people_tracking_filter/uniform_vector.h	/^  tf::Vector3 mu_, size_;$/;"	m	class:BFL::UniformVector
 mutex	edge_leg_detector/src/detector.cpp	/^boost::mutex mutex;$/;"	v
 mutex	edge_leg_detector/src/edge_leg_detector/detector.cpp	/^boost::mutex mutex;$/;"	v
-my_timer	human_tracking/include/human_scan.h	/^	ros::Timer my_timer;$/;"	m	class:Human_Belief_Scan
 name	despot/include/despot/pomdpx/parser/variable.h	/^	inline const std::string& name() const {$/;"	f	class:despot::NamedVar
 name	despot/include/despot/pomdpx/parser/variable.h	/^	inline void name(std::string str) {$/;"	f	class:despot::NamedVar
 name	despot/include/despot/util/optionparser.h	/^	const char* name;$/;"	m	class:despot::option::Option
@@ -3914,8 +3686,6 @@ num_of_completed_runs	despot/include/despot/evaluator.h	/^	std::vector<int> num_
 num_of_detected_human	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  int num_of_detected_human;$/;"	m	class:Edgeleg_manager
 num_of_detected_human	human_filter/include/people_tracking_filter/followme_action.h	/^  int num_of_detected_human;$/;"	m	class:Edgeleg_manager_action
 num_of_detected_human	human_filter/include/people_tracking_filter/service_test.h	/^  int num_of_detected_human;$/;"	m	class:Edgeleg_manager_srv
-num_of_detected_human	human_tracking/include/human_scan.h	/^	int  num_of_detected_human;$/;"	m	class:Human_Belief_Scan
-num_of_detected_human_yolo	human_tracking/include/human_scan.h	/^	int  num_of_detected_human_yolo;$/;"	m	class:Human_Belief_Scan
 num_of_detected_human_yolo	navi_mdp/include/Dynamic_Manager.h	/^ 	int  			  num_of_detected_human_yolo;$/;"	m	class:Dynamic_Manager
 num_of_detected_human_yolo	navi_mdp/include/MDPmanager.h	/^ 	int  			  num_of_detected_human_yolo;$/;"	m	class:MDPManager
 num_particles	despot/examples/cpp_models/localnavigation/src/localnavigation.cpp	/^int NavigationBelief::num_particles = 5000;$/;"	m	class:despot::NavigationBelief	file:
@@ -3943,12 +3713,6 @@ num_scenarios	despot/include/despot/config.h	/^	int num_scenarios;$/;"	m	struct:
 num_tree_nodes	despot/include/despot/core/solver.h	/^	int num_tree_nodes;$/;"	m	struct:despot::SearchStatistics
 num_tree_particles	despot/include/despot/core/solver.h	/^	int num_tree_particles;$/;"	m	struct:despot::SearchStatistics
 num_trials	despot/include/despot/core/solver.h	/^	int num_trials;$/;"	m	struct:despot::SearchStatistics
-num_x	human_tracking/src/scanning_test.cpp	/^int num_x=12;$/;"	v
-num_x	human_tracking/src/tracking_test.cpp	/^int num_x=12;$/;"	v
-num_y	human_tracking/src/scanning_test.cpp	/^int num_y=12;$/;"	v
-num_y	human_tracking/src/tracking_test.cpp	/^int num_y=12;$/;"	v
-number_detected_callback	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::number_detected_callback(const std_msgs::Int8::ConstPtr &msg){$/;"	f	class:Human_Belief_Scan
-number_detected_callback	human_tracking/src/humantracking.cpp	/^void Human_Belief::number_detected_callback(const std_msgs::Int8::ConstPtr &msg){$/;"	f	class:Human_Belief
 obs_	despot/examples/cpp_models/localnavigation/src/localnavigation.h	/^	std::vector<OBS_TYPE> obs_;		 \/\/ obs_[y * xsize_ + x]$/;"	m	class:despot::Navigation
 obs_	despot/examples/cpp_models/navigation/src/navigation.h	/^	std::vector<OBS_TYPE> obs_; \/\/ obs_[y * xsize_ + x]$/;"	m	class:despot::Navigation
 obs_	despot/examples/cpp_models/pathfollowing/src/pathfollowing.h	/^	std::vector<OBS_TYPE> obs_;		 \/\/ obs_[y * xsize_ + x]$/;"	m	class:despot::Navigation
@@ -4182,8 +3946,6 @@ printUsage	despot/include/despot/util/optionparser.h	/^void printUsage(Function*
 printUsage	despot/include/despot/util/optionparser.h	/^void printUsage(OStream& prn, const Descriptor usage[], int width = 80,$/;"	f	namespace:despot::option
 printUsage	despot/include/despot/util/optionparser.h	/^void printUsage(Syscall* prn, int fd, const Descriptor usage[], int width = 80,$/;"	f	namespace:despot::option
 printUsage	despot/include/despot/util/optionparser.h	/^void printUsage(const Temporary& prn, const Descriptor usage[], int width = 80,$/;"	f	namespace:despot::option
-print_iter	human_tracking/include/human_scan.h	/^	int print_iter;$/;"	m	class:Human_Belief_Scan
-print_iter	human_tracking/include/humantracking.h	/^	int print_iter;$/;"	m	class:Human_Belief
 print_iter	villa_navi_service/include/navi_service_node.h	/^	int print_iter;$/;"	m	class:villa_navi_srv
 prior_	despot/include/despot/core/belief.h	/^	Belief* prior_;$/;"	m	class:despot::ParticleBelief
 prior_	despot/include/despot/core/lower_bound.h	/^	POMCPPrior* prior_;$/;"	m	class:despot::POMCPScenarioLowerBound
@@ -4204,8 +3966,6 @@ pub	navi_mdp/scripts/human_marker.py	/^pub = rospy.Publisher('\/Int_cmd_trackhum
 pub_iters	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  int pub_iters;$/;"	m	class:Edgeleg_manager
 pub_iters	human_filter/include/people_tracking_filter/followme_action.h	/^  int pub_iters;$/;"	m	class:Edgeleg_manager_action
 pub_iters	human_filter/include/people_tracking_filter/service_test.h	/^  int pub_iters;$/;"	m	class:Edgeleg_manager_srv
-pub_iters	human_tracking/include/human_scan.h	/^	int pub_iters;$/;"	m	class:Human_Belief_Scan
-pub_iters	human_tracking/include/humantracking.h	/^	int pub_iters;$/;"	m	class:Human_Belief
 pub_iters	villa_navi_service/include/navi_service_node.h	/^	int pub_iters;$/;"	m	class:villa_navi_srv
 publishAction	despot/src/evaluator.cpp	/^void Evaluator::publishAction(int action_cmd_)$/;"	f	class:despot::Evaluator
 publishViewTpointTarget	navi_mdp/src/PathManager.cpp	/^void PathManager::publishViewTpointTarget()$/;"	f	class:PathManager
@@ -4219,8 +3979,6 @@ publish_filtered_human_boxes	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Man
 publish_filtered_target	human_filter/src/edge_leg_filter_node.cpp	/^void Edgeleg_manager::publish_filtered_target()$/;"	f	class:Edgeleg_manager
 publish_filtered_target	human_filter/src/followme_action.cpp	/^void Edgeleg_manager_action::publish_filtered_target()$/;"	f	class:Edgeleg_manager_action
 publish_filtered_target	human_filter/src/service_test.cpp	/^void Edgeleg_manager_srv::publish_filtered_target()$/;"	f	class:Edgeleg_manager_srv
-publish_headscan	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::publish_headscan()$/;"	f	class:Human_Belief_Scan
-publish_headscan	human_tracking/src/humantracking.cpp	/^void Human_Belief::publish_headscan()$/;"	f	class:Human_Belief
 publish_leg_boxes	human_filter/src/edge_leg_filter_node.cpp	/^void Edgeleg_manager::publish_leg_boxes()$/;"	f	class:Edgeleg_manager
 publish_leg_boxes	human_filter/src/followme_action.cpp	/^void Edgeleg_manager_action::publish_leg_boxes()$/;"	f	class:Edgeleg_manager_action
 publish_leg_boxes	human_filter/src/service_test.cpp	/^void Edgeleg_manager_srv::publish_leg_boxes()$/;"	f	class:Edgeleg_manager_srv
@@ -4233,16 +3991,8 @@ publishnum	navi_mdp/include/Dynamic_Manager.h	/^ 	int publishnum;$/;"	m	class:Dy
 publishnum	navi_mdp/include/MDPmanager.h	/^ 	int publishnum;$/;"	m	class:MDPManager
 publishpaths	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::publishpaths()$/;"	f	class:Dynamic_Manager
 publishpaths	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::publishpaths()$/;"	f	class:MDPManager
-put_human_occ_map	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::put_human_occ_map()$/;"	f	class:Human_Belief_Scan
-put_human_occ_map	human_tracking/src/humantracking.cpp	/^void Human_Belief::put_human_occ_map()$/;"	f	class:Human_Belief
-put_human_occ_map_leg	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::put_human_occ_map_leg()$/;"	f	class:Human_Belief_Scan
-put_human_occ_map_leg	human_tracking/src/humantracking.cpp	/^void Human_Belief::put_human_occ_map_leg()$/;"	f	class:Human_Belief
 put_human_occ_map_leg	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::put_human_occ_map_leg()$/;"	f	class:Dynamic_Manager
-put_human_occ_map_yolo	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::put_human_occ_map_yolo()$/;"	f	class:Human_Belief_Scan
-put_human_occ_map_yolo	human_tracking/src/humantracking.cpp	/^void Human_Belief::put_human_occ_map_yolo()$/;"	f	class:Human_Belief
 put_human_occ_map_yolo	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::put_human_occ_map_yolo()$/;"	f	class:Dynamic_Manager
-put_human_surrounding_beliefmap	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::put_human_surrounding_beliefmap(int idx)$/;"	f	class:Human_Belief_Scan
-put_human_surrounding_beliefmap	human_tracking/src/humantracking.cpp	/^void Human_Belief::put_human_surrounding_beliefmap(int idx)$/;"	f	class:Human_Belief
 put_human_surrounding_beliefmap	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::put_human_surrounding_beliefmap(int idx, double value)$/;"	f	class:Dynamic_Manager
 quality_	human_filter/include/people_tracking_filter/detector_particle.h	/^  double filter_time_, quality_;$/;"	m	class:estimation::DetectorParticle
 quality_	human_filter/include/people_tracking_filter/tracker_kalman.h	/^  double init_time_, filter_time_, quality_;$/;"	m	class:estimation::TrackerKalman
@@ -4350,10 +4100,6 @@ scaled_static_map_callback	human_filter/src/service_test.cpp	/^void Edgeleg_mana
 scaling	navi_mdp/include/Dynamic_Manager.h	/^	int  scaling=12;$/;"	m	class:Dynamic_Manager
 scaling	navi_mdp/include/MDPmanager.h	/^	int  scaling=12;$/;"	m	class:MDPManager
 scan_mode	navi_mdp/include/PathManager.h	/^	bool scan_mode;$/;"	m	class:PathManager
-scanforhuman	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::scanforhuman(const ros::TimerEvent& event)$/;"	f	class:Human_Belief_Scan
-scanforhuman	human_tracking/src/humantracking.cpp	/^void Human_Belief::scanforhuman(const ros::TimerEvent& event)$/;"	f	class:Human_Belief
-scanmode	human_tracking/include/human_scan.h	/^	bool scanmode;$/;"	m	class:Human_Belief_Scan
-scanmode	human_tracking/include/humantracking.h	/^	bool scanmode;$/;"	m	class:Human_Belief
 scenario_id	despot/include/despot/core/pomdp.h	/^	int scenario_id;$/;"	m	class:despot::State
 screenLength	despot/include/despot/util/optionparser.h	/^		int screenLength() {$/;"	f	class:despot::option::PrintUsageImplementation::LinePartIterator
 screenlen	despot/include/despot/util/optionparser.h	/^		int screenlen; \/\/!< Length of the current part in screen columns (taking narrow\/wide chars into account).$/;"	m	class:despot::option::PrintUsageImplementation::LinePartIterator
@@ -4366,7 +4112,6 @@ selfloop_state_queue_	despot/include/despot/pomdpx/parser/parser.h	/^	mutable st
 selfloop_state_set_	despot/include/despot/pomdpx/parser/parser.h	/^	mutable std::set<std::vector<int> > selfloop_state_set_;$/;"	m	class:despot::Parser
 sendMessage	despot/src/ippc/client.cpp	/^void Client::sendMessage(string sendbuf) {$/;"	f	class:despot::Client
 sendPathAction	navi_mdp/src/PathManager.cpp	/^void PathManager::sendPathAction()$/;"	f	class:PathManager
-send_activation_filter_cmd	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::send_activation_filter_cmd()$/;"	f	class:Human_Belief_Scan
 sendcmd	despot/examples/cpp_models/pathfollowing/src/pathfollowing.cpp	/^bool Navigation::sendcmd()$/;"	f	class:despot::Navigation
 sensor_frame_id	edge_leg_detector/src/detector.cpp	/^string sensor_frame_id;$/;"	v
 sensor_frame_id	edge_leg_detector/src/edge_leg_detector/detector.cpp	/^string sensor_frame_id;$/;"	v
@@ -4395,20 +4140,12 @@ setHeight	navi_mdp/src/MapParam.cpp	/^void MapParam::setHeight(int height_)$/;"	
 setHostName	despot/src/ippc/client.cpp	/^void Client::setHostName(string hostname) {$/;"	f	class:despot::Client
 setHumanObs	navi_mdp/src/Dynamic_Manager.cpp	/^ void Dynamic_Manager::setHumanObs(const vector<int> humans){$/;"	f	class:Dynamic_Manager
 setHumanObs	navi_mdp/src/MDPmanager.cpp	/^ void MDPManager::setHumanObs(const vector<int> humans){$/;"	f	class:MDPManager
-setHumanOccupancy	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::setHumanOccupancy(int idx, double dyn_posx,double dyn_posy)$/;"	f	class:Human_Belief_Scan
-setHumanOccupancy	human_tracking/src/humantracking.cpp	/^void Human_Belief::setHumanOccupancy(int idx, double dyn_posx,double dyn_posy)$/;"	f	class:Human_Belief
 setNavTarget	navi_mdp/src/PathManager.cpp	/^void PathManager::setNavTarget()$/;"	f	class:PathManager
 setNavTarget_pub	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  ros::Publisher setNavTarget_pub;$/;"	m	class:Edgeleg_manager
 setNavTarget_pub	human_filter/include/people_tracking_filter/followme_action.h	/^  ros::Publisher setNavTarget_pub;$/;"	m	class:Edgeleg_manager_action
 setNavTarget_pub	human_filter/include/people_tracking_filter/service_test.h	/^  ros::Publisher setNavTarget_pub;$/;"	m	class:Edgeleg_manager_srv
-setNavTarget_pub	human_tracking/include/human_scan.h	/^	ros::Publisher setNavTarget_pub;$/;"	m	class:Human_Belief_Scan
-setNavTarget_pub	human_tracking/include/humantracking.h	/^	ros::Publisher setNavTarget_pub;$/;"	m	class:Human_Belief
 setNavTarget_pub	navi_mdp/include/PathManager.h	/^ 	ros::Publisher setNavTarget_pub;$/;"	m	class:PathManager
 setNavTarget_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher setNavTarget_pub;$/;"	m	class:villa_navi_srv
-setNearestHuman	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::setNearestHuman()$/;"	f	class:Human_Belief_Scan
-setNearestHuman	human_tracking/src/humantracking.cpp	/^void Human_Belief::setNearestHuman()$/;"	f	class:Human_Belief
-setNearestHuman_leg	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::setNearestHuman_leg()$/;"	f	class:Human_Belief_Scan
-setNearestHuman_leg	human_tracking/src/humantracking.cpp	/^void Human_Belief::setNearestHuman_leg()$/;"	f	class:Human_Belief
 setPMapParam	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::setPMapParam(MapParam* _pMapParam)$/;"	f	class:Dynamic_Manager
 setPMapParam	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::setPMapParam(MapParam* _pMapParam)$/;"	f	class:MDPManager
 setPath	navi_mdp/src/PathManager.cpp	/^void PathManager::setPath(const nav_msgs::Path::ConstPtr& msg)$/;"	f	class:PathManager
@@ -4418,14 +4155,11 @@ setStartConfig	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::setStart
 setStartConfig	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::setStartConfig( const vector<int> _Start)$/;"	f	class:MDPManager
 setStaticObs	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::setStaticObs(const vector<int> static_obs)$/;"	f	class:Dynamic_Manager
 setStaticObs	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::setStaticObs(const vector<int> static_obs)$/;"	f	class:MDPManager
-setViewpointTarget	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::setViewpointTarget(const std::vector<double> pos)$/;"	f	class:Human_Belief_Scan
-setViewpointTarget	human_tracking/src/humantracking.cpp	/^void Human_Belief::setViewpointTarget(const std::vector<double> pos)$/;"	f	class:Human_Belief
 setViewpointTarget	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::setViewpointTarget(const std::vector<double> pos)$/;"	f	class:Dynamic_Manager
 setViewpointTarget	navi_mdp/src/PathManager.cpp	/^void PathManager::setViewpointTarget(const std::vector<double> pos)$/;"	f	class:PathManager
 setViewpointTarget	villa_navi_service/src/navi_service_node.cpp	/^void villa_navi_srv::setViewpointTarget(const std::vector<double> pos)$/;"	f	class:villa_navi_srv
 setWidth	navi_mdp/src/MapParam.cpp	/^void MapParam::setWidth (int Width_)$/;"	f	class:MapParam
 set_Cell_Info	navi_mdp/src/MapParam.cpp	/^void MapParam::set_Cell_Info(vector<int> _inputCellInfo)$/;"	f	class:MapParam
-set_Current_Human_to_Target	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::set_Current_Human_to_Target()$/;"	f	class:Human_Belief_Scan
 set_NearestHuman_V	navi_mdp/src/MapParam.cpp	/^void MapParam::set_NearestHuman_V(vector<float> _NearestHuman_V)$/;"	f	class:MapParam
 set_OCC_Info	navi_mdp/src/MapParam.cpp	/^void MapParam::set_OCC_Info(vector<int> _inputOCCInfo)$/;"	f	class:MapParam
 set_RobotHeading_V	navi_mdp/src/MapParam.cpp	/^void MapParam::set_RobotHeading_V(vector<float> _RobotHeading_V)$/;"	f	class:MapParam
@@ -4438,8 +4172,6 @@ setpub_path	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::setpub_path()$/;"	f	c
 setstaticGoal	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::setstaticGoal()$/;"	f	class:MDPManager
 shift	despot/include/despot/util/optionparser.h	/^	static void shift(const char** args, int count) {$/;"	f	class:despot::option::Parser
 shortopt	despot/include/despot/util/optionparser.h	/^	const char* const shortopt;$/;"	m	struct:despot::option::Descriptor
-sig_handler	human_tracking/src/scanning_test.cpp	/^void sig_handler(int sig)$/;"	f
-sig_handler	human_tracking/src/tracking_test.cpp	/^void sig_handler(int sig)$/;"	f
 sig_handler	villa_navi_service/src/service_test.cpp	/^void sig_handler(int sig)$/;"	f
 sigmaSet	human_filter/src/gaussian_vector.cpp	/^void GaussianVector::sigmaSet(const Vector3& sigma)$/;"	f	class:BFL::GaussianVector
 sigma_	human_filter/include/people_tracking_filter/gaussian_pos_vel.h	/^  StatePosVel mu_, sigma_;$/;"	m	class:BFL::GaussianPosVel
@@ -4515,14 +4247,10 @@ states_	despot/include/despot/pomdpx/pomdpx.h	/^	std::vector<POMDPXState*> state
 static_belief_map	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  nav_msgs::OccupancyGrid static_belief_map;$/;"	m	class:Edgeleg_manager
 static_belief_map	human_filter/include/people_tracking_filter/followme_action.h	/^  nav_msgs::OccupancyGrid static_belief_map;$/;"	m	class:Edgeleg_manager_action
 static_belief_map	human_filter/include/people_tracking_filter/service_test.h	/^  nav_msgs::OccupancyGrid static_belief_map;$/;"	m	class:Edgeleg_manager_srv
-static_belief_map	human_tracking/include/human_scan.h	/^	nav_msgs::OccupancyGrid static_belief_map;$/;"	m	class:Human_Belief_Scan
-static_belief_map	human_tracking/include/humantracking.h	/^	nav_msgs::OccupancyGrid static_belief_map;$/;"	m	class:Human_Belief
 static_belief_map	villa_navi_service/include/navi_service_node.h	/^	nav_msgs::OccupancyGrid static_belief_map;$/;"	m	class:villa_navi_srv
 static_belief_map_pub	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  ros::Publisher static_belief_map_pub;$/;"	m	class:Edgeleg_manager
 static_belief_map_pub	human_filter/include/people_tracking_filter/followme_action.h	/^  ros::Publisher static_belief_map_pub;$/;"	m	class:Edgeleg_manager_action
 static_belief_map_pub	human_filter/include/people_tracking_filter/service_test.h	/^  ros::Publisher static_belief_map_pub;$/;"	m	class:Edgeleg_manager_srv
-static_belief_map_pub	human_tracking/include/human_scan.h	/^	ros::Publisher static_belief_map_pub;$/;"	m	class:Human_Belief_Scan
-static_belief_map_pub	human_tracking/include/humantracking.h	/^	ros::Publisher static_belief_map_pub;$/;"	m	class:Human_Belief
 static_belief_map_pub	villa_navi_service/include/navi_service_node.h	/^	ros::Publisher static_belief_map_pub;$/;"	m	class:villa_navi_srv
 static_mapCallback	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::static_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)$/;"	f	class:Dynamic_Manager
 static_mapCallback	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::static_mapCallback(const nav_msgs::OccupancyGrid::ConstPtr& msg)$/;"	f	class:MDPManager
@@ -4571,8 +4299,6 @@ target_finish_time	despot/include/despot/evaluator.h	/^	inline double target_fin
 target_finish_time	despot/include/despot/evaluator.h	/^	inline void target_finish_time(double t) {$/;"	f	class:despot::Evaluator
 target_finish_time_	despot/include/despot/evaluator.h	/^	double target_finish_time_;$/;"	m	class:despot::Evaluator
 target_line_in_block	despot/include/despot/util/optionparser.h	/^		int target_line_in_block; \/\/!< Line index of the parts we should return to the user on this iteration.$/;"	m	class:despot::option::PrintUsageImplementation::LinePartIterator
-targetup	human_tracking/include/human_scan.h	/^	int targetup;$/;"	m	class:Human_Belief_Scan
-targetup	human_tracking/include/humantracking.h	/^	int targetup;$/;"	m	class:Human_Belief
 targetup	villa_navi_service/include/navi_service_node.h	/^	int targetup;$/;"	m	class:villa_navi_srv
 terminal_reward_funcs_	despot/include/despot/pomdpx/parser/parser.h	/^	std::vector<Function> terminal_reward_funcs_;$/;"	m	class:despot::Parser
 terminal_reward_vars_	despot/include/despot/pomdpx/parser/parser.h	/^	mutable std::vector<RewardVar> terminal_reward_vars_;$/;"	m	class:despot::Parser
@@ -4617,8 +4343,6 @@ topic	navi_mdp/scripts/human_marker.py	/^topic = 'human_target'$/;"	v
 topic_array	navi_mdp/scripts/human_marker.py	/^topic_array = 'human_boxes'$/;"	v
 total_discounted_reward_	despot/include/despot/evaluator.h	/^	double total_discounted_reward_;$/;"	m	class:despot::Evaluator
 total_undiscounted_reward_	despot/include/despot/evaluator.h	/^	double total_undiscounted_reward_;$/;"	m	class:despot::Evaluator
-track_cmd	human_tracking/include/human_scan.h	/^	std_msgs::Int8 track_cmd;$/;"	m	class:Human_Belief_Scan
-track_cmd	human_tracking/include/humantracking.h	/^	std_msgs::Int8 track_cmd;$/;"	m	class:Human_Belief
 track_cmd	villa_navi_service/include/navi_service_node.h	/^	std_msgs::Int8 track_cmd;$/;"	m	class:villa_navi_srv
 tracker	despot/src/core/globals.cpp	/^ExecTracker tracker;$/;"	m	namespace:despot::Globals	file:
 tracker_counter_	human_filter/include/people_tracking_filter/people_tracking_node.h	/^  unsigned int tracker_counter_;$/;"	m	class:estimation::PeopleTrackingNode
@@ -4665,10 +4389,6 @@ updatePrediction	human_filter/src/tracker_kalman.cpp	/^bool TrackerKalman::updat
 updatePrediction	human_filter/src/tracker_particle.cpp	/^bool TrackerParticle::updatePrediction(const double time)$/;"	f	class:estimation::TrackerParticle
 updateUprimePi	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::updateUprimePi(int state_id)$/;"	f	class:Dynamic_Manager
 updateUprimePi	navi_mdp/src/MDPmanager.cpp	/^void MDPManager::updateUprimePi(int state_id)$/;"	f	class:MDPManager
-update_human_occ_belief	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::update_human_occ_belief()$/;"	f	class:Human_Belief_Scan
-update_human_occ_belief	human_tracking/src/humantracking.cpp	/^void Human_Belief::update_human_occ_belief()$/;"	f	class:Human_Belief
-update_human_occ_belief_scan	human_tracking/src/human_scan.cpp	/^void Human_Belief_Scan::update_human_occ_belief_scan()$/;"	f	class:Human_Belief_Scan
-update_human_occ_belief_scan	human_tracking/src/humantracking.cpp	/^void Human_Belief::update_human_occ_belief_scan()$/;"	f	class:Human_Belief
 update_human_occ_belief_scan	navi_mdp/src/Dynamic_Manager.cpp	/^void Dynamic_Manager::update_human_occ_belief_scan()$/;"	f	class:Dynamic_Manager
 update_length	despot/include/despot/util/optionparser.h	/^		void update_length() {$/;"	f	class:despot::option::PrintUsageImplementation::LinePartIterator
 upmax	despot/include/despot/util/optionparser.h	/^	static void upmax(int& i1, int i2) {$/;"	f	struct:despot::option::PrintUsageImplementation
@@ -4724,8 +4444,6 @@ viewTarget	navi_mdp/include/Dynamic_Manager.h	/^    std::vector<double> viewTarg
 viewTarget	navi_mdp/include/PathManager.h	/^	std::vector<double> viewTarget;$/;"	m	class:PathManager
 viewTarget_visual_pub	navi_mdp/include/Dynamic_Manager.h	/^    ros::Publisher  viewTarget_visual_pub; $/;"	m	class:Dynamic_Manager
 viewTarget_visual_pub	navi_mdp/include/PathManager.h	/^ 	ros::Publisher viewTarget_visual_pub;$/;"	m	class:PathManager
-viewpoint_robot	human_tracking/include/human_scan.h	/^	std::vector< double >  viewpoint_robot;$/;"	m	class:Human_Belief_Scan
-viewpoint_robot	human_tracking/include/humantracking.h	/^	std::vector< double >  viewpoint_robot;$/;"	m	class:Human_Belief
 viewpoint_robot	villa_navi_service/include/navi_service_node.h	/^	std::vector< double >  viewpoint_robot;$/;"	m	class:villa_navi_srv
 viewpub_iters	navi_mdp/include/Dynamic_Manager.h	/^    int viewpub_iters;$/;"	m	class:Dynamic_Manager
 viewpub_iters	navi_mdp/include/PathManager.h	/^	int viewpub_iters;$/;"	m	class:PathManager
@@ -4734,8 +4452,6 @@ villa_navi_srv	villa_navi_service/src/navi_service_node.cpp	/^villa_navi_srv::vi
 visiblie_idx_set	human_filter/include/people_tracking_filter/edge_leg_filter_node.h	/^  std::vector<int> visiblie_idx_set;$/;"	m	class:Edgeleg_manager
 visiblie_idx_set	human_filter/include/people_tracking_filter/followme_action.h	/^  std::vector<int> visiblie_idx_set;$/;"	m	class:Edgeleg_manager_action
 visiblie_idx_set	human_filter/include/people_tracking_filter/service_test.h	/^  std::vector<int> visiblie_idx_set;$/;"	m	class:Edgeleg_manager_srv
-visiblie_idx_set	human_tracking/include/human_scan.h	/^	std::vector<int> visiblie_idx_set;$/;"	m	class:Human_Belief_Scan
-visiblie_idx_set	human_tracking/include/humantracking.h	/^	std::vector<int> visiblie_idx_set;$/;"	m	class:Human_Belief
 visiblie_idx_set	navi_mdp/include/Dynamic_Manager.h	/^	std::vector<int> visiblie_idx_set;$/;"	m	class:Dynamic_Manager
 visiblie_idx_set	villa_navi_service/include/navi_service_node.h	/^	std::vector<int> visiblie_idx_set;$/;"	m	class:villa_navi_srv
 vstar	despot/include/despot/core/node.h	/^	VNode* vstar;$/;"	m	class:despot::QNode
@@ -4788,8 +4504,6 @@ ysize_	despot/include/despot/util/grid.h	/^	int xsize_, ysize_;$/;"	m	class:desp
 ~GaussianPosVel	human_filter/src/gaussian_pos_vel.cpp	/^GaussianPosVel::~GaussianPosVel() {}$/;"	f	class:BFL::GaussianPosVel
 ~GaussianVector	human_filter/src/gaussian_vector.cpp	/^GaussianVector::~GaussianVector() {}$/;"	f	class:BFL::GaussianVector
 ~HierarchyCPT	despot/src/pomdpx/parser/function.cpp	/^HierarchyCPT::~HierarchyCPT() {$/;"	f	class:despot::HierarchyCPT
-~Human_Belief	human_tracking/src/humantracking.cpp	/^Human_Belief::~Human_Belief(){}$/;"	f	class:Human_Belief
-~Human_Belief_Scan	human_tracking/src/human_scan.cpp	/^Human_Belief_Scan::~Human_Belief_Scan(){}$/;"	f	class:Human_Belief_Scan
 ~IPPCEvaluator	despot/src/evaluator.cpp	/^IPPCEvaluator::~IPPCEvaluator() {$/;"	f	class:despot::IPPCEvaluator
 ~IStringWriter	despot/include/despot/util/optionparser.h	/^		virtual ~IStringWriter() {$/;"	f	struct:despot::option::PrintUsageImplementation::IStringWriter
 ~Keyboard	ros-keyboard/src/keyboard.cpp	/^keyboard::Keyboard::~Keyboard(void)$/;"	f	class:keyboard::Keyboard
